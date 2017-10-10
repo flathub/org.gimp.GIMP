@@ -28,7 +28,7 @@
                 "/bin/pygtk*", "/bin/pygobject*"],
     "modules": [
         "org.gimp.GIMP.app-modules.json",
-        { "cleanup-base"
+        { "name": "cleanup-base",
           "buildsystem": "simple",
           "build-commands": [
               "rm -fr /app/include /app/lib/pkgconfig /app/share/pkgconfig",
