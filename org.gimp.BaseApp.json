@@ -9,11 +9,11 @@
         "cxxflags": "-O2 -g",
         "env": {
             "V": "1"
-        },
-    "cleanup": [ "/man", "/share/man", "/share/gtk-doc",
-                 "/share/vala", "*.la", "*.a"]
+        }
     },
+    "cleanup": [ "/man", "/share/man", "/share/gtk-doc",
+                 "/share/vala", "*.la", "*.a"],
     "modules": [
-        "org.gnome.GIMP.base-modules.json"
+        "org.gimp.GIMP.base-modules.json"
     ]
 }
