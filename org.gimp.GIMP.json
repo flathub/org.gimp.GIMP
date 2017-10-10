@@ -23,7 +23,8 @@
     "cleanup": ["/include", "/lib/pkgconfig", "/share/pkgconfig",
                 "/share/aclocal", "/man", "/share/man", "/share/gtk-doc",
                 "/share/vala", "*.la", "*.a", "/bin/wmf*", "/bin/libwmf-*",
-                "/bin/pygtk*", "/bin/pygobject*"],
+                "/bin/pygtk*", "/bin/pygobject*", "/lib/pygtk",
+                "/share/pygobject/2.0/codegen", "/share/ghostscript/9.20/doc"],
     "modules": [
         "org.gimp.GIMP.base-modules.json",
         "org.gimp.GIMP.app-modules.json"

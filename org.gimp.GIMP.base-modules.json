@@ -51,7 +51,6 @@
                 {
                     "name": "pygobject",
                     "config-opts": [ "--disable-introspection" ],
-                    "cleanup": [ "/bin", "/share/pygobject/2.0/codegen" ],
                     "sources": [
                         {
                             "type": "archive",
@@ -62,7 +61,6 @@
                 },
                 {
                     "name": "pygtk",
-                    "cleanup": [ "/bin", "/lib/pygtk" ],
                     "sources": [
                         {
                             "type": "archive",
