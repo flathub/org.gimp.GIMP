@@ -1,0 +1,19 @@
+{
+    "id": "org.gimp.BaseApp",
+    "branch": "stable",
+    "runtime": "org.gnome.Platform",
+    "sdk": "org.gnome.Sdk",
+    "runtime-version": "3.24",
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g",
+        "env": {
+            "V": "1"
+        },
+    "cleanup": [ "/man", "/share/man", "/share/gtk-doc",
+                 "/share/vala", "*.la", "*.a"]
+    },
+    "modules": [
+        "org.gnome.GIMP.base-modules.json"
+    ]
+}
