@@ -289,7 +289,14 @@
                 },
                 {
                     "type": "shell",
-                    "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} tiff/config/" ]
+                    "commands": [
+                                  "cp -p /usr/share/automake-*/config.{sub,guess} freetype/builds/unix/",
+                                  "cp -p /usr/share/automake-*/config.{sub,guess} ijs/",
+                                  "cp -p /usr/share/automake-*/config.{sub,guess} jpeg/",
+                                  "cp -p /usr/share/automake-*/config.{sub,guess} libpng/",
+                                  "cp -p /usr/share/automake-*/config.{sub,guess} lcms2/",
+                                  "cp -p /usr/share/automake-*/config.{sub,guess} tiff/config/"
+                                ]
                 }
             ]
         },
