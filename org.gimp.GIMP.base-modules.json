@@ -208,13 +208,6 @@
             "modules": [
                 {
                     "name": "libpng",
-                    "build-options" : {
-                        "arch" : {
-                            "aarch64" : {
-                                "config-opts" : [ "--enable-arm-neon=off" ]
-                            }
-                        }
-                    },
                     "cleanup": [ "/bin", "/share" ],
                     "sources": [
                         {
@@ -302,7 +295,8 @@
                                   "cp -p /usr/share/automake-*/config.{sub,guess} jpeg/",
                                   "cp -p /usr/share/automake-*/config.{sub,guess} libpng/",
                                   "cp -p /usr/share/automake-*/config.{sub,guess} lcms2/",
-                                  "cp -p /usr/share/automake-*/config.{sub,guess} tiff/config/"
+                                  "cp -p /usr/share/automake-*/config.{sub,guess} tiff/config/",
+                                  "rm -rf libpng/pngread.c"
                                 ]
                 }
             ]
