@@ -208,6 +208,13 @@
             "modules": [
                 {
                     "name": "libpng",
+                    "build-options" : {
+                        "arch" : {
+                            "aarch64" : {
+                                "config-opts" : [ "--enable-arm-neon=off" ]
+                            }
+                        }
+                    },
                     "cleanup": [ "/bin", "/share" ],
                     "sources": [
                         {
