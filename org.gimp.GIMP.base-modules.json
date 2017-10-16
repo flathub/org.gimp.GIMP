@@ -134,6 +134,12 @@
                             "type": "archive",
                             "url": "http://download.savannah.nongnu.org/releases/openexr/ilmbase-2.2.0.tar.gz",
                             "sha256": "ecf815b60695555c1fbc73679e84c7c9902f4e8faa6e8000d2f905b8b86cedc7"
+                        },
+                        {
+                            "type": "shell",
+                            "commands": [
+                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                            ]
                         }
                     ]
                 }
