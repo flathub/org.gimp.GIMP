@@ -68,13 +68,9 @@
                             "sha256": "fb8a1d4f665130a125011659bd347c7339c944232163dbb9a34fd0686577adb8"
                         },
                         {
-                            "type": "script",
-                            "dest-filename": "autogen.sh",
+                            "type": "shell",
                             "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} .",
-                                "aclocal",
-                                "automake",
-                                "autoconf"
+                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
                             ]
                         }
                     ]
