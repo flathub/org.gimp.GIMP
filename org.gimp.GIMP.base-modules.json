@@ -69,9 +69,7 @@
                         },
                         {
                             "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
+                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
                         }
                     ]
                 },
@@ -85,9 +83,7 @@
                         },
                         {
                             "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
+                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
                         }
                     ]
                 }
@@ -107,9 +103,7 @@
                         },
                         {
                             "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} config/"
-                            ]
+                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} config/" ]
                         }
                     ]
                 }
@@ -137,9 +131,7 @@
                         },
                         {
                             "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
+                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
                         }
                     ]
                 }
@@ -154,9 +146,7 @@
                 },
                 {
                     "type": "shell",
-                    "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                    ]
+                    "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
                 }
             ]
         },
@@ -241,9 +231,7 @@
                 },
                 {
                     "type": "shell",
-                    "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                    ]
+                    "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
                 }
             ]
         },
