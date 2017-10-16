@@ -8,8 +8,18 @@
             "build-options" : {
                 "env": {
                     "PYTHON": "/usr/bin/python3"
+                },
+                "arch" : {
+                    "aarch64" : {
+                        "cflags": "-DENABLE_YARR_JIT=0 -fno-delete-null-pointer-checks",
+                        "cxxflags": "-DENABLE_YARR_JIT=0 -fno-delete-null-pointer-checks",
+                        "config-opts" : [
+                            "--disable-jit"
+                        ]
+                    }
                 }
             },
+
             "cleanup": [ "/share/doc", "/bin" ],
             "sources": [
                 {
