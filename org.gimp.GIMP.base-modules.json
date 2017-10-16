@@ -271,7 +271,7 @@
                 },
                 {
                     "type": "shell",
-                    "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
+                    "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} tiff/config/" ]
                 }
             ]
         },
