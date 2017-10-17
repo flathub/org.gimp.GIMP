@@ -36,6 +36,10 @@
                     "url": "git://git.gnome.org/gimp",
                     "branch": "GIMP_2_8_22",
                     "commit": "e39a4e12039a255f29d7cf79365190f01c5f37aa"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/gimp-2.8.22.patch"
                 }
             ]
         }
