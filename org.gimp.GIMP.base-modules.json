@@ -212,8 +212,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "http://download.sourceforge.net/libpng/libpng-1.6.28.tar.xz",
-                            "sha256": "d8d3ec9de6b5db740fefac702c37ffcf96ae46cb17c18c1544635a3852f78f7a"
+                            "url": "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.34.tar.xz",
+                            "sha256": "2f1e960d92ce3b3abd03d06dfec9637dfbd22febf107a536b44f7a47c60659f6"
                         }
                     ]
                 }
@@ -226,7 +226,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://download.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz",
+                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/aalib/aalib-1.4rc5.tar.gz/9801095c42bba12edebd1902bcf0a990/aalib-1.4rc5.tar.gz",
                     "sha256": "fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee"
                 },
                 {
@@ -242,8 +242,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://download.sourceforge.net/libmng/libmng-2.0.3.tar.xz",
-                    "sha256": "4a462fdd48d4bc82c1d7a21106c8a18b62f8cc0042454323058e6da0dbb57dd3"
+                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libmng/libmng-2.0.3.tar.gz/7e9a12ba2a99dff7e736902ea07383d4/libmng-2.0.3.tar.gz",
+                    "sha256": "cf112a1fb02f5b1c0fce5cab11ea8243852c139e669c44014125874b14b7dfaa"
                 }
             ]
         },
@@ -266,7 +266,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://downloads.sourceforge.net/wvware/libwmf-0.2.8.4.tar.gz",
+                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libwmf/libwmf-0.2.8.4.tar.gz/d1177739bf1ceb07f57421f0cee191e0/libwmf-0.2.8.4.tar.gz",
                     "sha256": "5b345c69220545d003ad52bfd035d5d6f4f075e65204114a9e875e84895a7cf8"
                 },
                 {
