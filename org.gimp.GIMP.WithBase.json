@@ -4,7 +4,7 @@
     "base": "org.gimp.BaseApp",
     "base-version": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.28",
+    "runtime-version": "3.24",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.8",
     "rename-desktop-file": "gimp.desktop",
