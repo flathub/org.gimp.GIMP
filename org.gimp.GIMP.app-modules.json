@@ -23,6 +23,11 @@
                     "url": "git://git.gnome.org/gegl",
                     "branch": "GEGL_0_2_0",
                     "commit": "57e23d310291a632ea8e16b7b8e5b97f7f289680"
+                },
+                {
+                    "type": "patch",
+                    /* There is an issue with the new glib-mkenums, see bugzilla.gnome.org 795008 */
+                    "path": "gegl-0-20-0-fix-with-new-glib-mkenums.patch"
                 }
             ]
         },
