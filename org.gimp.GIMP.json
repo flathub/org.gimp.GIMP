@@ -4,7 +4,7 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.28",
     "sdk": "org.gnome.Sdk",
-    "command": "gimp-2.8",
+    "command": "gimp-2.10",
     "rename-desktop-file": "gimp.desktop",
     "rename-appdata-file": "gimp.appdata.xml",
     "rename-icon": "gimp",
