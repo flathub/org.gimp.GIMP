@@ -315,8 +315,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/lcms2/lcms2-2.8.tar.gz/a6cd09315c153b55329bbae810b6de5b/lcms2-2.8.tar.gz",
-                    "sha256": "8e27f5207204e41c6e7f5aa3c1b92cd89f54b839464b7df4cd0d93b07b16333a"
+                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/lcms2/lcms2-2.9.tar.gz/sha512/e30ad5a9a1ab9e7aaace9431434caa19a5ff6143db46644aba971a5ee37a265b26bf738e886d766405a7eb45a9d620d67c7ab3684ace86a107cf5a76642c04a5/lcms2-2.9.tar.gz",
+                    "sha256": "a83cd711db57404e17bc943a4c9742d7a98560918ad3d0a4f511428f96d1ad5b"
                 }
             ]
         },
