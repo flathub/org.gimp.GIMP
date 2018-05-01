@@ -10,6 +10,7 @@
     "finish-args": ["--share=ipc", "--socket=x11", "--share=network",
                     "--filesystem=host", "--filesystem=xdg-config/GIMP",
                     "--filesystem=xdg-config/gtk-3.0",
+                    "--filesystem=/tmp",
                     "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*" ],
     "tags": ["stable"],
     "build-options" : {
