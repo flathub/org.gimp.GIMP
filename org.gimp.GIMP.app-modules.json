@@ -36,6 +36,11 @@
                     "url": "git://git.gnome.org/gimp",
                     "branch": "GIMP_2_10_0",
                     "commit": "5e662c37d7cc472266989f259c4ae579d66a6617"
+                },
+                {
+                    "type": "patch",
+                    "use-git": true,
+                    "path": "patches/0001-desktop-remove-the-double-releases-trick.patch"
                 }
             ],
 	    "post-install": [
