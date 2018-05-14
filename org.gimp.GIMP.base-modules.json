@@ -201,6 +201,18 @@
                             "sha256": "2f1e960d92ce3b3abd03d06dfec9637dfbd22febf107a536b44f7a47c60659f6"
                         }
                     ]
+                },
+                {
+                    "name": "lcms2",
+                    "config-opts": [ "--disable-static" ],
+                    "cleanup": [ "/bin", "/share" ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://src.fedoraproject.org/repo/pkgs/rpms/lcms2/lcms2-2.9.tar.gz/sha512/e30ad5a9a1ab9e7aaace9431434caa19a5ff6143db46644aba971a5ee37a265b26bf738e886d766405a7eb45a9d620d67c7ab3684ace86a107cf5a76642c04a5/lcms2-2.9.tar.gz",
+                            "sha256": "a83cd711db57404e17bc943a4c9742d7a98560918ad3d0a4f511428f96d1ad5b"
+                        }
+                    ]
                 }
             ]
         },
@@ -305,18 +317,6 @@
                     "url": "https://github.com/Jehan/mypaint-brushes.git",
                     "branch": "v1.3.0",
                     "commit": "fce9b5f23f658f15f8168ef5cb2fee69cf90addb"
-                }
-            ]
-        },
-        {
-            "name": "lcms2",
-            "config-opts": [ "--disable-static" ],
-            "cleanup": [ "/bin", "/share" ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/lcms2/lcms2-2.9.tar.gz/sha512/e30ad5a9a1ab9e7aaace9431434caa19a5ff6143db46644aba971a5ee37a265b26bf738e886d766405a7eb45a9d620d67c7ab3684ace86a107cf5a76642c04a5/lcms2-2.9.tar.gz",
-                    "sha256": "a83cd711db57404e17bc943a4c9742d7a98560918ad3d0a4f511428f96d1ad5b"
                 }
             ]
         },
