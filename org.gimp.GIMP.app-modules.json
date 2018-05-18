@@ -51,10 +51,6 @@
         },
         {
             "name": "gimp",
-            /* Permission --filesystem=/usr/share/color/icc doesn't work, i.e. this path does
-             * not end up mounted as itself inside the sandbox. Thanks to "host" permission
-             * though, it is found under /run/host. We now have the --with-icc-directory
-             * build option to customize this folder. */
             "config-opts": [ "--disable-docs", "--disable-gtk-doc", "--disable-gtk-doc-html",
                              "--with-icc-directory=/run/host/usr/share/color/icc/"],
             "cleanup": [ "/bin/gimptool-2.0", "/bin/gimp-console-2.10", "/bin/gimp-console" ],
