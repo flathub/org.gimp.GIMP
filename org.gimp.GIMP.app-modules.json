@@ -31,8 +31,8 @@
                 {
                     "type": "git",
                     "url": "git://git.gnome.org/babl",
-                    "branch": "BABL_0_1_48",
-                    "commit": "0cf75c0530b6fa286f9fc3fa0299e6394f8d50f7"
+                    "branch": "BABL_0_1_50",
+                    "commit": "9cf48aeb0ff2aefba06e515ceae8c983019e2eae"
                 }
             ]
         },
