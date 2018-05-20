@@ -5,6 +5,7 @@
     "runtime-version": "3.28",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
+    "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
     "finish-args": ["--share=ipc", "--socket=x11", "--share=network",
