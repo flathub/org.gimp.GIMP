@@ -1,0 +1,48 @@
+From 2987f756169b537b2863ab84d5da81250bcf7c93 Mon Sep 17 00:00:00 2001
+From: Jehan <jehan@girinstud.io>
+Date: Fri, 8 Jun 2018 16:38:32 +0200
+Subject: [PATCH] desktop: commenting out the RC versions in appdata.
+
+Still looking for reason why appstream data fails to display on some
+systems (in particular on flathub).
+There is a known ordering issue on appstream-glib, and no release has
+been made yet with the fix in it. I am hoping this may be the issue.
+https://github.com/hughsie/appstream-glib/issues/234
+
+Let's revert this commit later.
+---
+ desktop/org.gimp.GIMP.appdata.xml.in.in | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/desktop/org.gimp.GIMP.appdata.xml.in.in b/desktop/org.gimp.GIMP.appdata.xml.in.in
+index 57c47a0084..2843097350 100644
+--- a/desktop/org.gimp.GIMP.appdata.xml.in.in
++++ b/desktop/org.gimp.GIMP.appdata.xml.in.in
+@@ -143,6 +143,7 @@
+       </description>
+     </release>
+ 
++<!--
+     <release version="2.10.0~rc2" date="2018-04-17" type="development">
+       <description>
+         <_p>
+@@ -163,7 +164,7 @@
+           for the Panorama Projection filter. The widget provides
+           on-canvas interaction for 3D rotation (yaw, pitch, roll).</_li>
+           <_li>Plug-in debugging improved to output stack traces from
+-          plug-ins with --stack-trace-mode command line option not only
++          plug-ins with - -stack-trace-mode command line option not only
+           on receiving signals but also on warnings and critical errors
+           when "fatal-warnings" debug key is set.</_li>
+         </ul>
+@@ -192,6 +193,7 @@
+         <_p>For more information, see https://www.gimp.org/news/2018/03/26/gimp-2-10-0-rc1-released/</_p>
+       </description>
+     </release>
++-->
+ 
+     <release version="2.9.8" date="2017-12-12" type="development">
+       <description>
+-- 
+2.17.1
+

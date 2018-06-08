@@ -59,6 +59,11 @@
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
                     "branch": "GIMP_2_10_2",
                     "commit": "be7f9b433aeaa8164219320a36a1e76730abdbda"
+                },
+                {
+                    "type": "patch",
+                    "use-git": true,
+                    "path": "patches/0001-desktop-commenting-out-the-RC-versions-in-appdata.patch"
                 }
             ],
 	    "post-install": [
