@@ -1,5 +1,5 @@
 {
-    "id": "org.gimp.GIMP",
+    "app-id": "org.gimp.GIMP",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.28",
