@@ -31,7 +31,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "branch": "master"
+                    "branch": "BABL_0_1_52",
+                    "commit": "1953d1ec2a750959c155b8f14b29c591a5450cb9"
                 }
             ]
         },
@@ -43,7 +44,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "branch": "master"
+                    "branch": "GEGL_0_4_4",
+                    "commit": "e786ee8f5a357c7a153ef9f1a76b61e2604960f7"
                 }
             ]
         },
