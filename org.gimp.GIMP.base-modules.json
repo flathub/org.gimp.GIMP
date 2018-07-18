@@ -361,8 +361,7 @@
             "modules": [
                 {
                     "name": "lapack",
-                    "cmake": true,
-                    "buildsystem": "cmake-ninja",
+                    "buildsystem": "cmake",
                     "sources": [
                         {
                             "type": "archive",
