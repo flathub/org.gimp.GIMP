@@ -314,6 +314,74 @@
                     "commit": "2c567a19d47c2c23a5a512c9193f4dd61168c69e"
                 }
             ]
+        },
+        {
+            "name": "SuiteSparse",
+            "buildsystem": "simple",
+            "build-commands": [
+                "make library",
+                "make install INSTALL=/app"
+            ],
+            "cleanup": [ "/share/doc" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.2.0.tar.gz",
+                    "sha256": "3c46c035ea8217649958a0f73360e825b0c9dcca4e32a9349d2c7678c0d48813"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "lapack",
+                    "cmake": true,
+                    "buildsystem": "cmake-ninja",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "http://www.netlib.org/lapack/lapack-3.8.0.tar.gz",
+                            "sha256": "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
+                        }
+                    ]
+                },
+                {
+                    "name": "openblas",
+                    "cleanup": [ "/bin" ],
+                    "buildsystem": "simple",
+                    "arch" : {
+                        "aarch64" : {
+                            "build-commands": [
+                                "make CROSS_SUFFIX=aarch64-unknown-linux-",
+                                "make install PREFIX=/app"
+                            ]
+                        },
+                        "arm": {
+                            "build-commands": [
+                                "make CROSS_SUFFIX=arm-unknown-linux-gnueabi-",
+                                "make install PREFIX=/app"
+                            ]
+                        },
+                        "x86_64": {
+                            "build-commands": [
+                                "make CROSS_SUFFIX=x86_64-unknown-linux-",
+                                "make install PREFIX=/app"
+                            ]
+                        },
+                        "i386": {
+                            "build-commands": [
+                                "make CROSS_SUFFIX=i586-unknown-linux-",
+                                "make install PREFIX=/app"
+                            ]
+                        }
+                    },
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.1.tar.gz",
+                            "sha256": "1f5e956f35f3acdd3c74516e955d797a320c2e0135e31d838cbdb3ea94d0eb33"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
