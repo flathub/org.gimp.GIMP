@@ -316,6 +316,15 @@
             ]
         },
         {
+            "name": "gfortran",
+            "buildsystem": "simple",
+            "build-commands": [
+                "cp -a /usr/lib/sdk/gfortran-62/bin /app",
+                "cp -a /usr/lib/sdk/gfortran-62/lib /app",
+                "cp -a /usr/lib/sdk/gfortran-62/libexec /app"
+            ]
+        },
+        {
             "name": "SuiteSparse",
             "buildsystem": "simple",
             "build-commands": [
