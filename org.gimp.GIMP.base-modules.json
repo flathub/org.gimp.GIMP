@@ -391,8 +391,8 @@
                     "cleanup": [ "/bin" ],
                     "buildsystem": "simple",
                     "build-commands": [
-                        "make",
-                        "make install PREFIX=/app"
+                        "make NO_LAPACKE=1 NO_LAPACK=1 NO_CBLAS=1",
+                        "make NO_LAPACKE=1 NO_LAPACK=1 NO_CBLAS=1 install PREFIX=/app"
                     ],
                     "sources": [
                         {
