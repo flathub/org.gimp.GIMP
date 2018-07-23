@@ -350,6 +350,18 @@
                     "name": "lapack",
                     "buildsystem": "cmake",
                     "builddir": true,
+                    "build-options" : {
+                        "arch" : {
+                            "arm" : {
+                                "cflags": "-fPIC",
+                                "cxxflags": "-fPIC"
+                            },
+                            "x86_64" : {
+                                "cflags": "-fPIC",
+                                "cxxflags": "-fPIC"
+                            }
+                        }
+                    },
                     "sources": [
                         {
                             "type": "archive",
