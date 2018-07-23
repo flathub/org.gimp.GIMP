@@ -334,7 +334,7 @@
                 "cd CCOLAMD/ && make library && make install INSTALL=/app",
                 "cd CAMD/ && make library && make install INSTALL=/app",
                 "cd metis-5.1.0/ && make config prefix=/app && make install",
-                "cd CHOLMOD/ && CFLAGS=\"-fPIC\" LDFLAGS=\"-lgfortran -L/app/lib\" make library && LDFLAGS=\"-lgfortran -L/app/lib\" make install INSTALL=/app",
+                "cd CHOLMOD/ && CFLAGS=\"-fPIC\" LDFLAGS=\"-fPIC -lgfortran -L/app/lib\" make library && CFLAGS=\"-fPIC\" LDFLAGS=\"-fPIC -lgfortran -L/app/lib\" make install INSTALL=/app",
                 "cd UMFPACK/ && make library && make install INSTALL=/app"
             ],
             "cleanup": [ "/share/doc" ],
