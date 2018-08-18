@@ -44,7 +44,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "branch": "master"
+                    "branch": "GEGL_0_4_8",
+                    "commit": "4d634fe907eb7973c732b34b0d5641943f93e086"
                 }
             ]
         },
