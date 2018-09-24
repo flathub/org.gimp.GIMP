@@ -35,7 +35,7 @@
               "rm -fr /app/include /app/lib/pkgconfig /app/share/pkgconfig",
               "rm -fr /app/share/gtk-doc/ /app/share/man/ /app/share/aclocal",
               "rm -fr /app/lib/*.la /app/lib/*.a",
-              "rm -fr /app/share/ghostscript/9.20/doc/",
+              "rm -fr /app/share/ghostscript/9.25/doc/",
               "rm -fr /app/bin/wmf* /app/bin/libwmf-*",
               "rm -fr /app/lib/pygtk /app/bin/pygtk* /app/bin/pygobject* /app/share/pygobject/2.0/codegen /app/bin/pygobject-codegen-2.0"
           ]
