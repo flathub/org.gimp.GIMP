@@ -183,7 +183,6 @@
             "modules": [
                 {
                     "name": "popplerdata",
-                    "cmake": true,
                     "buildsystem": "cmake-ninja",
                     "builddir": true,
                     "sources": [
