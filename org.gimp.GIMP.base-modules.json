@@ -167,7 +167,6 @@
              * we build this before poppler.
              */
             "name": "openjpeg",
-            "cmake": true,
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "cleanup": [ "/bin", "/lib/openjpeg-2.3" ],
