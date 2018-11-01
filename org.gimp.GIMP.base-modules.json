@@ -126,8 +126,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "http://download.savannah.nongnu.org/releases/openexr/ilmbase-2.2.0.tar.gz",
-                            "sha256": "ecf815b60695555c1fbc73679e84c7c9902f4e8faa6e8000d2f905b8b86cedc7"
+                            "url": "http://download.savannah.nongnu.org/releases/openexr/ilmbase-2.2.1.tar.gz",
+                            "sha256": "cac206e63be68136ef556c2b555df659f45098c159ce24804e9d5e9e0286609e"
                         },
                         {
                             "type": "shell",
@@ -141,8 +141,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://download.savannah.nongnu.org/releases/openexr/openexr-2.2.0.tar.gz",
-                    "sha256": "36a012f6c43213f840ce29a8b182700f6cf6b214bea0d5735594136b44914231"
+                    "url": "http://download.savannah.nongnu.org/releases/openexr/openexr-2.2.1.tar.gz",
+                    "sha256": "8f9a5af6131583404261931d9a5c83de0a425cb4b8b25ddab2b169fbf113aecd"
                 },
                 {
                     "type": "shell",
@@ -286,8 +286,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libwmf/libwmf-0.2.8.4.tar.gz/d1177739bf1ceb07f57421f0cee191e0/libwmf-0.2.8.4.tar.gz",
-                    "sha256": "5b345c69220545d003ad52bfd035d5d6f4f075e65204114a9e875e84895a7cf8"
+                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libwmf/libwmf-0.2.9.tar.gz/sha512/202406cd0909ef70535ccf5523aaffd37618c8a6a35012d39de2e65383a020d5cff65ad4a18cd10d3e43d5d32924f6fd4264506de770a5879b07743547954990/libwmf-0.2.9.tar.gz",
+                    "sha512": "202406cd0909ef70535ccf5523aaffd37618c8a6a35012d39de2e65383a020d5cff65ad4a18cd10d3e43d5d32924f6fd4264506de770a5879b07743547954990"
                 },
                 {
                     "type": "shell",
