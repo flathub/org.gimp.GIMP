@@ -1,6 +1,7 @@
 {
     "name": "app-modules",
     "modules": [
+        "shared-modules/gtk2/gtk2.json",
         {
             "name" : "libheif",
             "modules": [
