@@ -10,9 +10,9 @@
                 "env": {
                     "PYTHON": "/usr/bin/python3"
                 },
-                "cflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks",
+                "cflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
                 "cflags-override": "true",
-                "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks",
+                "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
                 "cxxflags-override": "true",
                 "arch" : {
                     "aarch64" : {
