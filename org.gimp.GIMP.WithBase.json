@@ -17,13 +17,6 @@
                     "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*",
                     "--talk-name=org.freedesktop.FileManager1"],
     "tags": ["stable"],
-    "build-options" : {
-        "cflags": "-O2 -g",
-        "cxxflags": "-O2 -g",
-        "env": {
-            "V": "1"
-        }
-    },
     "cleanup": ["/include", "/lib/pkgconfig", "/share/pkgconfig",
                 "/share/aclocal", "/man", "/share/man", "/share/gtk-doc",
                 "/share/vala", "*.la", "*.a", "/bin/wmf*", "/bin/libwmf-*",
