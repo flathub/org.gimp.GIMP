@@ -11,15 +11,15 @@
                     "PYTHON": "/usr/bin/python3"
                 },
                 "cflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
-                "cflags-override": "true",
+                "cflags-override": true,
                 "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
-                "cxxflags-override": "true",
+                "cxxflags-override": true,
                 "arch" : {
                     "aarch64" : {
-                        "cflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks",
-                        "cflags-override": "true",
-                        "cxxflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks",
-                        "cxxflags-override": "true",
+                        "cflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
+                        "cflags-override": true,
+                        "cxxflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
+                        "cxxflags-override": true,
                         "config-opts" : [
                             "--disable-jit"
                         ]
@@ -308,9 +308,9 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Jehan/mypaint-brushes.git",
-                    "branch": "v1.3.0",
-                    "commit": "fce9b5f23f658f15f8168ef5cb2fee69cf90addb"
+                    "url": "https://github.com/mypaint/mypaint-brushes.git",
+                    "branch": "v1.3.x",
+                    "commit": "2c567a19d47c2c23a5a512c9193f4dd61168c69e"
                 }
             ]
         }
