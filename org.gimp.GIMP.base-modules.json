@@ -2,6 +2,7 @@
     "name": "base-modules",
     "modules": [
         "shared-modules/gtk2/gtk2.json",
+        "shared-modules/python2.7/python-2.7.15.json",
         {
             "name": "webkitgtk",
             "config-opts": [ "--with-gtk=2.0", "--disable-webkit2", "--disable-geolocation", "--disable-video",
