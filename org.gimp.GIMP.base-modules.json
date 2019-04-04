@@ -316,73 +316,33 @@
             ]
         },
         {
-            "name": "gfortran",
-            "buildsystem": "simple",
-            "build-commands": [
-                "cp -a /usr/lib/sdk/gfortran-62/bin /app",
-                "cp -a /usr/lib/sdk/gfortran-62/lib /app",
-                "cp -a /usr/lib/sdk/gfortran-62/libexec /app"
-            ]
-        },
-        {
+            /* Shamelessly taken from org.octave.Octave manifest! */
             "name": "SuiteSparse",
-            "buildsystem": "simple",
-            "build-commands": [
-                "cd SuiteSparse_config/ && make library && make install INSTALL=/app",
-                "cd AMD/ && make library && make install INSTALL=/app",
-                "cd COLAMD/ && make library && make install INSTALL=/app",
-                "cd CCOLAMD/ && make library && make install INSTALL=/app",
-                "cd CAMD/ && make library && make install INSTALL=/app",
-                "cd metis-5.1.0/ && make config prefix=/app && make install",
-                "cd CHOLMOD/ && CFLAGS=\"-fPIC\" LDFLAGS=\"-fPIC -lgfortran -L/app/lib\" make library && CFLAGS=\"-fPIC\" LDFLAGS=\"-fPIC -lgfortran -L/app/lib\" make install INSTALL=/app",
-                "cd UMFPACK/ && make library && make install INSTALL=/app"
-            ],
-            "cleanup": [ "/share/doc" ],
+            "no-autogen": true,
+            "make-args": [ "LAPACK=", "library" ],
+            "make-install-args": [ "LAPACK=", "INSTALL_LIB=/app/lib", "INSTALL_INCLUDE=/app/include", "library" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.2.0.tar.gz",
-                    "sha256": "3c46c035ea8217649958a0f73360e825b0c9dcca4e32a9349d2c7678c0d48813"
+                    "url": "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz",
+                    "sha256": "374dd136696c653e34ef3212dc8ab5b61d9a67a6791d5ec4841efb838e94dbd1"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/suitesparse-reduce-build.patch"
                 }
             ],
             "modules": [
                 {
-                    "name": "lapack",
-                    "buildsystem": "cmake",
-                    "builddir": true,
-                    "build-options" : {
-                        "arch" : {
-                            "arm" : {
-                                "cflags": "-fPIC",
-                                "cxxflags": "-fPIC"
-                            },
-                            "x86_64" : {
-                                "cflags": "-fPIC",
-                                "cxxflags": "-fPIC"
-                            }
-                        }
-                    },
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "http://www.netlib.org/lapack/lapack-3.8.0.tar.gz",
-                            "sha256": "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
-                        }
-                    ]
-                },
-                {
                     "name": "openblas",
-                    "cleanup": [ "/bin" ],
-                    "buildsystem": "simple",
-                    "build-commands": [
-                        "make NO_LAPACKE=1 NO_LAPACK=1 NO_CBLAS=1 DYNAMIC_ARCH=1",
-                        "make NO_LAPACKE=1 NO_LAPACK=1 NO_CBLAS=1 DYNAMIC_ARCH=1 install PREFIX=/app"
-                    ],
+                    "no-autogen": true,
+                    "make-args": [ "DYNAMIC_ARCH=1", "FC=gfortran", "NO_CBLAS=1", "NO_LAPACKE=1", "USE_OPENMP=0" ],
+                    "make-install-args": [ "PREFIX=/app" ],
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.1.tar.gz",
-                            "sha256": "1f5e956f35f3acdd3c74516e955d797a320c2e0135e31d838cbdb3ea94d0eb33"
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.5.tar.gz",
+                            "sha256": "0950c14bd77c90a6427e26210d6dab422271bc86f9fc69126725833ecdaa0e85"
                         }
                     ]
                 }
