@@ -119,8 +119,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.11/gexiv2-0.11.0.tar.xz",
-                    "sha256": "4c7ff71e1c8e37e6de5fd61e19440c600bed4953b461f4a54be3f0b7b61404ec"
+                    "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz",
+                    "sha256": "58f539b0386f36300b76f3afea3a508de4914b27e78f58ee4d142486a42f926a"
                 }
             ]
         },
@@ -180,8 +180,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/uclouvain/openjpeg/archive/v2.3.0.tar.gz",
-                    "sha256": "3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a"
+                    "url": "https://github.com/uclouvain/openjpeg/archive/v2.3.1.tar.gz",
+                    "sha256": "63f5a4713ecafc86de51bfad89cc07bb788e9bba24ebbf0c4ca637621aadb6a9"
                 }
             ]
         },
@@ -208,8 +208,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-0.69.0.tar.xz",
-                    "sha256": "637ff943f805f304ff1da77ba2e7f1cbd675f474941fd8ae1e0fc01a5b45a3f9"
+                    "url": "https://poppler.freedesktop.org/poppler-0.75.0.tar.xz",
+                    "sha256": "3bbaedb0fa2797cac933a0659d144303e4d09eec6892c65600da987d8707199a"
                 }
             ]
         },
@@ -248,8 +248,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libwmf/libwmf-0.2.9.tar.gz/sha512/202406cd0909ef70535ccf5523aaffd37618c8a6a35012d39de2e65383a020d5cff65ad4a18cd10d3e43d5d32924f6fd4264506de770a5879b07743547954990/libwmf-0.2.9.tar.gz",
-                    "sha512": "202406cd0909ef70535ccf5523aaffd37618c8a6a35012d39de2e65383a020d5cff65ad4a18cd10d3e43d5d32924f6fd4264506de770a5879b07743547954990"
+                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libwmf/v0.2.12.tar.gz/sha512/9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab/v0.2.12.tar.gz",
+                    "sha512": "9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab"
                 },
                 {
                     "type": "shell",
