@@ -3,10 +3,12 @@
     "modules": [
         {
             "name" : "libheif",
+            "cleanup": [ "/bin" ],
             "modules": [
                 {
                     "name": "libde265",
                     "config-opts": [ "--disable-sherlock265" ],
+                    "cleanup": [ "/bin" ],
                     "sources": [
                         {
                             "type": "archive",
