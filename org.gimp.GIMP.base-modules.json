@@ -144,7 +144,7 @@
                 }
             ],
             "config-opts": [ "--disable-static", "--disable-ilmbasetest" ],
-            "cleanup": [ "/bin", "/share/doc" ],
+            "cleanup": [ "/bin", "/share/doc", "/lib/libIlmImfUtil*" ],
             "sources": [
                 {
                     "type": "archive",
@@ -201,7 +201,8 @@
                     ]
                 }
             ],
-            "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3" ],
+            "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DENABLE_CPP=OFF",
+                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3" ],
             "cleanup": [ "/bin", "/share" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
