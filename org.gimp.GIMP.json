@@ -18,7 +18,7 @@
     "cleanup": ["/include", "/lib/pkgconfig", "/lib/cmake/", "/share/pkgconfig",
                 "/share/aclocal", "/man", "/share/man", "/share/gtk-doc", "/share/doc",
                 "/share/vala", "*.la", "*.a", "/bin/wmf*", "/bin/libwmf-*",
-                "/share/pygobject/2.0/codegen", "/share/ghostscript/9.26/doc",
+                "/share/pygobject/2.0/codegen",
                 "/bin/pygtk*", "/bin/pygobject*", "/lib/pygtk",
                 "/bin/python*-config", "/bin/pip*", "/bin/smtpd.py" ],
     "modules": [

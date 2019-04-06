@@ -251,12 +251,12 @@
             "config-opts": [ "--disable-cups" ],
             "make-args": [ "so" ],
             "make-install-args": [ "soinstall" ],
-            "cleanup": [ "/bin", "/share/man", "/share/ghostscript/9.26/doc/", "/share/ghostscript/9.26/examples" ],
+            "cleanup": [ "/bin", "/share/man", "/share/doc/" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz",
-                    "sha512": "670159c23618ffafa85c671642bf182a107a82c053a1fd8c3f45f73f203524077be1b212d2ddbabae7892c7713922877e03b020f78bd2aab1ae582c4fc7d820a"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.gz",
+                    "sha512": "9ad7bd24b6d9b7d258e943783817be036a2e0234517baffa1016804ef9b6f3062fb5da20a890a0bfc9e58203ddcf25dc4465f5b3bf5e4a61db87bef0606a0884"
                 },
                 {
                     "type": "shell",
