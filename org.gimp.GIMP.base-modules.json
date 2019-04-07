@@ -144,7 +144,7 @@
                 }
             ],
             "config-opts": [ "--disable-static", "--disable-ilmbasetest" ],
-            "cleanup": [ "/bin", "/share/doc" ],
+            "cleanup": [ "/bin", "/share/doc", "/lib/libIlmImfUtil*" ],
             "sources": [
                 {
                     "type": "archive",
@@ -154,18 +154,6 @@
                 {
                     "type": "shell",
                     "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
-                }
-            ]
-        },
-        {
-            "name": "libraw",
-            "config-opts": [ "--disable-static" ],
-            "cleanup": [ "/bin", "/share/doc" ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://www.libraw.org/data/LibRaw-0.19.0.tar.gz",
-                    "sha256": "e83f51e83b19f9ba6b8bd144475fc12edf2d7b3b930d8d280bdebd8a8f3ed259"
                 }
             ]
         },
@@ -201,7 +189,8 @@
                     ]
                 }
             ],
-            "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3" ],
+            "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DENABLE_CPP=OFF",
+                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3" ],
             "cleanup": [ "/bin", "/share" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
@@ -262,12 +251,12 @@
             "config-opts": [ "--disable-cups" ],
             "make-args": [ "so" ],
             "make-install-args": [ "soinstall" ],
-            "cleanup": [ "/bin", "/share/man", "/share/ghostscript/9.26/doc/", "/share/ghostscript/9.26/examples" ],
+            "cleanup": [ "/bin", "/share/man", "/share/doc/" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz",
-                    "sha512": "670159c23618ffafa85c671642bf182a107a82c053a1fd8c3f45f73f203524077be1b212d2ddbabae7892c7713922877e03b020f78bd2aab1ae582c4fc7d820a"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.gz",
+                    "sha512": "9ad7bd24b6d9b7d258e943783817be036a2e0234517baffa1016804ef9b6f3062fb5da20a890a0bfc9e58203ddcf25dc4465f5b3bf5e4a61db87bef0606a0884"
                 },
                 {
                     "type": "shell",
@@ -312,6 +301,39 @@
                     "url": "https://github.com/mypaint/mypaint-brushes.git",
                     "branch": "v1.3.x",
                     "commit": "2c567a19d47c2c23a5a512c9193f4dd61168c69e"
+                }
+            ]
+        },
+        {
+            /* Shamelessly taken from org.octave.Octave manifest! */
+            "name": "SuiteSparse",
+            "no-autogen": true,
+            "make-args": [ "LAPACK=", "library" ],
+            "make-install-args": [ "LAPACK=", "INSTALL_LIB=/app/lib", "INSTALL_INCLUDE=/app/include", "library" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz",
+                    "sha256": "374dd136696c653e34ef3212dc8ab5b61d9a67a6791d5ec4841efb838e94dbd1"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/suitesparse-reduce-build.patch"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "openblas",
+                    "no-autogen": true,
+                    "make-args": [ "DYNAMIC_ARCH=1", "FC=gfortran", "NO_CBLAS=1", "NO_LAPACKE=1", "USE_OPENMP=0" ],
+                    "make-install-args": [ "PREFIX=/app" ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.5.tar.gz",
+                            "sha256": "0950c14bd77c90a6427e26210d6dab422271bc86f9fc69126725833ecdaa0e85"
+                        }
+                    ]
                 }
             ]
         }
