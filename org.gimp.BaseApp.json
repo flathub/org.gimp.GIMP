@@ -1,9 +1,9 @@
 {
     "id": "org.gimp.BaseApp",
     "branch": "stable",
-    "runtime": "org.gnome.Platform",
-    "sdk": "org.gnome.Sdk",
-    "runtime-version": "3.30",
+    "runtime": "org.kde.Platform",
+    "sdk": "org.kde.Sdk",
+    "runtime-version": "5.12",
     "command": "/usr/bin/bash",
     "cleanup": [ "/man", "/share/man", "/share/gtk-doc",
                  "/share/vala", "*.la", "*.a"],
