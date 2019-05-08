@@ -507,8 +507,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "branch": "GEGL_0_4_14",
-                    "commit": "75db50c77eb93ce23222b86caf93140b484b5900"
+                    "branch": "GEGL_0_4_16",
+                    "commit": "8fae1d8b35aa9b0d094f08411f6c68af7ffbb465"
                 }
             ]
         },
