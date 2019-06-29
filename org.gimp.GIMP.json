@@ -464,6 +464,7 @@
         },
         {
             "name" : "libheif",
+            "config-opts": [ "--disable-gdk-pixbuf" ],
             "cleanup": [ "/bin" ],
             "modules": [
                 {
