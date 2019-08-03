@@ -21,6 +21,18 @@
                 "/share/pygobject/2.0/codegen",
                 "/bin/pygtk*", "/bin/pygobject*", "/lib/pygtk",
                 "/bin/python*-config", "/bin/pip*", "/bin/smtpd.py" ],
+    "add-extensions": 
+    {
+        "org.gimp.GIMP.Plugin": 
+        {
+            "version": "2-3.32",
+            "directory": "extensions",
+            "add-ld-path": "lib",
+            "subdirectories": true,
+            "no-autodownload": true,
+            "autodelete": true
+        }
+    },
     "modules": [
         "shared-modules/python2.7/python-2.7.15.json",
         {
