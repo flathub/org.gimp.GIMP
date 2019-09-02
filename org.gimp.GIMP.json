@@ -491,7 +491,7 @@
         {
             "name": "babl",
             "buildsystem": "meson",
-            "config-opts": [ "-D=with-docs=false" ],
+            "config-opts": [ "-Dwith-docs=false" ],
             "sources": [
                 {
                     "type": "git",
