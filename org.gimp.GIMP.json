@@ -490,13 +490,14 @@
         },
         {
             "name": "babl",
-            "config-opts": [ "--disable-docs" ],
+            "buildsystem": "meson",
+            "config-opts": [ "-D=with-docs=false" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "branch": "BABL_0_1_66",
-                    "commit": "ebc0f7cf843df52380c00e44f152098332362dad"
+                    "branch": "BABL_0_1_72",
+                    "commit": "a03dd586abc94373fd2010e8f4fb444f6ff8efc1"
                 }
             ]
         },
