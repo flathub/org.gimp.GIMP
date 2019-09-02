@@ -425,7 +425,7 @@
                     "type": "git",
                     "url": "https://github.com/mypaint/mypaint-brushes.git",
                     "branch": "v1.3.x",
-                    "commit": "2c567a19d47c2c23a5a512c9193f4dd61168c69e"
+                    "commit": "d6e7f5dce71c18527e84b6911157dc113ea2cec5"
                 }
             ]
         },
