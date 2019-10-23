@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.32",
+    "runtime-version": "3.34",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -22,7 +22,8 @@
                 "/bin/pygtk*", "/bin/pygobject*", "/lib/pygtk",
                 "/bin/python*-config", "/bin/pip*", "/bin/smtpd.py" ],
     "modules": [
-        "shared-modules/python2.7/python-2.7.15.json",
+        "shared-modules/intltool/intltool-0.51.json",
+        "shared-modules/python2.7/python-2.7.json",
         {
             "//": "Taken from shared-modules/gtk2/gtk2.json with a few more patches.",
             "name": "gnome-themes-extra",
@@ -131,14 +132,14 @@
                         "/lib/gtk-2.0/2.10.0/immodules.cache"
                     ],
                     "post-install": [
-                        "install -m644 --target-directory=/app/lib/gtk-2.0/2.10.0/immodules client/gtk2/.libs/im-ibus.so",
-                        "gtk-query-immodules-2.0 > /app/lib/gtk-2.0/2.10.0/immodules.cache"
+                        "install -m644 --target-directory=${FLATPAK_DEST}/lib/gtk-2.0/2.10.0/immodules client/gtk2/.libs/im-ibus.so",
+                        "gtk-query-immodules-2.0 > ${FLATPAK_DEST}/lib/gtk-2.0/2.10.0/immodules.cache"
                     ],
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.19/ibus-1.5.19.tar.gz",
-                            "sha256": "4b66c798dab093f0fa738e5c10688d395a463287d13678c208a81051af5d2429"
+                            "url": "https://github.com/ibus/ibus/releases/download/1.5.21/ibus-1.5.21.tar.gz",
+                            "sha256": "adc1e5e620d6a89a49306f022b50561f2c05218dec13d0c9b136dc8b6568a2b9"
                         }
                     ]
                 }
@@ -424,8 +425,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/mypaint/mypaint-brushes.git",
-                    "branch": "v1.3.x",
-                    "commit": "d6e7f5dce71c18527e84b6911157dc113ea2cec5"
+                    "branch": "v1.3.x"
                 }
             ]
         },
