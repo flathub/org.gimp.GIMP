@@ -424,8 +424,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/mypaint/mypaint-brushes.git",
-                    "branch": "v1.3.x",
-                    "commit": "d6e7f5dce71c18527e84b6911157dc113ea2cec5"
+                    "branch": "v1.3.x"
                 }
             ]
         },
@@ -503,14 +502,14 @@
         },
         {
             "name": "gegl",
-            "config-opts": [ "--disable-docs", "--disable-introspection" ],
+            "buildsystem": "meson",
+            "config-opts": [ "-Ddocs=false", "-Dintrospection=false" ],
             "cleanup": [ "/bin" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "branch": "GEGL_0_4_16",
-                    "commit": "8fae1d8b35aa9b0d094f08411f6c68af7ffbb465"
+                    "commit": "010cc96333e203894c08cd32eac9cec4bd245877"
                 }
             ]
         },
@@ -523,8 +522,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "GIMP_2_10_12",
-                    "commit": "3d8535b55fdafffd5a46b57ae3779333e7fe3ac6"
+                    "branch": "GIMP_2_10_14",
+                    "commit": "a4f55d6c7e91abbdef8faab2b0a97c114081f06d"
                 },
                 {
                     "type": "patch",
