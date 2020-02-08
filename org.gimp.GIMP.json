@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.32",
+    "runtime-version": "3.34",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -23,7 +23,7 @@
                 "/bin/pygtk*", "/bin/pygobject*", "/lib/pygtk",
                 "/bin/python*-config", "/bin/pip*", "/bin/smtpd.py" ],
     "modules": [
-        "shared-modules/python2.7/python-2.7.15.json",
+        "shared-modules/python2.7/python-2.7.json",
         {
             "//": "Taken from shared-modules/gtk2/gtk2.json with a few more patches.",
             "name": "gnome-themes-extra",
@@ -104,6 +104,7 @@
                         }
                     ]
                 },
+                "shared-modules/intltool/intltool-0.51.json",
                 {
                     "name": "ibus-gtk2",
                     "no-make-install": true,
@@ -138,8 +139,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.19/ibus-1.5.19.tar.gz",
-                            "sha256": "4b66c798dab093f0fa738e5c10688d395a463287d13678c208a81051af5d2429"
+                            "url": "https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz",
+                            "sha256": "4cf1e5ca4b067a3bed3cdfa658d49ac597d817b2de627a1095214565f862d034"
                         }
                     ]
                 }
@@ -192,7 +193,7 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "http://cairographics.org/releases/py2cairo-1.10.0.tar.bz2",
+                            "url": "https://cairographics.org/releases/py2cairo-1.10.0.tar.bz2",
                             "sha256": "d30439f06c2ec1a39e27464c6c828b6eface3b22ee17b2de05dc409e429a7431"
                         },
                         {
@@ -214,7 +215,7 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "http://ftp.gnome.org/pub/GNOME/sources/pygobject/2.28/pygobject-2.28.7.tar.xz",
+                            "url": "https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz",
                             "sha256": "bb9d25a3442ca7511385a7c01b057492095c263784ef31231ffe589d83a96a5a"
                         },
                         {
@@ -228,12 +229,16 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "http://ftp.gnome.org/pub/GNOME/sources/pygtk/2.24/pygtk-2.24.0.tar.gz",
+                            "url": "https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.gz",
                             "sha256": "6e3e54fa6e65a69ac60bd58cb2e60a57f3346ac52efe995f3d10b6c38c972fd8"
                         },
                         {
                             "type": "shell",
                             "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
+                        },
+			{
+                            "type": "patch",
+                            "path": "patches/pygtk-Drop-the-PangoFont-find_shaper-virtual-method.patch"
                         }
                     ]
                 }
@@ -425,7 +430,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/mypaint/mypaint-brushes.git",
-                    "branch": "v1.3.x"
+                    "branch": "v1.3.x",
+                    "commit": "be9fdf9ef6c54e29c7499992f04e29114857b3fc"
                 }
             ]
         },
