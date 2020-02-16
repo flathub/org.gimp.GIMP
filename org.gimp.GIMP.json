@@ -502,8 +502,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "branch": "BABL_0_1_72",
-                    "commit": "a03dd586abc94373fd2010e8f4fb444f6ff8efc1"
+                    "branch": "BABL_0_1_74",
+                    "commit": "501c71495c9f4670ee066e3abe2ad6710e954084"
                 }
             ]
         },
@@ -516,21 +516,22 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "commit": "010cc96333e203894c08cd32eac9cec4bd245877"
+                    "branch": "GEGL_0_4_20",
+                    "commit": "ef8b69c06d1c4c0502a09f18bd70c5c6effe587b"
                 }
             ]
         },
         {
             "name": "gimp",
             "config-opts": [ "--disable-docs", "--disable-gtk-doc", "--disable-gtk-doc-html",
-                             "--with-icc-directory=/run/host/usr/share/color/icc/"],
+                             "--with-icc-directory=/run/host/usr/share/color/icc/",
+                             "--with-build-id=org.gimp.GIMP.flatpak.stable"],
             "cleanup": [ "/bin/gimptool-2.0", "/bin/gimp-console-2.10", "/bin/gimp-console" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "GIMP_2_10_14",
-                    "commit": "a4f55d6c7e91abbdef8faab2b0a97c114081f06d"
+                    "branch": "gimp-2-10"
                 },
                 {
                     "type": "patch",
