@@ -515,8 +515,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "branch": "GEGL_0_4_20",
-                    "commit": "ef8b69c06d1c4c0502a09f18bd70c5c6effe587b"
+                    "commit": "624335f2b2fb7064ac2b7cba9d1b053c88186af6"
                 }
             ]
         },
@@ -524,14 +523,15 @@
             "name": "gimp",
             "config-opts": [ "--disable-docs", "--disable-gtk-doc", "--disable-gtk-doc-html",
                              "--with-icc-directory=/run/host/usr/share/color/icc/",
-                             "--with-build-id=org.gimp.GIMP.flatpak.stable"],
+                             "--with-build-id=org.gimp.GIMP.flatpak.stable",
+                              "--disable-check-update" ],
             "cleanup": [ "/bin/gimptool-2.0", "/bin/gimp-console-2.10", "/bin/gimp-console" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "GIMP_2_10_16",
-                    "commit": "fe60c0ffac85c9342bf9daf162f9d3a0b6096ff9"
+                    "branch": "GIMP_2_10_18",
+                    "commit": "de7f04567d16b7192c00378059e91ed026b0c151"
                 },
                 {
                     "type": "patch",
