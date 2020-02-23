@@ -515,7 +515,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "branch": "master"
+                    "commit": "624335f2b2fb7064ac2b7cba9d1b053c88186af6"
                 }
             ]
         },
@@ -530,7 +530,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "gimp-2-10"
+                    "branch": "GIMP_2_10_18",
+                    "commit": "de7f04567d16b7192c00378059e91ed026b0c151"
                 },
                 {
                     "type": "patch",
