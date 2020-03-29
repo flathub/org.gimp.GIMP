@@ -139,8 +139,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz",
-                            "sha256": "4cf1e5ca4b067a3bed3cdfa658d49ac597d817b2de627a1095214565f862d034"
+                            "url": "https://github.com/ibus/ibus/releases/download/1.5.22/ibus-1.5.22.tar.gz",
+                            "sha256": "8170eba58c28aa4818970751ebdeada728ebb63d535967a5c5f5c21b0017be4a"
                         }
                     ]
                 }
@@ -280,7 +280,7 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "http://download.savannah.nongnu.org/releases/openexr/ilmbase-2.2.1.tar.gz",
+                            "url": "https://download.savannah.nongnu.org/releases/openexr/ilmbase-2.2.1.tar.gz",
                             "sha256": "cac206e63be68136ef556c2b555df659f45098c159ce24804e9d5e9e0286609e"
                         },
                         {
@@ -295,7 +295,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://download.savannah.nongnu.org/releases/openexr/openexr-2.2.1.tar.gz",
+                    "url": "https://download.savannah.nongnu.org/releases/openexr/openexr-2.2.1.tar.gz",
                     "sha256": "8f9a5af6131583404261931d9a5c83de0a425cb4b8b25ddab2b169fbf113aecd"
                 },
                 {
@@ -328,8 +328,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-0.85.0.tar.xz",
-                    "sha256": "2bc875eb323002ae6b287e09980473518e2b2ed6b5b7d2e1089e36a6cd00d94b"
+                    "url": "https://poppler.freedesktop.org/poppler-0.87.0.tar.xz",
+                    "sha256": "6f602b9c24c2d05780be93e7306201012e41459f289b8279a27a79431ad4150e"
                 }
             ]
         },
@@ -386,8 +386,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.gz",
-                    "sha512": "9ad7bd24b6d9b7d258e943783817be036a2e0234517baffa1016804ef9b6f3062fb5da20a890a0bfc9e58203ddcf25dc4465f5b3bf5e4a61db87bef0606a0884"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostscript-9.52.tar.xz",
+                    "sha512": "4c4a33884e1138bad553eee61fac1a72158297ad5c2ce46a4b36150848dea8158affaf2b902f4ff03e4f72ebc8154c198b618112624f409230a610b7648faa67"
                 },
                 {
                     "type": "shell",
@@ -419,8 +419,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/mypaint/libmypaint/releases/download/v1.5.0/libmypaint-1.5.0.tar.xz",
-                    "sha256": "aba6e0526f9e4bead4a89c7c82084971b90c5128b50da77b0ac0f5ef27772b57"
+                    "url": "https://github.com/mypaint/libmypaint/releases/download/v1.5.1/libmypaint-1.5.1.tar.xz",
+                    "sha256": "aef8150a0c84ce2ff6fb24de8d5ffc564845d006f8bad7ed84ee32ed1dd90c2b"
                 }
             ]
         },
@@ -460,8 +460,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.5.tar.gz",
-                            "sha256": "0950c14bd77c90a6427e26210d6dab422271bc86f9fc69126725833ecdaa0e85"
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.9.tar.gz",
+                            "sha256": "17d4677264dfbc4433e97076220adc79b050e4f8a083ea3f853a53af253bc380"
                         }
                     ]
                 }
@@ -501,7 +501,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "branch": "BABL_0_1_74",
+                    "tag": "BABL_0_1_74",
                     "commit": "501c71495c9f4670ee066e3abe2ad6710e954084"
                 }
             ]
@@ -515,7 +515,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "commit": "624335f2b2fb7064ac2b7cba9d1b053c88186af6"
+                    "tag": "GEGL_0_4_22",
+                    "commit": "14096e785792ef42dbf08510e8093996c611828f"
                 }
             ]
         },
@@ -530,7 +531,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "GIMP_2_10_18",
+                    "tag": "GIMP_2_10_18",
                     "commit": "de7f04567d16b7192c00378059e91ed026b0c151"
                 },
                 {
