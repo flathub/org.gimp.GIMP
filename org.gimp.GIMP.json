@@ -191,6 +191,7 @@
                 }
             ]
         },
+        "shared-modules/intltool/intltool-0.51.json",
         {
             "name": "libmypaint",
             "config-opts": [ "--disable-gegl", "--disable-introspection" ],
