@@ -1,249 +1,27 @@
 {
     "app-id": "org.gimp.GIMP",
-    "branch": "stable",
+    "branch": "beta",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.36",
     "sdk": "org.gnome.Sdk",
-    "command": "gimp-2.10",
+    "command": "gimp-2.99",
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
     "finish-args": ["--share=ipc", "--share=network",
-                    "--socket=x11",
+                    "--socket=x11", "--socket=wayland",
                     "--filesystem=host", "--filesystem=xdg-config/GIMP",
                     "--filesystem=xdg-config/gtk-3.0", "--filesystem=/tmp",
                     "--filesystem=xdg-run/gvfs",
                     "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*",
                     "--talk-name=org.freedesktop.FileManager1"],
-    "tags": ["stable"],
-    "cleanup": ["/include", "/lib/pkgconfig", "/lib/cmake/", "/share/pkgconfig",
-                "/share/aclocal", "/man", "/share/man", "/share/gtk-doc", "/share/doc",
+    "tags": ["GTK+3", "development"],
+    "desktop-file-name-prefix": "(beta) ",
+    "cleanup": ["/include", "/lib/pkgconfig", "/share/pkgconfig",
+                "/share/aclocal", "/man", "/share/man", "/share/gtk-doc",
                 "/share/vala", "*.la", "*.a", "/bin/wmf*", "/bin/libwmf-*",
-                "/share/pygobject/2.0/codegen",
-                "/bin/pygtk*", "/bin/pygobject*", "/lib/pygtk",
-                "/bin/python*-config", "/bin/pip*", "/bin/smtpd.py" ],
+                "/bin/pygtk*", "/bin/pygobject*", "/bin/pygobject-codegen-2.0"],
     "modules": [
-        "shared-modules/python2.7/python-2.7.json",
-        {
-            "//": "Taken from shared-modules/gtk2/gtk2.json with a few more patches.",
-            "name": "gnome-themes-extra",
-            "rm-configure": true,
-            "config-opts": [
-                "--disable-dependency-tracking",
-                "--disable-gtk3-engine"
-            ],
-            "cleanup": [
-                "/share/themes/Adwaita/gtk-3.0",
-                "/share/themes/Adwaita-dark/gtk-3.0",
-                "/share/themes/HighContrast/gtk-3.0",
-                "*.la"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz",
-                    "sha256": "7c4ba0bff001f06d8983cfc105adaac42df1d1267a2591798a780bac557a5819"
-                },
-                {
-                    "type": "shell",
-                    "//": "We want to avoid generating icons as its 99% of the build time and gnome runtime has it",
-                    "commands": [
-                        "sed -i 's/icons//' themes/HighContrast/Makefile.am"
-                    ]
-                },
-                {
-                    "type": "script",
-                    "commands": [
-                        "autoreconf -fsi"
-                    ]
-                }
-            ],
-            "modules": [
-                {
-                    "name": "gtk2",
-                    "cleanup": [
-                        "/bin",
-                        "/share/gtk-2.0",
-                        "/share/aclocal",
-                        "/share/gtk-doc",
-                        "/lib/pkgconfig",
-                        "/lib/gtk-2.0/include",
-                        "/include",
-                        "*.la"
-                    ],
-                    "x-cpe": {
-                        "product": "gtk+"
-                    },
-                    "config-opts": [
-                        "--disable-dependency-tracking",
-                        "--disable-gtk-doc-html",
-                        "--disable-introspection",
-                        "--with-xinput=xfree"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz",
-                            "sha256": "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "shared-modules/gtk2/gtk2-use-adwaita-theme.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk+-2.24-gimp-issue-2828-0001.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk+-2.24-gimp-issue-2828-0002.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk-2.24-bug795635.patch"
-                        }
-                    ]
-                },
-                "shared-modules/intltool/intltool-0.51.json",
-                {
-                    "name": "ibus-gtk2",
-                    "no-make-install": true,
-                    "config-opts": [
-                        "--disable-xim",
-                        "--disable-dconf",
-                        "--disable-gconf",
-                        "--disable-memconf",
-                        "--disable-schemas-compile",
-                        "--disable-schemas-install",
-                        "--disable-gtk3",
-                        "--disable-setup",
-                        "--disable-ui",
-                        "--disable-engine",
-                        "--disable-python-library",
-                        "--disable-libnotify",
-                        "--disable-emoji-dict",
-                        "--disable-appindicator",
-                        "--disable-glibtest",
-                        "--disable-tests",
-                        "--disable-unicode-dict",
-                        "--disable-introspection",
-                        "--disable-python2"
-                    ],
-                    "ensure-writable": [
-                        "/lib/gtk-2.0/2.10.0/immodules.cache"
-                    ],
-                    "post-install": [
-                        "install -m644 --target-directory=${FLATPAK_DEST}/lib/gtk-2.0/2.10.0/immodules client/gtk2/.libs/im-ibus.so",
-                        "gtk-query-immodules-2.0 > ${FLATPAK_DEST}/lib/gtk-2.0/2.10.0/immodules.cache"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.22/ibus-1.5.22.tar.gz",
-                            "sha256": "8170eba58c28aa4818970751ebdeada728ebb63d535967a5c5f5c21b0017be4a"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "webkitgtk",
-            "config-opts": [ "--with-gtk=2.0", "--disable-webkit2", "--disable-geolocation", "--disable-video",
-                             "--disable-spellcheck", "--disable-credential-storage", "--disable-web-audio" ],
-            "build-options" : {
-                "env": {
-                    "PYTHON": "/usr/bin/python3"
-                },
-                "cflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
-                "cflags-override": true,
-                "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
-                "cxxflags-override": true,
-                "arch" : {
-                    "aarch64" : {
-                        "cflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
-                        "cflags-override": true,
-                        "cxxflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
-                        "cxxflags-override": true,
-                        "config-opts" : [
-                            "--disable-jit"
-                        ]
-                    }
-                }
-            },
-
-            "cleanup": [ "/share/doc", "/bin" ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://www.webkitgtk.org/releases/webkitgtk-2.4.11.tar.xz",
-                    "sha256": "588aea051bfbacced27fdfe0335a957dca839ebe36aa548df39c7bbafdb65bf7"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/webkitgtk-2.4.11.patch"
-                }
-            ]
-        },
-        {
-            "name": "python",
-            "modules": [
-                {
-                    "name": "py2cairo",
-                    "rm-configure": true,
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://cairographics.org/releases/py2cairo-1.10.0.tar.bz2",
-                            "sha256": "d30439f06c2ec1a39e27464c6c828b6eface3b22ee17b2de05dc409e429a7431"
-                        },
-                        {
-                            "type": "script",
-                            "commands": [
-                                "libtoolize --force",
-                                "aclocal",
-                                "autoheader",
-                                "automake --force-missing --add-missing --foreign",
-                                "autoconf"
-                            ],
-                            "dest-filename": "autogen.sh"
-                        }
-                    ]
-                },
-                {
-                    "name": "pygobject",
-                    "config-opts": [ "--disable-introspection" ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz",
-                            "sha256": "bb9d25a3442ca7511385a7c01b057492095c263784ef31231ffe589d83a96a5a"
-                        },
-                        {
-                            "type": "shell",
-                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
-                        }
-                    ]
-                },
-                {
-                    "name": "pygtk",
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.gz",
-                            "sha256": "6e3e54fa6e65a69ac60bd58cb2e60a57f3346ac52efe995f3d10b6c38c972fd8"
-                        },
-                        {
-                            "type": "shell",
-                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
-                        },
-			{
-                            "type": "patch",
-                            "path": "patches/pygtk-Drop-the-PangoFont-find_shaper-virtual-method.patch"
-                        }
-                    ]
-                }
-            ]
-        },
         {
             "name": "gexiv2",
             "modules": [
@@ -501,22 +279,20 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_74",
-                    "commit": "501c71495c9f4670ee066e3abe2ad6710e954084"
+                    "branch": "master"
                 }
             ]
         },
         {
             "name": "gegl",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddocs=false", "-Dintrospection=false" ],
+            "config-opts": [ "-Ddocs=false" ],
             "cleanup": [ "/bin" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_22",
-                    "commit": "14096e785792ef42dbf08510e8093996c611828f"
+                    "branch": "master"
                 }
             ]
         },
@@ -524,20 +300,21 @@
             "name": "gimp",
             "config-opts": [ "--disable-docs", "--disable-gtk-doc", "--disable-gtk-doc-html",
                              "--with-icc-directory=/run/host/usr/share/color/icc/",
+                             "--with-lua=force", "--with-python=force", "--with-javascript=force",
                              "--with-build-id=org.gimp.GIMP.flatpak.stable",
-                              "--disable-check-update" ],
-            "cleanup": [ "/bin/gimptool-2.0", "/bin/gimp-console-2.10", "/bin/gimp-console" ],
+                             "--disable-check-update" ],
+            "cleanup": [ "/bin/gimptool-3.0", "/bin/gimp-console-2.99" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_18",
-                    "commit": "de7f04567d16b7192c00378059e91ed026b0c151"
+                    "branch": "master"
                 },
                 {
-                    "type": "patch",
-                    "use-git": true,
-                    "path": "patches/0001-desktop-rename-launchable-in-appdata.patch"
+                    "type": "shell",
+                    "commands": [
+                        "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
+                    ]
                 }
             ],
 	    "post-install": [
