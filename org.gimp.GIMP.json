@@ -4,6 +4,15 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.36",
     "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.toolchain-arm"
+    ],
+    "add-extensions": {
+        "org.freedesktop.Platform.Compat.arm": {
+            "directory": "lib/arm-unknown-linux-gnueabihf",
+            "version": "19.08"
+        }
+    },
     "command": "gimp-2.99",
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
@@ -275,8 +284,16 @@
         {
             "name": "luajit",
             "no-autogen": true,
-            "make-args": ["PREFIX=/app"],
-            "make-install-args": ["PREFIX=/app"],
+            "build-options": {
+                "make-args": ["PREFIX=/app"],
+                "make-install-args": ["PREFIX=/app"],
+                "arch": {
+                    "aarch64": {
+                        "make-args": ["PREFIX=/app", "HOST_CC='gcc -m32'", "CROSS=arm-unknown-linux-gnueabihf-"],
+                        "make-install-args": ["PREFIX=/app", "HOST_CC='gcc -m32'", "CROSS=arm-unknown-linux-gnueabihf-"]
+                    }
+                }
+            },
             "cleanup": [ "/include", "/lib", "/share/man" ],
             "sources": [
                 {
