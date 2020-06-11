@@ -16,22 +16,32 @@
                     "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*",
                     "--talk-name=org.freedesktop.FileManager1"],
     "tags": ["stable"],
-    "cleanup": ["/include", "/lib/pkgconfig", "/lib/cmake/", "/share/pkgconfig",
-                "/share/aclocal", "/man", "/share/man", "/share/gtk-doc", "/share/doc",
-                "/share/vala", "*.la", "*.a", "/bin/wmf*", "/bin/libwmf-*",
-                "/share/pygobject/2.0/codegen",
-                "/bin/pygtk*", "/bin/pygobject*", "/lib/pygtk",
-                "/bin/python*-config", "/bin/pip*", "/bin/smtpd.py" ],
-    "add-extensions": 
-    {
-        "org.gimp.GIMP.Plugin": 
-        {
-            "version": "2-3.32",
+    "cleanup": [
+        "/lib/cmake/",
+        "/man", "/share/man",
+        "/share/gtk-doc",
+        "/share/doc",
+        "/share/vala",
+        "*.la",
+        "*.a",
+        "/bin/wmf*",
+        "/bin/libwmf-*",
+        "/share/pygobject/2.0/codegen",
+        "/bin/pygtk*",
+        "/bin/pygobject*",
+        "/lib/pygtk",
+        "/bin/python*-config",
+        "/bin/pip*",
+        "/bin/smtpd.py"
+    ],
+    "add-extensions": {
+        "org.gimp.GIMP.Plugin": {
+            "version": "2-3.36",
             "directory": "extensions",
             "add-ld-path": "lib",
+            "merge-dirs": "plug-ins",
             "subdirectories": true,
-            "no-autodownload": true,
-            "autodelete": true
+            "no-autodownload": true
         }
     },
     "modules": [
@@ -75,13 +85,7 @@
                     "name": "gtk2",
                     "cleanup": [
                         "/bin",
-                        "/share/gtk-2.0",
-                        "/share/aclocal",
-                        "/share/gtk-doc",
-                        "/lib/pkgconfig",
-                        "/lib/gtk-2.0/include",
-                        "/include",
-                        "*.la"
+                        "/share/gtk-doc"
                     ],
                     "x-cpe": {
                         "product": "gtk+"
@@ -553,12 +557,6 @@
                 }
             ],
 	    "post-install": [
-                "rm -fr /app/include /app/lib/pkgconfig /app/share/pkgconfig",
-                "rm -fr /app/share/gtk-doc/ /app/share/man/",
-                "rm -fr /app/lib/*.la /app/lib/*.a",
-                "rm -fr /app/share/ghostscript/9.26/doc/",
-                "rm -fr /app/bin/wmf* /app/bin/libwmf-*",
-                "rm -fr /app/bin/pygtk* /app/bin/pygobject* /app/bin/pygobject-codegen-2.0",
                 "install -d ${FLATPAK_DEST}/extensions"
             ]
         }
