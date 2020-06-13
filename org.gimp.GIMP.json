@@ -39,7 +39,7 @@
             "version": "2-3.36",
             "directory": "extensions",
             "add-ld-path": "lib",
-            "merge-dirs": "plug-ins",
+            "merge-dirs": "plug-ins;scripts;help",
             "subdirectories": true,
             "no-autodownload": true
         }
