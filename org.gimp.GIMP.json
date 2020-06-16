@@ -554,6 +554,10 @@
                     "type": "patch",
                     "use-git": true,
                     "path": "patches/0001-desktop-rename-launchable-in-appdata.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/gimp-extension-path.patch"
                 }
             ],
 	    "post-install": [

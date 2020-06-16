@@ -1,0 +1,58 @@
+diff --git a/etc/gimprc.in b/etc/gimprc.in
+index 8442117a24..c4a867018a 100644
+--- a/etc/gimprc.in
++++ b/etc/gimprc.in
+@@ -75,7 +75,7 @@
+ # Sets the plug-in search path.  This is a colon-separated list of folders to
+ # search.
+ # 
+-# (plug-in-path "${gimp_dir}/plug-ins:${gimp_plug_in_dir}/plug-ins")
++# (plug-in-path "${gimp_dir}/plug-ins:${gimp_plug_in_dir}/plug-ins:${gimp_installation_dir}/extensions/plug-ins")
+ 
+ # Sets the module search path.  This is a colon-separated list of folders to
+ # search.
+@@ -1168,5 +1168,5 @@
+ # This path will be searched for scripts when the Script-Fu plug-in is run. 
+ # This is a colon-separated list of folders to search.
+ # 
+-# (script-fu-path "${gimp_dir}/scripts:${gimp_data_dir}/scripts")
++# (script-fu-path "${gimp_dir}/scripts:${gimp_data_dir}/scripts:${gimp_installation_dir}/extensions/scripts")
+ 
+diff --git a/libgimpconfig/gimpconfig-path.c b/libgimpconfig/gimpconfig-path.c
+index 8d87e4a30a..56fdf62799 100644
+--- a/libgimpconfig/gimpconfig-path.c
++++ b/libgimpconfig/gimpconfig-path.c
+@@ -213,6 +213,16 @@ static gchar        * gimp_config_path_unexpand_only (const gchar  *path) G_GNUC
+ gchar *
+ gimp_config_build_data_path (const gchar *name)
+ {
++  if (g_strcmp0 (name, "scripts") == 0)
++    {
++      return g_strconcat ("${gimp_dir}", G_DIR_SEPARATOR_S, name,
++                          G_SEARCHPATH_SEPARATOR_S,
++                          "${gimp_data_dir}", G_DIR_SEPARATOR_S, name,
++                          G_SEARCHPATH_SEPARATOR_S,
++                          "${gimp_installation_dir}", G_DIR_SEPARATOR_S,
++                          "extensions", G_DIR_SEPARATOR_S, name,
++                          NULL);
++    }
+   return g_strconcat ("${gimp_dir}", G_DIR_SEPARATOR_S, name,
+                       G_SEARCHPATH_SEPARATOR_S,
+                       "${gimp_data_dir}", G_DIR_SEPARATOR_S, name,
+@@ -239,6 +249,16 @@ gimp_config_build_data_path (const gchar *name)
+ gchar *
+ gimp_config_build_plug_in_path (const gchar *name)
+ {
++  if (g_strcmp0 (name, "plug-ins") == 0)
++    {
++      return g_strconcat ("${gimp_dir}", G_DIR_SEPARATOR_S, name,
++                          G_SEARCHPATH_SEPARATOR_S,
++                          "${gimp_plug_in_dir}", G_DIR_SEPARATOR_S, name,
++                          G_SEARCHPATH_SEPARATOR_S,
++                          "${gimp_installation_dir}", G_DIR_SEPARATOR_S,
++                          "extensions", G_DIR_SEPARATOR_S, name,
++                          NULL);
++    }
+   return g_strconcat ("${gimp_dir}", G_DIR_SEPARATOR_S, name,
+                       G_SEARCHPATH_SEPARATOR_S,
+                       "${gimp_plug_in_dir}", G_DIR_SEPARATOR_S, name,
