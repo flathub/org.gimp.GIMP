@@ -35,6 +35,10 @@
         "/bin/smtpd.py"
     ],
     "add-extensions": {
+        "org.gimp.GIMP.Manual": {
+            "version": "2.10",
+            "directory": "share/gimp/2.0/help"
+        },
         "org.gimp.GIMP.Plugin": {
             "version": "2-3.36",
             "directory": "extensions",
@@ -561,6 +565,7 @@
                 }
             ],
 	    "post-install": [
+                "install -d ${FLATPAK_DEST}/share/gimp/2.0/help",
                 "install -d ${FLATPAK_DEST}/extensions"
             ]
         }
