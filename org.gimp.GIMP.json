@@ -37,7 +37,8 @@
     "add-extensions": {
         "org.gimp.GIMP.Manual": {
             "version": "2.10",
-            "directory": "share/gimp/2.0/help"
+            "directory": "share/gimp/2.0/help",
+            "locale-subset": true
         },
         "org.gimp.GIMP.Plugin": {
             "version": "2-3.36",
