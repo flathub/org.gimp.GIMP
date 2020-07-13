@@ -54,7 +54,7 @@
                 }
             ],
             "buildsystem": "meson",
-            "config-opts": [ "-D=introspection=false" ],
+            "config-opts": [ "-D=introspection=false", "-Dlibdir=lib" ],
             "sources": [
                 {
                     "type": "archive",
@@ -320,7 +320,7 @@
         {
             "name": "gegl",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddocs=false" ],
+            "config-opts": [ "-Ddocs=false", "-Dlibdir=lib" ],
             "cleanup": [ "/bin" ],
             "sources": [
                 {
