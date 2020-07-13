@@ -23,6 +23,20 @@
                 "/bin/pygtk*", "/bin/pygobject*", "/bin/pygobject-codegen-2.0"],
     "modules": [
         {
+            "name": "meson",
+            "buildsystem": "simple",
+            "config-opts": [ "-D=introspection=false" ],
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/mesonbuild/meson/releases/download/0.54.0/meson-0.54.0.tar.gz",
+                    "sha256": "dde5726d778112acbd4a67bb3633ab2ee75d33d1e879a6283a7b4a44c3363c27"
+                }
+            ],
+            "build-commands": [ "python3 setup.py install --prefix=/app" ]
+        },
+        {
             "name": "gexiv2",
             "modules": [
                 {
