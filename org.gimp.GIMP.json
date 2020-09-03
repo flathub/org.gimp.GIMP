@@ -10,6 +10,7 @@
     "rename-icon": "gimp",
     "finish-args": ["--share=ipc", "--share=network",
                     "--socket=x11",
+                    "--device=dri",
                     "--filesystem=host", "--filesystem=xdg-config/GIMP",
                     "--filesystem=xdg-config/gtk-3.0", "--filesystem=/tmp",
                     "--filesystem=xdg-run/gvfs",
