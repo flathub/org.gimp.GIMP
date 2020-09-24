@@ -516,6 +516,18 @@
             ]
         },
         {
+            "name": "libtiff",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.com/libtiff/libtiff",
+                    "tag": "v4.1.0",
+                    "commit": "e0d707dc1524d8c0e20f03396f234e0f1b07b3f4"
+                }
+            ]
+        },
+        {
             "name": "babl",
             "buildsystem": "meson",
             "config-opts": [ "-Dwith-docs=false" ],
