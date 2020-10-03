@@ -209,6 +209,7 @@
             "modules": [
                 {
                     "name": "json-c",
+                    "buildsystem": "cmake-ninja",
                     "sources": [
                         {
                             "type": "archive",
