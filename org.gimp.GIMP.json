@@ -564,8 +564,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_24",
-                    "commit": "c3c87d5ac4eb7a6ed79b0be089fff3bd1850fc02"
+                    "tag": "GEGL_0_4_26",
+                    "commit": "3371550915bfe10e9e0add87caaf578464305542"
                 }
             ]
         },
