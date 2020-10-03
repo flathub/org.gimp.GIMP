@@ -580,8 +580,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_20",
-                    "commit": "68d21512bfd8639f57ebf5002043e4bfe4adb835"
+                    "tag": "GIMP_2_10_22",
+                    "commit": "0c8a7891f75a9f41cd36fc0efe2ad506a53d0a15"
                 },
                 {
                     "type": "patch",
