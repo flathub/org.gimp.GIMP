@@ -408,8 +408,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostscript-9.52.tar.xz",
-                    "sha512": "4c4a33884e1138bad553eee61fac1a72158297ad5c2ce46a4b36150848dea8158affaf2b902f4ff03e4f72ebc8154c198b618112624f409230a610b7648faa67"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/ghostscript-9.53.3.tar.gz",
+                    "sha512": "c142ef9d83896aa8fd18c8e412220fe8f4950614be00d327d27ab051fe85e16524bf2ee00f46c2aca7a352ce47bc3acf2c4de0f7bbea7e4c55474b8af6cdc0a6"
                 },
                 {
                     "type": "shell",
@@ -426,23 +426,25 @@
             ]
         },
         {
-            "name": "json-c",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/json-c/json-c/archive/json-c-0.13.1-20180305.tar.gz",
-                    "sha256": "5d867baeb7f540abe8f3265ac18ed7a24f91fe3c5f4fd99ac3caba0708511b90"
-                }
-            ]
-        },
-        {
             "name": "libmypaint",
             "config-opts": [ "--disable-gegl", "--disable-introspection" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/mypaint/libmypaint/releases/download/v1.5.1/libmypaint-1.5.1.tar.xz",
-                    "sha256": "aef8150a0c84ce2ff6fb24de8d5ffc564845d006f8bad7ed84ee32ed1dd90c2b"
+                    "url": "https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.6.1.tar.xz",
+                    "sha256": "741754f293f6b7668f941506da07cd7725629a793108bb31633fb6c3eae5315f"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "json-c",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/json-c/json-c/archive/json-c-0.15-20200726.tar.gz",
+                            "sha256": "4ba9a090a42cf1e12b84c64e4464bb6fb893666841d5843cc5bef90774028882"
+                        }
+                    ]
                 }
             ]
         },
@@ -501,16 +503,16 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz",
-                            "sha256": "e3f277d8903408615a5cc34718b391b83c97c646faea4f41da93bac5ee08a87f"
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.7/libde265-1.0.7.tar.gz",
+                            "sha256": "eac6b56fcda95b0fe0123849c96c8759d832ec9baded2c9c0a5b5faeffb59005"
                         }
                     ]
                 }
             ],
             "sources" : [
                 {
-                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.6.2/libheif-1.6.2.tar.gz",
-                    "sha256" : "bb229e855621deb374f61bee95c4642f60c2a2496bded35df3d3c42cc6d8eefc",
+                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.9.1/libheif-1.9.1.tar.gz",
+                    "sha256" : "5f65ca2bd2510eed4e13bdca123131c64067e9dd809213d7aef4dc5e37948bca",
                     "type" : "archive"
                 }
             ]
