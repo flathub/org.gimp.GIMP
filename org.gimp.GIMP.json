@@ -277,8 +277,20 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://exiv2.org/builds/exiv2-0.27.2-Source.tar.gz",
-                            "sha256": "2652f56b912711327baff6dc0c90960818211cf7ab79bb5e1eb59320b78d153f"
+                            "url": "https://exiv2.org/builds/exiv2-0.27.3-Source.tar.gz",
+                            "sha256": "a79f5613812aa21755d578a297874fb59a85101e793edc64ec2c6bd994e3e778"
+                        },
+                        {
+                            "type": "patch",
+                            "path": "patches/exiv2-0001-Properly-detect-availability-of-flags-in-cmake-compi.patch"
+                        },
+                        {
+                            "type": "patch",
+                            "path": "patches/exiv2-0002-fix_solaris_stack_protection_0.27.patch"
+                        },
+                        {
+                            "type": "patch",
+                            "path": "patches/exiv2-0003-Use-check_cxx_compiler_flags-instead-of-C-version.patch"
                         }
                     ]
                 }
@@ -288,8 +300,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz",
-                    "sha256": "58f539b0386f36300b76f3afea3a508de4914b27e78f58ee4d142486a42f926a"
+                    "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.1.tar.xz",
+                    "sha256": "8aeafd59653ea88f6b78cb03780ee9fd61a2f993070c5f0d0976bed93ac2bd77"
                 }
             ]
         },
@@ -350,8 +362,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-0.87.0.tar.xz",
-                    "sha256": "6f602b9c24c2d05780be93e7306201012e41459f289b8279a27a79431ad4150e"
+                    "url": "https://poppler.freedesktop.org/poppler-20.10.0.tar.xz",
+                    "sha256": "434ecbbb539c1a75955030a1c9b24c7b58200b7f68d2e4269e29acf2f8f13336"
                 }
             ]
         },
@@ -408,8 +420,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostscript-9.52.tar.xz",
-                    "sha512": "4c4a33884e1138bad553eee61fac1a72158297ad5c2ce46a4b36150848dea8158affaf2b902f4ff03e4f72ebc8154c198b618112624f409230a610b7648faa67"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/ghostscript-9.53.3.tar.gz",
+                    "sha512": "c142ef9d83896aa8fd18c8e412220fe8f4950614be00d327d27ab051fe85e16524bf2ee00f46c2aca7a352ce47bc3acf2c4de0f7bbea7e4c55474b8af6cdc0a6"
                 },
                 {
                     "type": "shell",
@@ -426,23 +438,26 @@
             ]
         },
         {
-            "name": "json-c",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/json-c/json-c/archive/json-c-0.13.1-20180305.tar.gz",
-                    "sha256": "5d867baeb7f540abe8f3265ac18ed7a24f91fe3c5f4fd99ac3caba0708511b90"
-                }
-            ]
-        },
-        {
             "name": "libmypaint",
             "config-opts": [ "--disable-gegl", "--disable-introspection" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/mypaint/libmypaint/releases/download/v1.5.1/libmypaint-1.5.1.tar.xz",
-                    "sha256": "aef8150a0c84ce2ff6fb24de8d5ffc564845d006f8bad7ed84ee32ed1dd90c2b"
+                    "url": "https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.6.1.tar.xz",
+                    "sha256": "741754f293f6b7668f941506da07cd7725629a793108bb31633fb6c3eae5315f"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "json-c",
+                    "buildsystem": "cmake-ninja",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/json-c/json-c/archive/json-c-0.15-20200726.tar.gz",
+                            "sha256": "4ba9a090a42cf1e12b84c64e4464bb6fb893666841d5843cc5bef90774028882"
+                        }
+                    ]
                 }
             ]
         },
@@ -501,16 +516,16 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz",
-                            "sha256": "e3f277d8903408615a5cc34718b391b83c97c646faea4f41da93bac5ee08a87f"
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.7/libde265-1.0.7.tar.gz",
+                            "sha256": "eac6b56fcda95b0fe0123849c96c8759d832ec9baded2c9c0a5b5faeffb59005"
                         }
                     ]
                 }
             ],
             "sources" : [
                 {
-                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.6.2/libheif-1.6.2.tar.gz",
-                    "sha256" : "bb229e855621deb374f61bee95c4642f60c2a2496bded35df3d3c42cc6d8eefc",
+                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.9.1/libheif-1.9.1.tar.gz",
+                    "sha256" : "5f65ca2bd2510eed4e13bdca123131c64067e9dd809213d7aef4dc5e37948bca",
                     "type" : "archive"
                 }
             ]
@@ -549,8 +564,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_24",
-                    "commit": "c3c87d5ac4eb7a6ed79b0be089fff3bd1850fc02"
+                    "tag": "GEGL_0_4_26",
+                    "commit": "3371550915bfe10e9e0add87caaf578464305542"
                 }
             ]
         },
@@ -565,8 +580,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_20",
-                    "commit": "68d21512bfd8639f57ebf5002043e4bfe4adb835"
+                    "tag": "GIMP_2_10_22",
+                    "commit": "0c8a7891f75a9f41cd36fc0efe2ad506a53d0a15"
                 },
                 {
                     "type": "patch",
