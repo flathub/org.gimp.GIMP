@@ -321,6 +321,17 @@
             ]
         },
         {
+            "name": "lua-lgi",
+            "buildsystem": "meson",
+            "sources": [
+            {
+                "type": "git",
+                "url": "https://github.com/pavouk/lgi.git",
+                "commit": "c21f35fccae87fd4e3625d4c878f584b7255d6f6"
+            }
+            ]
+        },
+        {
             "name": "babl",
             "buildsystem": "meson",
             "config-opts": [ "-Dwith-docs=false", "-Dlibdir=lib" ],
