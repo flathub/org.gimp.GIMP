@@ -269,7 +269,7 @@
         {
             "name": "meson",
             "buildsystem": "simple",
-            "config-opts": [ "-D=introspection=false" ],
+            "config-opts": [ "-Dintrospection=false" ],
             "cleanup": ["*"],
             "sources": [
                 {
@@ -310,7 +310,7 @@
                 }
             ],
             "buildsystem": "meson",
-            "config-opts": [ "-D=introspection=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Dintrospection=false", "-Dlibdir=lib" ],
             "sources": [
                 {
                     "type": "archive",
