@@ -267,6 +267,20 @@
             ]
         },
         {
+            "name": "meson",
+            "buildsystem": "simple",
+            "config-opts": [ "-Dintrospection=false" ],
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/mesonbuild/meson/releases/download/0.54.0/meson-0.54.0.tar.gz",
+                    "sha256": "dde5726d778112acbd4a67bb3633ab2ee75d33d1e879a6283a7b4a44c3363c27"
+                }
+            ],
+            "build-commands": [ "python3 setup.py install --prefix=/app" ]
+        },
+        {
             "name": "gexiv2",
             "modules": [
                 {
@@ -296,7 +310,7 @@
                 }
             ],
             "buildsystem": "meson",
-            "config-opts": [ "-D=introspection=false" ],
+            "config-opts": [ "-Dintrospection=false", "-Dlibdir=lib" ],
             "sources": [
                 {
                     "type": "archive",
@@ -520,6 +534,19 @@
                             "sha256": "eac6b56fcda95b0fe0123849c96c8759d832ec9baded2c9c0a5b5faeffb59005"
                         }
                     ]
+                },
+                {
+                    "name": "libx265",
+                    "buildsystem": "cmake",
+                    "subdir": "source",
+                    "sources": [
+                        {
+                            "type": "git",
+                            "url": "https://github.com/videolan/x265.git",
+                            "tag": "3.4",
+                            "commit": "07295ba7ab551bb9c1580fdaee3200f1b45711b7"
+                        }
+                    ]
                 }
             ],
             "sources" : [
@@ -545,20 +572,20 @@
         {
             "name": "babl",
             "buildsystem": "meson",
-            "config-opts": [ "-Dwith-docs=false" ],
+            "config-opts": [ "-Dwith-docs=false", "-Dlibdir=lib" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_78",
-                    "commit": "24c3666768d5530541e1dbdeb0354a37132213ff"
+                    "tag": "BABL_0_1_82",
+                    "commit": "aab30293930236fab173a879f2d9aab95d45db5e"
                 }
             ]
         },
         {
             "name": "gegl",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddocs=false", "-Dintrospection=false" ],
+            "config-opts": [ "-Ddocs=false", "-Dintrospection=false", "-Dlibdir=lib" ],
             "cleanup": [ "/bin" ],
             "sources": [
                 {
