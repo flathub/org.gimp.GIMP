@@ -296,12 +296,63 @@
                     "name": "libx265",
                     "buildsystem": "cmake",
                     "subdir": "source",
+                    "config-opts": [ "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
+                                     "-DEXTRA_LINK_FLAGS=-L.",
+                                     "-DLINKED_10BIT=ON", "-DLINKED_12BIT=ON" ],
                     "sources": [
                         {
                             "type": "git",
                             "url": "https://github.com/videolan/x265.git",
                             "tag": "3.4",
                             "commit": "07295ba7ab551bb9c1580fdaee3200f1b45711b7"
+                        },
+                        {
+                            "type": "shell",
+                            "commands": [
+                                            "ln -s ${FLATPAK_DEST}/lib/libx265-10.a",
+                                            "ln -s ${FLATPAK_DEST}/lib/libx265-12.a",
+                                            "rm -fr ${FLATPAK_DEST}/lib/libx265.so*"
+                                        ]
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "name": "libx265-10bpc",
+                            "buildsystem": "cmake",
+                            "subdir": "source",
+                            "config-opts": [ "-DHIGH_BIT_DEPTH=ON", "-DEXPORT_C_API=OFF",
+                                             "-DENABLE_SHARED=OFF", "-DENABLE_CLI=OFF",
+                                             "-DENABLE_ASSEMBLY=OFF" ],
+                            "sources": [
+                                {
+                                    "type": "git",
+                                    "url": "https://github.com/videolan/x265.git",
+                                    "tag": "3.4",
+                                    "commit": "07295ba7ab551bb9c1580fdaee3200f1b45711b7"
+                                }
+                            ],
+                            "post-install": [
+                                    "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-10.a"
+                                ]
+                        },
+                        {
+                            "name": "libx265-12bpc",
+                            "buildsystem": "cmake",
+                            "subdir": "source",
+                            "config-opts": [ "-DHIGH_BIT_DEPTH=ON", "-DEXPORT_C_API=OFF",
+                                             "-DENABLE_SHARED=OFF", "-DENABLE_CLI=OFF",
+                                             "-DENABLE_ASSEMBLY=OFF", "-DMAIN12=ON" ],
+                            "sources": [
+                                {
+                                    "type": "git",
+                                    "url": "https://github.com/videolan/x265.git",
+                                    "tag": "3.4",
+                                    "commit": "07295ba7ab551bb9c1580fdaee3200f1b45711b7"
+                                }
+                            ],
+                            "post-install": [
+                                    "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-12.a"
+                                ]
                         }
                     ]
                 }
