@@ -186,7 +186,7 @@
             "config-opts": [ "--disable-cups" ],
             "make-args": [ "so" ],
             "make-install-args": [ "soinstall" ],
-            "cleanup": [ "/bin", "/share/man", "/share/doc/" ],
+            "cleanup": [ "/bin", "/share/man", "/share/doc" ],
             "sources": [
                 {
                     "type": "archive",
@@ -278,7 +278,7 @@
         {
             "name" : "libheif",
             "config-opts": [ "--disable-gdk-pixbuf" ],
-            "cleanup": [ "/bin" ],
+            "cleanup": [ "/bin", "/share/thumbnailers" ],
             "modules": [
                 {
                     "name": "libde265",
@@ -299,6 +299,7 @@
                     "config-opts": [ "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
                                      "-DEXTRA_LINK_FLAGS=-L.",
                                      "-DLINKED_10BIT=ON", "-DLINKED_12BIT=ON" ],
+                    "cleanup": [ "/bin" ],
                     "sources": [
                         {
                             "type": "git",
