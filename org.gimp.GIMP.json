@@ -426,8 +426,7 @@
             "name": "gimp",
             "config-opts": [ "--disable-docs", "--disable-gtk-doc", "--disable-gtk-doc-html",
                              "--with-icc-directory=/run/host/usr/share/color/icc/",
-                             "--with-lua=force", "--with-python=force", "--with-javascript=force",
-                             "--with-build-id=org.gimp.GIMP.flatpak.stable",
+                             "--with-build-id=org.gimp.GIMP.flatpak.dev",
                              "--disable-check-update" ],
             "cleanup": [ "/bin/gimptool-3.0", "/bin/gimp-console-2.99" ],
             "sources": [
