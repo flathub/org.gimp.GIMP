@@ -427,7 +427,7 @@
                              "--with-icc-directory=/run/host/usr/share/color/icc/",
                              "--with-build-id=org.gimp.GIMP.flatpak.dev",
                              "--disable-check-update" ],
-            "cleanup": [ "/bin/gimptool-3.0", "/bin/gimp-console-2.99" ],
+            "cleanup": [ "/bin/gimptool-2.99", "/bin/gimp-console-2.99" ],
             "sources": [
                 {
                     "type": "git",
