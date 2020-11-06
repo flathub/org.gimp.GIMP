@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "beta",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.36",
+    "runtime-version": "3.36beta",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.99",
     "separate-locales": false,
@@ -19,8 +19,7 @@
     "desktop-file-name-prefix": "(beta) ",
     "cleanup": ["/include", "/lib/pkgconfig", "/share/pkgconfig",
                 "/share/aclocal", "/man", "/share/man", "/share/gtk-doc",
-                "/share/vala", "*.la", "*.a", "/bin/wmf*", "/bin/libwmf-*",
-                "/bin/pygtk*", "/bin/pygobject*", "/bin/pygobject-codegen-2.0"],
+                "/share/vala", "*.la", "*.a" ],
     "modules": [
         {
             "name": "meson",
@@ -186,7 +185,7 @@
             "config-opts": [ "--disable-cups" ],
             "make-args": [ "so" ],
             "make-install-args": [ "soinstall" ],
-            "cleanup": [ "/bin", "/share/man", "/share/doc/" ],
+            "cleanup": [ "/bin", "/share/man", "/share/doc" ],
             "sources": [
                 {
                     "type": "archive",
@@ -278,7 +277,7 @@
         {
             "name" : "libheif",
             "config-opts": [ "--disable-gdk-pixbuf" ],
-            "cleanup": [ "/bin" ],
+            "cleanup": [ "/bin", "/share/thumbnailers" ],
             "modules": [
                 {
                     "name": "libde265",
@@ -299,6 +298,7 @@
                     "config-opts": [ "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
                                      "-DEXTRA_LINK_FLAGS=-L.",
                                      "-DLINKED_10BIT=ON", "-DLINKED_12BIT=ON" ],
+                    "cleanup": [ "/bin" ],
                     "sources": [
                         {
                             "type": "git",
@@ -424,10 +424,9 @@
             "name": "gimp",
             "config-opts": [ "--disable-docs", "--disable-gtk-doc", "--disable-gtk-doc-html",
                              "--with-icc-directory=/run/host/usr/share/color/icc/",
-                             "--with-lua=force", "--with-python=force", "--with-javascript=force",
-                             "--with-build-id=org.gimp.GIMP.flatpak.stable",
+                             "--with-build-id=org.gimp.GIMP.flatpak.dev",
                              "--disable-check-update" ],
-            "cleanup": [ "/bin/gimptool-3.0", "/bin/gimp-console-2.99" ],
+            "cleanup": [ "/bin/gimptool-2.99", "/bin/gimp-console-2.99" ],
             "sources": [
                 {
                     "type": "git",
@@ -441,14 +440,6 @@
                         "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
                     ]
                 }
-            ],
-	    "post-install": [
-                "rm -fr /app/include /app/lib/pkgconfig /app/share/pkgconfig",
-                "rm -fr /app/share/gtk-doc/ /app/share/man/",
-                "rm -fr /app/lib/*.la /app/lib/*.a",
-                "rm -fr /app/share/ghostscript/9.26/doc/",
-                "rm -fr /app/bin/wmf* /app/bin/libwmf-*",
-                "rm -fr /app/bin/pygtk* /app/bin/pygobject* /app/bin/pygobject-codegen-2.0"
             ]
         }
     ]
