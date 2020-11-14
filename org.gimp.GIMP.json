@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "beta",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.36beta",
+    "runtime-version": "3.38",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.99",
     "separate-locales": false,
@@ -393,6 +393,16 @@
                 "url": "https://github.com/pavouk/lgi.git",
                 "commit": "c21f35fccae87fd4e3625d4c878f584b7255d6f6"
             }
+            ]
+        },
+        {
+            "name": "xmu",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://xorg.freedesktop.org/releases/individual/lib/libXmu-1.1.3.tar.bz2",
+                    "sha256": "9c343225e7c3dc0904f2122b562278da5fed639b1b5e880d25111561bac5b731"
+                }
             ]
         },
         {
