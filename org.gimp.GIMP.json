@@ -57,6 +57,10 @@
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.1.tar.xz",
                     "sha256": "8aeafd59653ea88f6b78cb03780ee9fd61a2f993070c5f0d0976bed93ac2bd77"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/gexiv2-mr20.patch"
                 }
             ]
         },
@@ -474,6 +478,10 @@
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
                     "branch": "master"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/0001-Issue-5863-do-not-raise-WARNINGs-on-Exiv2-unsupporte.patch"
                 },
                 {
                     "type": "shell",
