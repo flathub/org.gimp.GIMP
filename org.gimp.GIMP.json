@@ -22,20 +22,6 @@
                 "/share/vala", "*.la", "*.a" ],
     "modules": [
         {
-            "name": "meson",
-            "buildsystem": "simple",
-            "config-opts": [ "-Dintrospection=false" ],
-            "cleanup": ["*"],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/mesonbuild/meson/releases/download/0.54.0/meson-0.54.0.tar.gz",
-                    "sha256": "dde5726d778112acbd4a67bb3633ab2ee75d33d1e879a6283a7b4a44c3363c27"
-                }
-            ],
-            "build-commands": [ "python3 setup.py install --prefix=/app" ]
-        },
-        {
             "name": "gexiv2",
             "modules": [
                 {
@@ -65,12 +51,16 @@
                 }
             ],
             "buildsystem": "meson",
-            "config-opts": [ "-Dintrospection=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Dintrospection=false" ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.1.tar.xz",
                     "sha256": "8aeafd59653ea88f6b78cb03780ee9fd61a2f993070c5f0d0976bed93ac2bd77"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/gexiv2-mr20.patch"
                 }
             ]
         },
@@ -408,25 +398,73 @@
         {
             "name": "babl",
             "buildsystem": "meson",
-            "config-opts": [ "-Dwith-docs=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Dwith-docs=false" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "branch": "master"
+                    "tag": "BABL_0_1_84",
+                    "commit": "ff6ac9e6a92a16ae5c5e233432c2fcaa22cb1c5e"
                 }
+            ]
+        },
+        {
+            "name": "graphviz",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.1.tar.gz",
+                    "sha256": "8e1b34763254935243ccdb83c6ce108f531876d7a5dfd443f255e6418b8ea313"
+                }
+            ],
+            "cleanup": [
+                "/bin/??",
+                "/bin/????*",
+                "/bin/fdp",
+                "/bin/nop",
+
+                "/lib/libgvpr*",
+                "/lib/liblab*",
+                "*.la",
+
+                "/lib/graphviz/libgvplugin_core*",
+                "/lib/graphviz/libgvplugin_g*",
+                "/lib/graphviz/libgvplugin_neato_layout*",
+                "/lib/graphviz/libgvplugin_poppler*",
+                "/lib/graphviz/libgvplugin_rsvg*",
+                "/lib/graphviz/libgvplugin_visio*",
+                "/lib/graphviz/libgvplugin_webp*",
+                "/lib/graphviz/libgvplugin_xlib*",
+
+                "/share"
             ]
         },
         {
             "name": "gegl",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddocs=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Ddocs=false", "-Dworkshop=true" ],
             "cleanup": [ "/bin" ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "branch": "master"
+                    "tag": "GEGL_0_4_28",
+                    "commit": "811bd306500764a8c64debee4e1e0adda6ac74d3"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "maxflow",
+                    "buildsystem": "cmake-ninja",
+                    "cleanup": [ "/bin" ],
+                    "sources": [
+                        {
+                            "type": "git",
+                            "url": "https://github.com/gerddie/maxflow.git",
+                            "commit": "6ac148f164b9567ac81fbb4ebb36112f850c902b"
+                        }
+                    ]
                 }
             ]
         },
@@ -441,8 +479,12 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_2",
-                    "commit": "71d24f1103a79be0f199a40188ebd5967ac4c42a"
+                    "tag": "GIMP_2_99_4",
+                    "commit": "db996f218da437beecee233a25e5444169d41939"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/0001-Issue-5863-do-not-raise-WARNINGs-on-Exiv2-unsupporte.patch"
                 },
                 {
                     "type": "shell",
