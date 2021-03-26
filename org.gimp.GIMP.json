@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.36",
+    "runtime-version": "40",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -42,7 +42,7 @@
             "locale-subset": true
         },
         "org.gimp.GIMP.Plugin": {
-            "version": "2-3.36",
+            "version": "2-40",
             "directory": "extensions",
             "add-ld-path": "lib",
             "merge-dirs": "plug-ins;scripts;help",
@@ -176,15 +176,15 @@
                 "env": {
                     "PYTHON": "/usr/bin/python3"
                 },
-                "cflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
+                "cflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
                 "cflags-override": true,
-                "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
+                "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
                 "cxxflags-override": true,
                 "arch" : {
                     "aarch64" : {
-                        "cflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
+                        "cflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
                         "cflags-override": true,
-                        "cxxflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive",
+                        "cxxflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
                         "cxxflags-override": true,
                         "config-opts" : [
                             "--disable-jit"
@@ -203,6 +203,10 @@
                 {
                     "type": "patch",
                     "path": "patches/webkitgtk-2.4.11.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/webkitgtk-fix.patch"
                 }
             ]
         },
@@ -647,6 +651,9 @@
             "name": "gegl",
             "buildsystem": "meson",
             "config-opts": [ "-Ddocs=false", "-Dintrospection=false", "-Dlibdir=lib" ],
+            "build-options": {
+                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
+            },
             "cleanup": [ "/bin" ],
             "sources": [
                 {
