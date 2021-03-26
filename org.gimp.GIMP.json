@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "beta",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.38",
+    "runtime-version": "40",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.99",
     "separate-locales": false,
@@ -444,6 +444,9 @@
             "name": "gegl",
             "buildsystem": "meson",
             "config-opts": [ "-Ddocs=false", "-Dworkshop=true" ],
+            "build-options": {
+                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
+            },
             "cleanup": [ "/bin" ],
             "sources": [
                 {
