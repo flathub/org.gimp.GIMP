@@ -651,6 +651,9 @@
             "name": "gegl",
             "buildsystem": "meson",
             "config-opts": [ "-Ddocs=false", "-Dintrospection=false", "-Dlibdir=lib" ],
+            "build-options": {
+                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
+            },
             "cleanup": [ "/bin" ],
             "sources": [
                 {
