@@ -10,6 +10,7 @@
     "rename-icon": "gimp",
     "finish-args": ["--share=ipc", "--share=network",
                     "--socket=x11", "--socket=wayland",
+                    "--device=dri",
                     "--filesystem=host", "--filesystem=xdg-config/GIMP",
                     "--filesystem=xdg-config/gtk-3.0", "--filesystem=/tmp",
                     "--filesystem=xdg-run/gvfs",
@@ -17,9 +18,17 @@
                     "--talk-name=org.freedesktop.FileManager1"],
     "tags": ["GTK+3", "development"],
     "desktop-file-name-prefix": "(beta) ",
-    "cleanup": ["/include", "/lib/pkgconfig", "/share/pkgconfig",
-                "/share/aclocal", "/man", "/share/man", "/share/gtk-doc",
+    "cleanup": [ "/man", "/share/man", "/share/gtk-doc",
                 "/share/vala", "*.la", "*.a" ],
+    "add-extensions": {
+        "org.gimp.GIMP.Plugin": {
+            "version": "3",
+            "directory": "extensions/plug-ins",
+            "add-ld-path": "lib",
+            "subdirectories": true,
+            "no-autodownload": true
+        }
+    },
     "modules": [
         {
             "name": "gexiv2",
@@ -477,7 +486,7 @@
                              "--with-icc-directory=/run/host/usr/share/color/icc/",
                              "--with-build-id=org.gimp.GIMP.flatpak.dev",
                              "--disable-check-update" ],
-            "cleanup": [ "/bin/gimptool-2.99", "/bin/gimp-console-2.99" ],
+            "cleanup": [ "/bin/gimp-console-2.99" ],
             "sources": [
                 {
                     "type": "git",
@@ -495,6 +504,9 @@
                         "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
                     ]
                 }
+            ],
+	    "post-install": [
+                "install -d ${FLATPAK_DEST}/extensions/plug-ins"
             ]
         }
     ]
