@@ -271,20 +271,6 @@
             ]
         },
         {
-            "name": "meson",
-            "buildsystem": "simple",
-            "config-opts": [ "-Dintrospection=false" ],
-            "cleanup": ["*"],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/mesonbuild/meson/releases/download/0.54.0/meson-0.54.0.tar.gz",
-                    "sha256": "dde5726d778112acbd4a67bb3633ab2ee75d33d1e879a6283a7b4a44c3363c27"
-                }
-            ],
-            "build-commands": [ "python3 setup.py install --prefix=/app" ]
-        },
-        {
             "name": "gexiv2",
             "modules": [
                 {
@@ -318,8 +304,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.1.tar.xz",
-                    "sha256": "8aeafd59653ea88f6b78cb03780ee9fd61a2f993070c5f0d0976bed93ac2bd77"
+                    "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz",
+                    "sha256": "2322b552aca330eef79724a699c51a302345d5e074738578b398b7f2ff97944c"
                 }
             ]
         },
@@ -366,8 +352,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz",
-                            "sha256": "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
+                            "url": "https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz",
+                            "sha256": "6e2fcef66ec8c44625f94292ccf8af9f1d918b410d5aa69c274ce67387967b30"
                         }
                     ]
                 }
@@ -380,8 +366,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-20.10.0.tar.xz",
-                    "sha256": "434ecbbb539c1a75955030a1c9b24c7b58200b7f68d2e4269e29acf2f8f13336"
+                    "url": "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz",
+                    "sha256": "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
                 }
             ]
         },
@@ -534,8 +520,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.7/libde265-1.0.7.tar.gz",
-                            "sha256": "eac6b56fcda95b0fe0123849c96c8759d832ec9baded2c9c0a5b5faeffb59005"
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.8/libde265-1.0.8.tar.gz",
+                            "sha256": "24c791dd334fa521762320ff54f0febfd3c09fc978880a8c5fbc40a88f21d905"
                         }
                     ]
                 },
@@ -606,8 +592,8 @@
             ],
             "sources" : [
                 {
-                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.9.1/libheif-1.9.1.tar.gz",
-                    "sha256" : "5f65ca2bd2510eed4e13bdca123131c64067e9dd809213d7aef4dc5e37948bca",
+                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.11.0/libheif-1.11.0.tar.gz",
+                    "sha256" : "c550938f56ff6dac83702251a143f87cb3a6c71a50d8723955290832d9960913",
                     "type" : "archive"
                 }
             ]
@@ -642,8 +628,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_82",
-                    "commit": "aab30293930236fab173a879f2d9aab95d45db5e"
+                    "tag": "BABL_0_1_86",
+                    "commit": "92cfdacd51abb8bd6ff10edd800ef8b81e7ccf52"
                 }
             ]
         },
@@ -659,8 +645,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_26",
-                    "commit": "3371550915bfe10e9e0add87caaf578464305542"
+                    "tag": "GEGL_0_4_30",
+                    "commit": "5ea11ee00d9061ca2cd61f83ece25dfcfe0e9596"
                 }
             ]
         },
@@ -675,8 +661,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_22",
-                    "commit": "0c8a7891f75a9f41cd36fc0efe2ad506a53d0a15"
+                    "tag": "GIMP_2_10_24",
+                    "commit": "fea5236e199f1917bb8f3deddf8a054480a4caec"
                 },
                 {
                     "type": "patch",
