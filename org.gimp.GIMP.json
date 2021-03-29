@@ -74,6 +74,18 @@
             ]
         },
         {
+            "name": "lcms2",
+            "config-opts": [ "--disable-static" ],
+            "cleanup": [ "/bin", "/share" ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/lcms2/lcms2-2.12.tar.gz/sha512/967e8ac9a1d1aa3be45dc82362b9bc71c555e8577441efda57dc12d0bf84ed9188460c52eb8542d399ce9ab43bd4191988ed22b254ef34c6c1877bbb935952ed/lcms2-2.12.tar.gz",
+                    "sha512": "967e8ac9a1d1aa3be45dc82362b9bc71c555e8577441efda57dc12d0bf84ed9188460c52eb8542d399ce9ab43bd4191988ed22b254ef34c6c1877bbb935952ed"
+                }
+            ]
+        },
+        {
             "name": "openexr",
             "modules": [
                 {
