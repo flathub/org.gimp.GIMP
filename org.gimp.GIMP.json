@@ -13,7 +13,7 @@
                     "--device=dri",
                     "--filesystem=host", "--filesystem=xdg-config/GIMP",
                     "--filesystem=xdg-config/gtk-3.0", "--filesystem=/tmp",
-                    "--filesystem=xdg-run/gvfs",
+                    "--filesystem=xdg-run/gvfs", "--filesystem=xdg-run/gvfsd",
                     "--talk-name=org.gtk.vfs", "--talk-name=org.gtk.vfs.*",
                     "--talk-name=org.freedesktop.FileManager1"],
     "tags": ["stable"],
