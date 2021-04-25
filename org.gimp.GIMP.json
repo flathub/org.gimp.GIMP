@@ -414,7 +414,7 @@
         },
         {
             "name": "cairo",
-            "buildsystem": "meson",
+            "buildsystem": "autotools",
             "sources": [
                 {
                     "type": "archive",
