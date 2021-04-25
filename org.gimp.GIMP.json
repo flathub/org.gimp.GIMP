@@ -66,10 +66,6 @@
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz",
                     "sha256": "2322b552aca330eef79724a699c51a302345d5e074738578b398b7f2ff97944c"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/gexiv2-mr20.patch"
                 }
             ]
         },
