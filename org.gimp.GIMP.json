@@ -430,38 +430,6 @@
             ]
         },
         {
-            "name": "graphviz",
-            "buildsystem": "autotools",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.1.tar.gz",
-                    "sha256": "8e1b34763254935243ccdb83c6ce108f531876d7a5dfd443f255e6418b8ea313"
-                }
-            ],
-            "cleanup": [
-                "/bin/??",
-                "/bin/????*",
-                "/bin/fdp",
-                "/bin/nop",
-
-                "/lib/libgvpr*",
-                "/lib/liblab*",
-                "*.la",
-
-                "/lib/graphviz/libgvplugin_core*",
-                "/lib/graphviz/libgvplugin_g*",
-                "/lib/graphviz/libgvplugin_neato_layout*",
-                "/lib/graphviz/libgvplugin_poppler*",
-                "/lib/graphviz/libgvplugin_rsvg*",
-                "/lib/graphviz/libgvplugin_visio*",
-                "/lib/graphviz/libgvplugin_webp*",
-                "/lib/graphviz/libgvplugin_xlib*",
-
-                "/share"
-            ]
-        },
-        {
             "name": "gegl",
             "buildsystem": "meson",
             "config-opts": [ "-Ddocs=false", "-Dworkshop=true" ],
@@ -488,6 +456,38 @@
                             "url": "https://github.com/gerddie/maxflow.git",
                             "commit": "6ac148f164b9567ac81fbb4ebb36112f850c902b"
                         }
+                    ]
+                },
+                {
+                    "name": "graphviz",
+                    "buildsystem": "autotools",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.1.tar.gz",
+                            "sha256": "8e1b34763254935243ccdb83c6ce108f531876d7a5dfd443f255e6418b8ea313"
+                        }
+                    ],
+                    "cleanup": [
+                        "/bin/??",
+                        "/bin/????*",
+                        "/bin/fdp",
+                        "/bin/nop",
+
+                        "/lib/libgvpr*",
+                        "/lib/liblab*",
+                        "*.la",
+
+                        "/lib/graphviz/libgvplugin_core*",
+                        "/lib/graphviz/libgvplugin_g*",
+                        "/lib/graphviz/libgvplugin_neato_layout*",
+                        "/lib/graphviz/libgvplugin_poppler*",
+                        "/lib/graphviz/libgvplugin_rsvg*",
+                        "/lib/graphviz/libgvplugin_visio*",
+                        "/lib/graphviz/libgvplugin_webp*",
+                        "/lib/graphviz/libgvplugin_xlib*",
+
+                        "/share"
                     ]
                 }
             ]
