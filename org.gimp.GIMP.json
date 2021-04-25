@@ -306,6 +306,10 @@
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz",
                     "sha256": "2322b552aca330eef79724a699c51a302345d5e074738578b398b7f2ff97944c"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/gexiv2-mr20.patch"
                 }
             ]
         },
@@ -378,8 +382,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz",
-                    "sha256": "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
+                    "url": "https://poppler.freedesktop.org/poppler-21.04.0.tar.xz",
+                    "sha256": "5e2219656c6bbd36154133fef2e12b7d0938464518827098b29a10b1697ea79c"
                 }
             ]
         },
