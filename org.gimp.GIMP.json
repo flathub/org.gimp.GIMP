@@ -514,7 +514,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "master"
+                    "tag": "GIMP_2_99_6",
+                    "commit": "bf1b405a741dec679cf6f5a51d2f9afbe8163097"
                 },
                 {
                     "type": "patch",
