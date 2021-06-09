@@ -1,5 +1,5 @@
 {
-    "app-id": "org.gimp.GIMP",
+    "app-id": "org.gimp.GIMP.dev",
     "branch": "beta",
     "runtime": "org.gnome.Platform",
     "runtime-version": "40",
@@ -8,6 +8,7 @@
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
+    "rename-appdata-file": "org.gimp.GIMP.appdata.xml",
     "finish-args": ["--share=ipc", "--share=network",
                     "--socket=x11", "--socket=wayland",
                     "--device=dri",
