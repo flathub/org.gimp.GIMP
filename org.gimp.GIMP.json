@@ -300,7 +300,7 @@
                 }
             ],
             "buildsystem": "meson",
-            "config-opts": [ "-Dintrospection=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Dintrospection=false" ],
             "sources": [
                 {
                     "type": "archive",
@@ -378,8 +378,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz",
-                    "sha256": "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
+                    "url": "https://poppler.freedesktop.org/poppler-21.04.0.tar.xz",
+                    "sha256": "5e2219656c6bbd36154133fef2e12b7d0938464518827098b29a10b1697ea79c"
                 }
             ]
         },
@@ -432,7 +432,7 @@
             "config-opts": [ "--disable-cups" ],
             "make-args": [ "so" ],
             "make-install-args": [ "soinstall" ],
-            "cleanup": [ "/bin", "/share/man", "/share/doc/" ],
+            "cleanup": [ "/bin", "/share/man", "/share/doc" ],
             "sources": [
                 {
                     "type": "archive",
@@ -523,7 +523,7 @@
         {
             "name" : "libheif",
             "config-opts": [ "--disable-gdk-pixbuf" ],
-            "cleanup": [ "/bin" ],
+            "cleanup": [ "/bin", "/share/thumbnailers" ],
             "modules": [
                 {
                     "name": "libde265",
@@ -544,6 +544,7 @@
                     "config-opts": [ "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
                                      "-DEXTRA_LINK_FLAGS=-L.",
                                      "-DLINKED_10BIT=ON", "-DLINKED_12BIT=ON" ],
+                    "cleanup": [ "/bin" ],
                     "sources": [
                         {
                             "type": "git",
@@ -633,9 +634,24 @@
             ]
         },
         {
+            "name": "cairo",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://www.cairographics.org/releases/cairo-1.16.0.tar.xz",
+                    "sha256": "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/cairo-mr114-gimp-issue-6210.patch"
+                }
+            ]
+        },
+        {
             "name": "babl",
             "buildsystem": "meson",
-            "config-opts": [ "-Dwith-docs=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Dwith-docs=false" ],
             "sources": [
                 {
                     "type": "git",
@@ -648,7 +664,7 @@
         {
             "name": "gegl",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddocs=false", "-Dintrospection=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Ddocs=false", "-Dintrospection=false" ],
             "build-options": {
                 "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
             },
