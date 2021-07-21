@@ -131,7 +131,7 @@
                 }
             ],
             "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DENABLE_CPP=OFF",
-                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3" ],
+                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3", "-DENABLE_BOOST=OFF" ],
             "cleanup": [ "/bin", "/share" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
