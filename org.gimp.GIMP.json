@@ -252,8 +252,8 @@
             /* Shamelessly taken from org.octave.Octave manifest! */
             "name": "SuiteSparse",
             "no-autogen": true,
-            "make-args": [ "LAPACK=", "library" ],
-            "make-install-args": [ "LAPACK=", "INSTALL_LIB=/app/lib", "INSTALL_INCLUDE=/app/include", "library" ],
+            "make-args": [ "BLAS=-lopenblas", "LAPACK=", "library" ],
+            "make-install-args": [ "BLAS=-lopenblas", "LAPACK=", "INSTALL_LIB=/app/lib", "INSTALL_INCLUDE=/app/include/suitesparse", "library" ],
             "sources": [
                 {
                     "type": "archive",
