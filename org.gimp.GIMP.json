@@ -300,7 +300,7 @@
                 }
             ],
             "buildsystem": "meson",
-            "config-opts": [ "-Dintrospection=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Dintrospection=false" ],
             "sources": [
                 {
                     "type": "archive",
@@ -327,11 +327,17 @@
                 {
                     "name": "ilmbase",
                     "config-opts": [ "--disable-static" ],
+                    "build-options": {
+                        "cxxflags": "-std=c++14",
+                        "env": {
+                            "LDFLAGS": "-lpthread"
+                        }
+                    },
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://download.savannah.nongnu.org/releases/openexr/ilmbase-2.2.1.tar.gz",
-                            "sha256": "cac206e63be68136ef556c2b555df659f45098c159ce24804e9d5e9e0286609e"
+                            "url": "https://github.com/openexr/openexr/releases/download/v2.3.0/ilmbase-2.3.0.tar.gz",
+                            "sha256": "456978d1a978a5f823c7c675f3f36b0ae14dba36638aeaa3c4b0e784f12a3862"
                         },
                         {
                             "type": "shell",
@@ -342,11 +348,18 @@
             ],
             "config-opts": [ "--disable-static", "--disable-ilmbasetest" ],
             "cleanup": [ "/bin", "/share/doc", "/lib/libIlmImfUtil*" ],
+            "build-options": {
+                "cxxflags": "-std=c++14"
+            },
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.savannah.nongnu.org/releases/openexr/openexr-2.2.1.tar.gz",
-                    "sha256": "8f9a5af6131583404261931d9a5c83de0a425cb4b8b25ddab2b169fbf113aecd"
+                    "url": "https://github.com/openexr/openexr/releases/download/v2.3.0/openexr-2.3.0.tar.gz",
+                    "sha256": "fd6cb3a87f8c1a233be17b94c74799e6241d50fc5efd4df75c7a4b9cf4e25ea6"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/openexr-no-docs.patch"
                 },
                 {
                     "type": "shell",
@@ -371,15 +384,15 @@
                 }
             ],
             "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DENABLE_CPP=OFF",
-                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3" ],
+                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3", "-DENABLE_BOOST=OFF" ],
             "cleanup": [ "/bin", "/share" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz",
-                    "sha256": "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
+                    "url": "https://poppler.freedesktop.org/poppler-21.06.1.tar.xz",
+                    "sha256": "86b09e5a02de40081a3916ef8711c5128eaf4b1fc59d5f87d0ec66f04f595db4"
                 }
             ]
         },
@@ -432,12 +445,12 @@
             "config-opts": [ "--disable-cups" ],
             "make-args": [ "so" ],
             "make-install-args": [ "soinstall" ],
-            "cleanup": [ "/bin", "/share/man", "/share/doc/" ],
+            "cleanup": [ "/bin", "/share/man", "/share/doc" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/ghostscript-9.53.3.tar.gz",
-                    "sha512": "c142ef9d83896aa8fd18c8e412220fe8f4950614be00d327d27ab051fe85e16524bf2ee00f46c2aca7a352ce47bc3acf2c4de0f7bbea7e4c55474b8af6cdc0a6"
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9540/ghostscript-9.54.0.tar.gz",
+                    "sha512": "93cfac3a754d4a7fa94112f3e04ba2ae633c40bb924734db72229096aac2f07c95877737f37f2bfef6be1b1d074af79e75cde3d589ea102def7f4654403e4804"
                 },
                 {
                     "type": "shell",
@@ -491,13 +504,13 @@
             /* Shamelessly taken from org.octave.Octave manifest! */
             "name": "SuiteSparse",
             "no-autogen": true,
-            "make-args": [ "LAPACK=", "library" ],
-            "make-install-args": [ "LAPACK=", "INSTALL_LIB=/app/lib", "INSTALL_INCLUDE=/app/include", "library" ],
+            "make-args": [ "BLAS=-lopenblas", "LAPACK=", "library" ],
+            "make-install-args": [ "BLAS=-lopenblas", "LAPACK=", "INSTALL_LIB=/app/lib", "INSTALL_INCLUDE=/app/include/suitesparse", "library" ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz",
-                    "sha256": "374dd136696c653e34ef3212dc8ab5b61d9a67a6791d5ec4841efb838e94dbd1"
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.10.1.tar.gz",
+                    "sha256": "acb4d1045f48a237e70294b950153e48dce5b5f9ca8190e86c2b8c54ce00a7ee"
                 },
                 {
                     "type": "patch",
@@ -513,8 +526,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.9.tar.gz",
-                            "sha256": "17d4677264dfbc4433e97076220adc79b050e4f8a083ea3f853a53af253bc380"
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.17.tar.gz",
+                            "sha256": "df2934fa33d04fd84d839ca698280df55c690c86a5a1133b3f7266fce1de279f"
                         }
                     ]
                 }
@@ -523,7 +536,7 @@
         {
             "name" : "libheif",
             "config-opts": [ "--disable-gdk-pixbuf" ],
-            "cleanup": [ "/bin" ],
+            "cleanup": [ "/bin", "/share/thumbnailers" ],
             "modules": [
                 {
                     "name": "libde265",
@@ -544,6 +557,7 @@
                     "config-opts": [ "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
                                      "-DEXTRA_LINK_FLAGS=-L.",
                                      "-DLINKED_10BIT=ON", "-DLINKED_12BIT=ON" ],
+                    "cleanup": [ "/bin" ],
                     "sources": [
                         {
                             "type": "git",
@@ -604,8 +618,8 @@
             ],
             "sources" : [
                 {
-                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.11.0/libheif-1.11.0.tar.gz",
-                    "sha256" : "c550938f56ff6dac83702251a143f87cb3a6c71a50d8723955290832d9960913",
+                    "url" : "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz",
+                    "sha256" : "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718",
                     "type" : "archive"
                 }
             ]
@@ -633,9 +647,24 @@
             ]
         },
         {
+            "name": "cairo",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://www.cairographics.org/releases/cairo-1.16.0.tar.xz",
+                    "sha256": "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/cairo-mr114-gimp-issue-6210.patch"
+                }
+            ]
+        },
+        {
             "name": "babl",
             "buildsystem": "meson",
-            "config-opts": [ "-Dwith-docs=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Dwith-docs=false" ],
             "sources": [
                 {
                     "type": "git",
@@ -648,7 +677,7 @@
         {
             "name": "gegl",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddocs=false", "-Dintrospection=false", "-Dlibdir=lib" ],
+            "config-opts": [ "-Ddocs=false", "-Dintrospection=false" ],
             "build-options": {
                 "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
             },
