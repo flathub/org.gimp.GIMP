@@ -452,8 +452,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_86",
-                    "commit": "92cfdacd51abb8bd6ff10edd800ef8b81e7ccf52"
+                    "tag": "BABL_0_1_88_",
+                    "commit": "d4984bc2f2db34091151512697ab0bd3a7b91663"
                 }
             ]
         },
