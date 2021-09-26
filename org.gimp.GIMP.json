@@ -658,6 +658,10 @@
                 {
                     "type": "patch",
                     "path": "patches/cairo-mr114-gimp-issue-6210.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/cairo-mr245-issue325.patch"
                 }
             ]
         },
