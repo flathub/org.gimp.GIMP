@@ -32,6 +32,14 @@ $ git checkout -b wip/release/2-10-24
   - any dependency module which might be outdated.
   - "babl" and "gegl" module in particular to the last tagged release.
 
+* To check possible updates of some dependency modules use the
+  flatpak-external-data-checker tool. Either install it locally, via
+  flatpak or via OCI image.
+
+  The OCI image approach is not straightforward at first but is the least
+  intrusive if you already have docker or podman installed:
+  $ podman run --rm --privileged -v "$(pwd):/run/host:rw" ghcr.io/flathub/flatpak-external-data-checker:latest /run/host/org.gimp.GIMP.json
+
 * If the GIMP release has not been tagged yet, set the "gimp" module to
   `HEAD` of the source with the temporary description (replace
   "gimp-2-10" by "master" for a development release):
