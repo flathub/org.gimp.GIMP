@@ -202,7 +202,7 @@
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 3687,
-                                "stable-ony": true,
+                                "stable-only": true,
                                 "url-template": "https://poppler.freedesktop.org/poppler-data-$version.tar.gz"
                             }
                         }
