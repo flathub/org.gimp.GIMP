@@ -806,7 +806,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "master"
+                    "tag": "GIMP_2_99_8",
+                    "commit": "71c2fd63b8748867c5c5c1de355f667a1dfe512a"
                 },
                 {
                     "type": "patch",
