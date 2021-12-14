@@ -23,7 +23,9 @@
         "--filesystem=xdg-run/gvfsd",
         "--talk-name=org.gtk.vfs",
         "--talk-name=org.gtk.vfs.*",
-        "--talk-name=org.freedesktop.FileManager1"
+        "--talk-name=org.freedesktop.FileManager1",
+        "--talk-name=org.gnome.Shell.Screenshot",
+        "--talk-name=org.kde.kwin.Screenshot"
     ],
     "tags": [
         "GTK+3",
