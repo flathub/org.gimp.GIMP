@@ -61,8 +61,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://exiv2.org/builds/exiv2-0.27.4-Source.tar.gz",
-                            "sha256": "84366dba7c162af9a7603bcd6c16f40fe0e9af294ba2fd2f66ffffb9fbec904e",
+                            "url": "https://exiv2.org/builds/exiv2-0.27.5-Source.tar.gz",
+                            "sha256": "35a58618ab236a901ca4928b0ad8b31007ebdc0386d904409d825024e45ea6e2",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 769,
@@ -226,8 +226,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-21.10.0.tar.xz",
-                    "sha256": "964b5b16290fbec3fae57c2a5bcdea49bb0736bd750c3a3711c47995c9efc394",
+                    "url": "https://poppler.freedesktop.org/poppler-21.11.0.tar.xz",
+                    "sha256": "31b76b5cac0a48612fdd154c02d9eca01fd38fb8eaa77c1196840ecdeb53a584",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -758,8 +758,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://gitlab.com/graphviz/graphviz/-/archive/2.49.1/graphviz-2.49.1.tar.gz",
-                            "sha256": "f62f644aa9b9c03cb14f0dc351a28525c055cd7951614c0b7efa6af66d4a8fb7",
+                            "url": "https://gitlab.com/graphviz/graphviz/-/archive/2.49.3/graphviz-2.49.3.tar.gz",
+                            "sha256": "5801664769ab88c2fb8ccb6ab0957cceabe6d4632b193041440e97790f53a9df",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 1249,
