@@ -386,7 +386,8 @@
                 }
             ],
             "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DENABLE_CPP=OFF",
-                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3", "-DENABLE_BOOST=OFF" ],
+                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3", "-DENABLE_BOOST=OFF",
+                             "-DWITH_NSS3:BOOL=OFF", "-DENABLE_QT5:BOOL=OFF" ],
             "cleanup": [ "/bin", "/share" ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
@@ -692,8 +693,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_32",
-                    "commit": "5780858c2f5784084ec566890e62c160eae88727"
+                    "tag": "GEGL_0_4_34",
+                    "commit": "9aaf6b3525f3917c2d6add866afd33e4ee28510b"
                 }
             ]
         },
@@ -708,8 +709,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_28",
-                    "commit": "9f9ff10cf43ce824fd0e49594da3153e85caca45"
+                    "tag": "GIMP_2_10_30",
+                    "commit": "cee406b593fb561efebc3664bdc0790fa45b9c47"
                 },
                 {
                     "type": "patch",
