@@ -709,7 +709,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "gimp-2-10"
+                    "tag": "GIMP_2_10_30",
+                    "commit": "cee406b593fb561efebc3664bdc0790fa45b9c47"
                 },
                 {
                     "type": "patch",
