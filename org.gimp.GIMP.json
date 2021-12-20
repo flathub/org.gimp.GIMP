@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "40",
+    "runtime-version": "41",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -209,6 +209,10 @@
                 {
                     "type": "patch",
                     "path": "patches/webkitgtk-fix.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/webkitgtk-41-fix.patch"
                 }
             ]
         },
