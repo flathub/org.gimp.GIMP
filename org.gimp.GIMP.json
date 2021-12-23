@@ -405,7 +405,10 @@
         },
         {
             "name": "aalib",
-            "config-opts": [ "--disable-static" ],
+            "config-opts": [
+                "--disable-static",
+                "--with-slang-driver=no"
+            ],
             "cleanup": [ "/bin", "/info", "/man" ],
             "sources": [
                 {
