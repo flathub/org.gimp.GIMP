@@ -41,7 +41,8 @@
         "org.gimp.GIMP.Manual": {
             "version": "2.10",
             "directory": "share/gimp/2.0/help",
-            "locale-subset": true
+            "locale-subset": true,
+            "no-autodownload": true
         },
         "org.gimp.GIMP.Plugin": {
             "version": "2-40",
