@@ -721,8 +721,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_88_",
-                    "commit": "d4984bc2f2db34091151512697ab0bd3a7b91663"
+                    "tag": "BABL_0_1_90",
+                    "commit": "de43b8c7bfb494e1505b78b7170b4df94894850d"
                 }
             ]
         },
@@ -743,8 +743,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_32",
-                    "commit": "5780858c2f5784084ec566890e62c160eae88727"
+                    "tag": "GEGL_0_4_36",
+                    "commit": "31763e39265adab1142418f6d5cedbd4d3581e06"
                 }
             ],
             "modules": [
@@ -816,8 +816,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_8",
-                    "commit": "71c2fd63b8748867c5c5c1de355f667a1dfe512a"
+                    "tag": "GIMP_2_99_10",
+                    "commit": "618e11e602418e8c9639991b73a2a7f2b302ac38"
                 },
                 {
                     "type": "patch",
