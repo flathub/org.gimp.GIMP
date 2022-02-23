@@ -1,0 +1,27 @@
+From bbce518227819bfc8f2d0b1478fdec5c5898a635 Mon Sep 17 00:00:00 2001
+From: Jehan <jehan@girinstud.io>
+Date: Wed, 23 Feb 2022 20:51:46 +0100
+Subject: [PATCH] app: our flatpak is installing the appstream file elsewhere.
+
+For some reason, it is in /app/share/appdata/.
+Not to be pushed! It's only for the flatpak for now.
+---
+ app/dialogs/welcome-dialog.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/app/dialogs/welcome-dialog.c b/app/dialogs/welcome-dialog.c
+index 9419e961fd5..77d78197155 100644
+--- a/app/dialogs/welcome-dialog.c
++++ b/app/dialogs/welcome-dialog.c
+@@ -89,7 +89,7 @@ welcome_dialog_create (Gimp *gimp)
+ 
+   g_return_val_if_fail (GIMP_IS_GIMP (gimp), NULL);
+ 
+-  appdata_path = g_build_filename (DESKTOP_DATADIR, "metainfo",
++  appdata_path = g_build_filename (DESKTOP_DATADIR, "appdata",
+                                    "org.gimp.GIMP.appdata.xml",
+                                    NULL);
+   if (g_file_test (appdata_path, G_FILE_TEST_IS_REGULAR))
+-- 
+2.30.2
+

@@ -64,13 +64,13 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://exiv2.org/builds/exiv2-0.27.5-Source.tar.gz",
+                            "url": "https://github.com/Exiv2/exiv2/releases/download/v0.27.5/exiv2-0.27.5-Source.tar.gz",
                             "sha256": "35a58618ab236a901ca4928b0ad8b31007ebdc0386d904409d825024e45ea6e2",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 769,
                                 "stable-only": true,
-                                "url-template": "https://exiv2.org/builds/exiv2-$version-Source.tar.gz"
+                                "url-template": "https://github.com/Exiv2/exiv2/releases/download/v$version/exiv2-$version-Source.tar.gz"
                             }
                         }
                     ]
@@ -297,9 +297,16 @@
                     "sha512": "9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab"
                 },
                 {
+                    "type": "patch",
+                    "path": "patches/libwmf-no-freetype-config.patch"
+                },
+                {
                     "type": "shell",
                     "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                        "cp -p /usr/share/automake-*/config.{sub,guess} .",
+                        "aclocal",
+                        "automake --add-missing",
+                        "autoconf"
                     ]
                 }
             ]
@@ -621,8 +628,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libjxl/libjxl.git",
-                    "tag": "v0.6",
-                    "commit": "25ef9145273eb5fe3db04e196327c77e404308d8"
+                    "tag": "v0.6.1",
+                    "commit": "a205468bc5d3a353fb15dae2398a101dff52f2d3"
                 }
             ]
         },
@@ -714,8 +721,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_88_",
-                    "commit": "d4984bc2f2db34091151512697ab0bd3a7b91663"
+                    "tag": "BABL_0_1_90",
+                    "commit": "de43b8c7bfb494e1505b78b7170b4df94894850d"
                 }
             ]
         },
@@ -736,8 +743,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_32",
-                    "commit": "5780858c2f5784084ec566890e62c160eae88727"
+                    "tag": "GEGL_0_4_36",
+                    "commit": "31763e39265adab1142418f6d5cedbd4d3581e06"
                 }
             ],
             "modules": [
@@ -809,18 +816,18 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_8",
-                    "commit": "71c2fd63b8748867c5c5c1de355f667a1dfe512a"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/0001-Issue-5863-do-not-raise-WARNINGs-on-Exiv2-unsupporte.patch"
+                    "tag": "GIMP_2_99_10",
+                    "commit": "618e11e602418e8c9639991b73a2a7f2b302ac38"
                 },
                 {
                     "type": "shell",
                     "commands": [
                         "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
                     ]
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/0001-app-our-flatpak-is-installing-the-appstream-file-els.patch"
                 },
                 {
                     "type": "patch",
