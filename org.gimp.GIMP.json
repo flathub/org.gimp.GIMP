@@ -827,6 +827,10 @@
                 },
                 {
                     "type": "patch",
+                    "path": "patches/0001-app-our-flatpak-is-installing-the-appstream-file-els.patch"
+                },
+                {
+                    "type": "patch",
                     "path": "patches/gimp-extension-path.patch"
                 }
             ],
