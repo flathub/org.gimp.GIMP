@@ -403,7 +403,7 @@
             ]
         },
         {
-            /* Shamelessly taken from org.octave.Octave manifest! */
+            "//": "Shamelessly taken from org.octave.Octave manifest!",
             "name": "SuiteSparse",
             "no-autogen": true,
             "make-args": [
@@ -720,7 +720,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    /*"tag": "BABL_0_1_92",*/
+                    "//": "\"tag\": \"BABL_0_1_92\"",
                     "commit": "befaba5cf1509d46fe27ccf609bd576db2bfebdc"
                 }
             ]
