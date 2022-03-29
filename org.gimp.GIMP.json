@@ -511,7 +511,7 @@
             ]
         },
         {
-            /* Shamelessly taken from org.octave.Octave manifest! */
+            "//": "Shamelessly taken from org.octave.Octave manifest!",
             "name": "SuiteSparse",
             "no-autogen": true,
             "make-args": [ "BLAS=-lopenblas", "LAPACK=", "library" ],
