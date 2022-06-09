@@ -8,20 +8,29 @@
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
-    "finish-args": ["--share=ipc", "--share=network",
-                    "--socket=x11",
-                    "--device=dri",
-                    "--filesystem=host", "--filesystem=xdg-config/GIMP",
-                    "--filesystem=xdg-config/gtk-3.0", "--filesystem=/tmp",
-                    "--filesystem=xdg-run/gvfs", "--filesystem=xdg-run/gvfsd",
-                    "--talk-name=org.gtk.vfs.*",
-                    "--talk-name=org.freedesktop.FileManager1",
-                    "--talk-name=org.gnome.Shell.Screenshot",
-                    "--talk-name=org.kde.kwin.Screenshot"],
-    "tags": ["stable"],
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=x11",
+        "--device=dri",
+        "--filesystem=host",
+        "--filesystem=xdg-config/GIMP",
+        "--filesystem=xdg-config/gtk-3.0",
+        "--filesystem=/tmp",
+        "--filesystem=xdg-run/gvfs",
+        "--filesystem=xdg-run/gvfsd",
+        "--talk-name=org.gtk.vfs.*",
+        "--talk-name=org.freedesktop.FileManager1",
+        "--talk-name=org.gnome.Shell.Screenshot",
+        "--talk-name=org.kde.kwin.Screenshot"
+    ],
+    "tags": [
+        "stable"
+    ],
     "cleanup": [
         "/lib/cmake/",
-        "/man", "/share/man",
+        "/man",
+        "/share/man",
         "/share/gtk-doc",
         "/share/doc",
         "/share/vala",
@@ -179,9 +188,16 @@
         },
         {
             "name": "webkitgtk",
-            "config-opts": [ "--with-gtk=2.0", "--disable-webkit2", "--disable-geolocation", "--disable-video",
-                             "--disable-spellcheck", "--disable-credential-storage", "--disable-web-audio" ],
-            "build-options" : {
+            "config-opts": [
+                "--with-gtk=2.0",
+                "--disable-webkit2",
+                "--disable-geolocation",
+                "--disable-video",
+                "--disable-spellcheck",
+                "--disable-credential-storage",
+                "--disable-web-audio"
+            ],
+            "build-options": {
                 "env": {
                     "PYTHON": "/usr/bin/python3"
                 },
@@ -189,20 +205,22 @@
                 "cflags-override": true,
                 "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
                 "cxxflags-override": true,
-                "arch" : {
-                    "aarch64" : {
+                "arch": {
+                    "aarch64": {
                         "cflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
                         "cflags-override": true,
                         "cxxflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
                         "cxxflags-override": true,
-                        "config-opts" : [
+                        "config-opts": [
                             "--disable-jit"
                         ]
                     }
                 }
             },
-
-            "cleanup": [ "/share/doc", "/bin" ],
+            "cleanup": [
+                "/share/doc",
+                "/bin"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -250,7 +268,9 @@
                 },
                 {
                     "name": "pygobject",
-                    "config-opts": [ "--disable-introspection" ],
+                    "config-opts": [
+                        "--disable-introspection"
+                    ],
                     "sources": [
                         {
                             "type": "archive",
@@ -259,7 +279,9 @@
                         },
                         {
                             "type": "shell",
-                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
+                            "commands": [
+                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                            ]
                         }
                     ]
                 },
@@ -273,9 +295,11 @@
                         },
                         {
                             "type": "shell",
-                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
+                            "commands": [
+                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                            ]
                         },
-			{
+                        {
                             "type": "patch",
                             "path": "patches/pygtk-Drop-the-PangoFont-find_shaper-virtual-method.patch"
                         }
@@ -290,7 +314,10 @@
                     "name": "exiv2",
                     "buildsystem": "cmake-ninja",
                     "builddir": true,
-                    "cleanup": [ "/bin", "/share" ],
+                    "cleanup": [
+                        "/bin",
+                        "/share"
+                    ],
                     "sources": [
                         {
                             "type": "archive",
@@ -307,7 +334,9 @@
                 }
             ],
             "buildsystem": "meson",
-            "config-opts": [ "-Dintrospection=false" ],
+            "config-opts": [
+                "-Dintrospection=false"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -324,8 +353,13 @@
         },
         {
             "name": "lcms2",
-            "config-opts": [ "--disable-static" ],
-            "cleanup": [ "/bin", "/share" ],
+            "config-opts": [
+                "--disable-static"
+            ],
+            "cleanup": [
+                "/bin",
+                "/share"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -345,7 +379,9 @@
             "modules": [
                 {
                     "name": "ilmbase",
-                    "config-opts": [ "--disable-static" ],
+                    "config-opts": [
+                        "--disable-static"
+                    ],
                     "build-options": {
                         "cxxflags": "-std=c++14",
                         "env": {
@@ -369,13 +405,22 @@
                         },
                         {
                             "type": "shell",
-                            "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
+                            "commands": [
+                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                            ]
                         }
                     ]
                 }
             ],
-            "config-opts": [ "--disable-static", "--disable-ilmbasetest" ],
-            "cleanup": [ "/bin", "/share/doc", "/lib/libIlmImfUtil*" ],
+            "config-opts": [
+                "--disable-static",
+                "--disable-ilmbasetest"
+            ],
+            "cleanup": [
+                "/bin",
+                "/share/doc",
+                "/lib/libIlmImfUtil*"
+            ],
             "build-options": {
                 "cxxflags": "-std=c++14"
             },
@@ -400,7 +445,9 @@
                 },
                 {
                     "type": "shell",
-                    "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
+                    "commands": [
+                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                    ]
                 }
             ]
         },
@@ -426,10 +473,18 @@
                     ]
                 }
             ],
-            "config-opts": [ "-DENABLE_GOBJECT_INTROSPECTION=OFF", "-DENABLE_CPP=OFF",
-                             "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3", "-DENABLE_BOOST=OFF",
-                             "-DWITH_NSS3:BOOL=OFF", "-DENABLE_QT5:BOOL=OFF" ],
-            "cleanup": [ "/bin", "/share" ],
+            "config-opts": [
+                "-DENABLE_GOBJECT_INTROSPECTION=OFF",
+                "-DENABLE_CPP=OFF",
+                "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3",
+                "-DENABLE_BOOST=OFF",
+                "-DWITH_NSS3:BOOL=OFF",
+                "-DENABLE_QT5:BOOL=OFF"
+            ],
+            "cleanup": [
+                "/bin",
+                "/share"
+            ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [
@@ -452,7 +507,11 @@
                 "--disable-static",
                 "--with-slang-driver=no"
             ],
-            "cleanup": [ "/bin", "/info", "/man" ],
+            "cleanup": [
+                "/bin",
+                "/info",
+                "/man"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -461,14 +520,20 @@
                 },
                 {
                     "type": "shell",
-                    "commands": [ "cp -p /usr/share/automake-*/config.{sub,guess} ." ]
+                    "commands": [
+                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                    ]
                 }
             ]
         },
         {
             "name": "libmng",
-            "config-opts": [ "--disable-static" ],
-            "cleanup": [ "/share" ],
+            "config-opts": [
+                "--disable-static"
+            ],
+            "cleanup": [
+                "/share"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -479,8 +544,14 @@
         },
         {
             "name": "libwmf",
-            "config-opts": [ "--disable-static", "--disable-dependency-tracking" ],
-            "cleanup": [ "/share/doc", "/bin" ],
+            "config-opts": [
+                "--disable-static",
+                "--disable-dependency-tracking"
+            ],
+            "cleanup": [
+                "/share/doc",
+                "/bin"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -512,10 +583,20 @@
         },
         {
             "name": "ghostscript",
-            "config-opts": [ "--disable-cups" ],
-            "make-args": [ "so" ],
-            "make-install-args": [ "soinstall" ],
-            "cleanup": [ "/bin", "/share/man", "/share/doc" ],
+            "config-opts": [
+                "--disable-cups"
+            ],
+            "make-args": [
+                "so"
+            ],
+            "make-install-args": [
+                "soinstall"
+            ],
+            "cleanup": [
+                "/bin",
+                "/share/man",
+                "/share/doc"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -531,20 +612,23 @@
                 {
                     "type": "shell",
                     "commands": [
-                                  "cp -p /usr/share/automake-*/config.{sub,guess} freetype/builds/unix/",
-                                  "cp -p /usr/share/automake-*/config.{sub,guess} ijs/",
-                                  "cp -p /usr/share/automake-*/config.{sub,guess} jpeg/",
-                                  "cp -p /usr/share/automake-*/config.{sub,guess} libpng/",
-                                  "cp -p /usr/share/automake-*/config.{sub,guess} lcms2mt/",
-                                  "cp -p /usr/share/automake-*/config.{sub,guess} tiff/config/",
-                                  "rm -rf libpng/pngread.c"
-                                ]
+                        "cp -p /usr/share/automake-*/config.{sub,guess} freetype/builds/unix/",
+                        "cp -p /usr/share/automake-*/config.{sub,guess} ijs/",
+                        "cp -p /usr/share/automake-*/config.{sub,guess} jpeg/",
+                        "cp -p /usr/share/automake-*/config.{sub,guess} libpng/",
+                        "cp -p /usr/share/automake-*/config.{sub,guess} lcms2mt/",
+                        "cp -p /usr/share/automake-*/config.{sub,guess} tiff/config/",
+                        "rm -rf libpng/pngread.c"
+                    ]
                 }
             ]
         },
         {
             "name": "libmypaint",
-            "config-opts": [ "--disable-gegl", "--disable-introspection" ],
+            "config-opts": [
+                "--disable-gegl",
+                "--disable-introspection"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -600,8 +684,18 @@
             "//": "Shamelessly taken from org.octave.Octave manifest!",
             "name": "SuiteSparse",
             "no-autogen": true,
-            "make-args": [ "BLAS=-lopenblas", "LAPACK=", "library" ],
-            "make-install-args": [ "BLAS=-lopenblas", "LAPACK=", "INSTALL_LIB=/app/lib", "INSTALL_INCLUDE=/app/include/suitesparse", "library" ],
+            "make-args": [
+                "BLAS=-lopenblas",
+                "LAPACK=",
+                "library"
+            ],
+            "make-install-args": [
+                "BLAS=-lopenblas",
+                "LAPACK=",
+                "INSTALL_LIB=/app/lib",
+                "INSTALL_INCLUDE=/app/include/suitesparse",
+                "library"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -623,8 +717,16 @@
                 {
                     "name": "openblas",
                     "no-autogen": true,
-                    "make-args": [ "DYNAMIC_ARCH=1", "FC=gfortran", "NO_CBLAS=1", "NO_LAPACKE=1", "USE_OPENMP=0" ],
-                    "make-install-args": [ "PREFIX=/app" ],
+                    "make-args": [
+                        "DYNAMIC_ARCH=1",
+                        "FC=gfortran",
+                        "NO_CBLAS=1",
+                        "NO_LAPACKE=1",
+                        "USE_OPENMP=0"
+                    ],
+                    "make-install-args": [
+                        "PREFIX=/app"
+                    ],
                     "sources": [
                         {
                             "type": "archive",
@@ -642,14 +744,23 @@
             ]
         },
         {
-            "name" : "libheif",
-            "config-opts": [ "--disable-gdk-pixbuf" ],
-            "cleanup": [ "/bin", "/share/thumbnailers" ],
+            "name": "libheif",
+            "config-opts": [
+                "--disable-gdk-pixbuf"
+            ],
+            "cleanup": [
+                "/bin",
+                "/share/thumbnailers"
+            ],
             "modules": [
                 {
                     "name": "libde265",
-                    "config-opts": [ "--disable-sherlock265" ],
-                    "cleanup": [ "/bin" ],
+                    "config-opts": [
+                        "--disable-sherlock265"
+                    ],
+                    "cleanup": [
+                        "/bin"
+                    ],
                     "sources": [
                         {
                             "type": "archive",
@@ -668,10 +779,15 @@
                     "name": "libx265",
                     "buildsystem": "cmake",
                     "subdir": "source",
-                    "config-opts": [ "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
-                                     "-DEXTRA_LINK_FLAGS=-L.",
-                                     "-DLINKED_10BIT=ON", "-DLINKED_12BIT=ON" ],
-                    "cleanup": [ "/bin" ],
+                    "config-opts": [
+                        "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
+                        "-DEXTRA_LINK_FLAGS=-L.",
+                        "-DLINKED_10BIT=ON",
+                        "-DLINKED_12BIT=ON"
+                    ],
+                    "cleanup": [
+                        "/bin"
+                    ],
                     "sources": [
                         {
                             "type": "archive",
@@ -687,10 +803,10 @@
                         {
                             "type": "shell",
                             "commands": [
-                                            "ln -s ${FLATPAK_DEST}/lib/libx265-10.a",
-                                            "ln -s ${FLATPAK_DEST}/lib/libx265-12.a",
-                                            "rm -fr ${FLATPAK_DEST}/lib/libx265.so*"
-                                        ]
+                                "ln -s ${FLATPAK_DEST}/lib/libx265-10.a",
+                                "ln -s ${FLATPAK_DEST}/lib/libx265-12.a",
+                                "rm -fr ${FLATPAK_DEST}/lib/libx265.so*"
+                            ]
                         }
                     ],
                     "modules": [
@@ -698,9 +814,13 @@
                             "name": "libx265-10bpc",
                             "buildsystem": "cmake",
                             "subdir": "source",
-                            "config-opts": [ "-DHIGH_BIT_DEPTH=ON", "-DEXPORT_C_API=OFF",
-                                             "-DENABLE_SHARED=OFF", "-DENABLE_CLI=OFF",
-                                             "-DENABLE_ASSEMBLY=OFF" ],
+                            "config-opts": [
+                                "-DHIGH_BIT_DEPTH=ON",
+                                "-DEXPORT_C_API=OFF",
+                                "-DENABLE_SHARED=OFF",
+                                "-DENABLE_CLI=OFF",
+                                "-DENABLE_ASSEMBLY=OFF"
+                            ],
                             "sources": [
                                 {
                                     "type": "archive",
@@ -715,16 +835,21 @@
                                 }
                             ],
                             "post-install": [
-                                    "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-10.a"
-                                ]
+                                "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-10.a"
+                            ]
                         },
                         {
                             "name": "libx265-12bpc",
                             "buildsystem": "cmake",
                             "subdir": "source",
-                            "config-opts": [ "-DHIGH_BIT_DEPTH=ON", "-DEXPORT_C_API=OFF",
-                                             "-DENABLE_SHARED=OFF", "-DENABLE_CLI=OFF",
-                                             "-DENABLE_ASSEMBLY=OFF", "-DMAIN12=ON" ],
+                            "config-opts": [
+                                "-DHIGH_BIT_DEPTH=ON",
+                                "-DEXPORT_C_API=OFF",
+                                "-DENABLE_SHARED=OFF",
+                                "-DENABLE_CLI=OFF",
+                                "-DENABLE_ASSEMBLY=OFF",
+                                "-DMAIN12=ON"
+                            ],
                             "sources": [
                                 {
                                     "type": "archive",
@@ -739,13 +864,13 @@
                                 }
                             ],
                             "post-install": [
-                                    "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-12.a"
-                                ]
+                                "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-12.a"
+                            ]
                         }
                     ]
                 }
             ],
-            "sources" : [
+            "sources": [
                 {
                     "type": "archive",
                     "url": "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz",
@@ -835,7 +960,9 @@
         {
             "name": "babl",
             "buildsystem": "meson",
-            "config-opts": [ "-Dwith-docs=false" ],
+            "config-opts": [
+                "-Dwith-docs=false"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -848,11 +975,16 @@
         {
             "name": "gegl",
             "buildsystem": "meson",
-            "config-opts": [ "-Ddocs=false", "-Dintrospection=false" ],
+            "config-opts": [
+                "-Ddocs=false",
+                "-Dintrospection=false"
+            ],
             "build-options": {
                 "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
             },
-            "cleanup": [ "/bin" ],
+            "cleanup": [
+                "/bin"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -864,11 +996,18 @@
         },
         {
             "name": "gimp",
-            "config-opts": [ "--disable-docs", "--disable-gtk-doc", "--disable-gtk-doc-html",
-                             "--with-icc-directory=/run/host/usr/share/color/icc/",
-                             "--with-build-id=org.gimp.GIMP.flatpak.stable",
-                              "--disable-check-update" ],
-            "cleanup": [ "/bin/gimp-console-2.10", "/bin/gimp-console" ],
+            "config-opts": [
+                "--disable-docs",
+                "--disable-gtk-doc",
+                "--disable-gtk-doc-html",
+                "--with-icc-directory=/run/host/usr/share/color/icc/",
+                "--with-build-id=org.gimp.GIMP.flatpak.stable",
+                "--disable-check-update"
+            ],
+            "cleanup": [
+                "/bin/gimp-console-2.10",
+                "/bin/gimp-console"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -885,7 +1024,7 @@
                     "path": "patches/gimp-extension-path.patch"
                 }
             ],
-	    "post-install": [
+            "post-install": [
                 "install -d ${FLATPAK_DEST}/share/gimp/2.0/help",
                 "install -d ${FLATPAK_DEST}/extensions"
             ]
