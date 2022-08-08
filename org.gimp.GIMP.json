@@ -495,8 +495,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-22.07.0.tar.xz",
-                    "sha256": "420230c5c43782e2151259b3e523e632f4861342aad70e7e20b8773d9eaf3428",
+                    "url": "https://poppler.freedesktop.org/poppler-22.08.0.tar.xz",
+                    "sha256": "b493328721402f25cb7523f9cdc2f7d7c59f45ad999bde75c63c90604db0f20b",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -735,8 +735,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.20.tar.gz",
-                            "sha256": "8495c9affc536253648e942908e88e097f2ec7753ede55aca52e5dead3029e3c",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.21.tar.gz",
+                            "sha256": "f36ba3d7a60e7c8bcc54cd9aaa9b1223dd42eaf02c811791c37e8ca707c241ca",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
