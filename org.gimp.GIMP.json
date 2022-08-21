@@ -743,8 +743,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_36",
-                    "commit": "31763e39265adab1142418f6d5cedbd4d3581e06"
+                    "tag": "GEGL_0_4_38",
+                    "commit": "b7fbf39e8010a95977a1642b747b94205892ea57"
                 }
             ],
             "modules": [
@@ -801,13 +801,13 @@
         },
         {
             "name": "gimp",
+            "buildsystem": "meson",
             "config-opts": [
-                "--disable-docs",
-                "--disable-gtk-doc",
-                "--disable-gtk-doc-html",
-                "--with-icc-directory=/run/host/usr/share/color/icc/",
-                "--with-build-id=org.gimp.GIMP.flatpak.dev",
-                "--disable-check-update"
+                "-Dg-ir-doc=false",
+                "-Dgi-docgen=disabled",
+                "-Dicc-directory=/run/host/usr/share/color/icc/",
+                "-Dbuild-id=org.gimp.GIMP.flatpak.dev",
+                "-Dcheck-update=no"
             ],
             "cleanup": [
                 "/bin/gimp-console-2.99"
@@ -816,18 +816,13 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_10",
-                    "commit": "618e11e602418e8c9639991b73a2a7f2b302ac38"
+                    "branch": "wip/Jehan/release-gimp-2-99-12"
                 },
                 {
                     "type": "shell",
                     "commands": [
                         "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
                     ]
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/0001-app-our-flatpak-is-installing-the-appstream-file-els.patch"
                 },
                 {
                     "type": "patch",
