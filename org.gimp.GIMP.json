@@ -743,8 +743,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_36",
-                    "commit": "31763e39265adab1142418f6d5cedbd4d3581e06"
+                    "tag": "GEGL_0_4_38",
+                    "commit": "b7fbf39e8010a95977a1642b747b94205892ea57"
                 }
             ],
             "modules": [
@@ -816,8 +816,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_10",
-                    "commit": "618e11e602418e8c9639991b73a2a7f2b302ac38"
+                    "branch": "master"
                 },
                 {
                     "type": "shell",
