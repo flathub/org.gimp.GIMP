@@ -801,13 +801,13 @@
         },
         {
             "name": "gimp",
+            "buildsystem": "meson",
             "config-opts": [
-                "--disable-docs",
-                "--disable-gtk-doc",
-                "--disable-gtk-doc-html",
-                "--with-icc-directory=/run/host/usr/share/color/icc/",
-                "--with-build-id=org.gimp.GIMP.flatpak.dev",
-                "--disable-check-update"
+                "-Dg-ir-doc=false",
+                "-Dgi-docgen=disabled",
+                "-Dicc-directory=/run/host/usr/share/color/icc/",
+                "-Dbuild-id=org.gimp.GIMP.flatpak.dev",
+                "-Dcheck-update=no"
             ],
             "cleanup": [
                 "/bin/gimp-console-2.99"
