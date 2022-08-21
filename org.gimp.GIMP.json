@@ -816,7 +816,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "branch": "wip/Jehan/release-gimp-2-99-12"
+                    "tag": "GIMP_2_99_12",
+                    "commit": "b1e13b5a15096d65d94571e69cf08d45904b5719"
                 },
                 {
                     "type": "shell",
