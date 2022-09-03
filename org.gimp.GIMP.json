@@ -704,8 +704,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.12.0.tar.gz",
-                    "sha256": "5fb0064a3398111976f30c5908a8c0b40df44c6dd8f0cc4bfa7b9e45d8c647de",
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.13.0.tar.gz",
+                    "sha256": "59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4908,
@@ -878,8 +878,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz",
-                    "sha256": "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.13.0/libheif-1.13.0.tar.gz",
+                    "sha256": "c20ae01bace39e89298f6352f1ff4a54b415b33b9743902da798e8a1e51d7ca1",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
