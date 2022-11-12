@@ -471,7 +471,7 @@
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 3687,
-                                "stable-ony": true,
+                                "stable-only": true,
                                 "url-template": "https://poppler.freedesktop.org/poppler-data-$version.tar.gz"
                             }
                         }
@@ -561,7 +561,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/caolanm/libwmf/archive/refs/tags/v0.2.12.tar.gz",
-                    "sha256": "464ff63605d7eaf61a4a12dbd420f7a41a4d854675d8caf37729f5bc744820e2",
+                    "sha512": "9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 230209,
