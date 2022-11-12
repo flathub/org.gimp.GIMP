@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "42",
+    "runtime-version": "43",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -964,8 +964,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_92",
-                    "commit": "befaba5cf1509d46fe27ccf609bd576db2bfebdc"
+                    "tag": "BABL_0_1_96",
+                    "commit": "4fcc59632187d595df3443a94c78238af8c4867b"
                 }
             ]
         },
@@ -986,8 +986,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_36",
-                    "commit": "31763e39265adab1142418f6d5cedbd4d3581e06"
+                    "tag": "GEGL_0_4_38",
+                    "commit": "b7fbf39e8010a95977a1642b747b94205892ea57"
                 }
             ]
         },
