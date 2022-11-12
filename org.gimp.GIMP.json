@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "beta",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "42",
+    "runtime-version": "43",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.99",
     "separate-locales": false,
@@ -108,7 +108,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/mm2/Little-CMS/releases/download/lcms2.13.1/lcms2-2.13.1.tar.gz",
-                    "sha256": "d473e796e7b27c5af01bd6d1552d42b45b43457e7182ce9903f38bb748203b88",
+                    "sha512": "214ec63fa086b580a6507d493a54ccf5faf02c40e149d71e41f9fc8510efdb16554621c96d91cc886f09682c9631b10aa194b4b67eb6ffcc871d5d4666b05617",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 9815,
@@ -223,7 +223,9 @@
                 "-DENABLE_GOBJECT_INTROSPECTION=OFF",
                 "-DENABLE_CPP=OFF",
                 "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3",
-                "-DENABLE_BOOST=OFF"
+                "-DENABLE_BOOST=OFF",
+                "-DWITH_NSS3:BOOL=OFF",
+                "-DENABLE_QT5:BOOL=OFF"
             ],
             "cleanup": [
                 "/bin",
@@ -234,8 +236,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-22.03.0.tar.xz",
-                    "sha256": "728c78ba94d75a55f6b6355d4fbdaa6f49934d9616be58e5e679a9cfd0980e1e",
+                    "url": "https://poppler.freedesktop.org/poppler-22.09.0.tar.xz",
+                    "sha256": "d7a8f748211359cadb774ba3e18ecda6464b34027045c0648eb30d5852a41e2e",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -248,7 +250,8 @@
         {
             "name": "aalib",
             "config-opts": [
-                "--disable-static"
+                "--disable-static",
+                "--with-slang-driver=no"
             ],
             "cleanup": [
                 "/bin",
@@ -298,20 +301,28 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libwmf/v0.2.12.tar.gz/sha512/9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab/v0.2.12.tar.gz",
-                    "sha512": "9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab"
+                    "url": "https://github.com/caolanm/libwmf/archive/refs/tags/v0.2.12.tar.gz",
+                    "sha512": "9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 230209,
+                        "stable-only": true,
+                        "url-template": "https://github.com/caolanm/libwmf/archive/refs/tags/v$version.tar.gz"
+                    }
                 },
                 {
                     "type": "patch",
-                    "path": "patches/libwmf-no-freetype-config.patch"
+                    "path": "patches/libwmf-ft2.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/libwmf-autoheader.patch"
                 },
                 {
                     "type": "shell",
                     "commands": [
                         "cp -p /usr/share/automake-*/config.{sub,guess} .",
-                        "aclocal",
-                        "automake --add-missing",
-                        "autoconf"
+                        "autoreconf -vfi"
                     ]
                 }
             ]
@@ -335,8 +346,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9550/ghostscript-9.55.0.tar.gz",
-                    "sha256": "31e2064be67e15b478a8da007d96d6cd4d2bee253e5be220703a225f7f79a70b",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs1000/ghostscript-10.0.0.tar.gz",
+                    "sha512": "9aa5f310c250584312205b479ab9137d0fca56be214626782a1ba94b4b4ee15249b3eae703d08f48eb3cc06d71a2fae671d3570284b3fa9254ea3c1193ebc15b",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1157,
@@ -384,9 +395,14 @@
                     "buildsystem": "cmake-ninja",
                     "sources": [
                         {
-                            "type": "archive",
-                            "url": "https://github.com/json-c/json-c/archive/json-c-0.15-20200726.tar.gz",
-                            "sha256": "4ba9a090a42cf1e12b84c64e4464bb6fb893666841d5843cc5bef90774028882"
+                            "type": "git",
+                            "url": "https://github.com/json-c/json-c.git",
+                            "tag": "json-c-0.16-20220414",
+                            "commit": "2f2ddc1f2dbca56c874e8f9c31b5b963202d80e7",
+                            "x-checker-data": {
+                                "type": "git",
+                                "tag-pattern": "^json-c-([\\d.]+)-[\\d]+$"
+                            }
                         }
                     ]
                 }
@@ -430,8 +446,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.11.0.tar.gz",
-                    "sha256": "fdd957ed06019465f7de73ce931afaf5d40e96e14ae57d91f60868b8c123c4c8",
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.13.0.tar.gz",
+                    "sha256": "59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4908,
@@ -461,8 +477,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.20.tar.gz",
-                            "sha256": "8495c9affc536253648e942908e88e097f2ec7753ede55aca52e5dead3029e3c",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.21.tar.gz",
+                            "sha256": "f36ba3d7a60e7c8bcc54cd9aaa9b1223dd42eaf02c811791c37e8ca707c241ca",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -603,9 +619,9 @@
             ],
             "sources": [
                 {
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz",
-                    "sha256": "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718",
                     "type": "archive",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.13.0/libheif-1.13.0.tar.gz",
+                    "sha256": "c20ae01bace39e89298f6352f1ff4a54b415b33b9743902da798e8a1e51d7ca1",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
@@ -721,8 +737,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "//": "\"tag\": \"BABL_0_1_92\"",
-                    "commit": "befaba5cf1509d46fe27ccf609bd576db2bfebdc"
+                    "tag": "BABL_0_1_96",
+                    "commit": "4fcc59632187d595df3443a94c78238af8c4867b"
                 }
             ]
         },
@@ -816,8 +832,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_12",
-                    "commit": "b1e13b5a15096d65d94571e69cf08d45904b5719"
+                    "//": "TODO: change to appropriate release tag when releasing",
+                    "commit": "6e92077a1f0f740c5b468011cd9879e555d6035f"
                 },
                 {
                     "type": "shell",

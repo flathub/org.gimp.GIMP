@@ -1,0 +1,116 @@
+From 398c41a68854fbf83e8db7ccc3133612015acfc4 Mon Sep 17 00:00:00 2001
+From: niclet <nicolas.creplet@gmail.com>
+Date: Sat, 16 Oct 2021 16:13:21 +0200
+Subject: [PATCH] Fix autoheader issues
+
+---
+ configure.ac | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 6e08583..3bfd86e 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -146,7 +146,7 @@ dnl Checks for header files.
+ AC_HEADER_STDC
+ AC_CHECK_HEADERS(time.h)
+ AC_CHECK_HEADER(unistd.h,[
+-	AC_DEFINE(HAVE_UNISTD_H)
++	AC_DEFINE([HAVE_UNISTD_H], [], [Header unistd.h is available])
+ 	GD_DEFS="$GD_DEFS -DHAVE_UNISTD_H"
+ ])
+ 
+@@ -174,13 +174,13 @@ AC_CHECK_FUNCS(vsnprintf,,check_for_vsnprintf=yes)
+ 
+ if [ test "x$check_for_vsnprintf" = "xyes" ]; then
+ 	AC_CHECK_FUNC(_vsnprintf,[
+-		AC_DEFINE(HAVE_VSNPRINTF)
+-		AC_DEFINE(vsnprintf,_vsnprintf)
++		AC_DEFINE([HAVE_VSNPRINTF], [], [Function _vsnprintf is available])
++		AC_DEFINE([vsnprintf], [_vsnprintf], [Use _vsnprintf instead of vsnprintf])
+ 	],[	dnl Hmm. On the off-chance, check for vsnprintf in libdb.
+ 		dnl This should, hopefully, solve the problem with Tru64 4.x
+ 		dnl which is incompatible with trio (the latter's fault).
+ 		AC_CHECK_LIB(db,vsnprintf,[
+-			AC_DEFINE(HAVE_VSNPRINTF)
++			AC_DEFINE([HAVE_VSNPRINTF], [], [Function vsnprintf is available])
+ 			WMF_LIBFLAGS="$WMF_LIBFLAGS -ldb"
+ 		],[	require_trio=yes
+ 		])
+@@ -192,8 +192,8 @@ AC_CHECK_FUNCS(snprintf,,check_for_snprintf=yes)
+ 
+ if [ test "x$check_for_snprintf" = "xyes" ]; then
+ 	AC_CHECK_FUNC(_snprintf,[
+-		AC_DEFINE(HAVE_SNPRINTF)
+-		AC_DEFINE(snprintf,_snprintf)
++		AC_DEFINE([HAVE_SNPRINTF], [], [Function _snprintf is available])
++		AC_DEFINE([snprintf], [_snprintf], [Use _snprintf instead of snprintf])
+ 	])
+ fi
+ 
+@@ -204,7 +204,7 @@ if [ test "x$check_for_vfscanf" = "xyes" ]; then
+ 	AC_MSG_CHECKING(for vfscanf in stdio.h)
+ 	AC_EGREP_HEADER(vfscanf,stdio.h,[
+ 		AC_MSG_RESULT(yes)
+-		AC_DEFINE(HAVE_VFSCANF)
++		AC_DEFINE([HAVE_VFSCANF], [], [Function vfscanf is available])
+ 	],[	AC_MSG_RESULT(no)
+ 	])
+ fi
+@@ -235,7 +235,7 @@ if test $LIBWMF_BUILDSTYLE = lite; then
+ fi # $LIBWMF_BUILDSTYLE = lite
+ 
+ if [ test $libwmf_layers = no ]; then
+-	AC_DEFINE(WITHOUT_LAYERS,1)
++	AC_DEFINE([WITHOUT_LAYERS], [1], [Don't use layers])
+ fi
+ 
+ AM_CONDITIONAL(LIBWMF_OPT_MODULES,[ test $libwmf_layers = modules ])
+@@ -361,9 +361,9 @@ if test $libwmf_xml = libxml2 -o $libwmf_xml = unknown; then
+ fi
+ 
+ if test $libwmf_xml = expat; then
+-	AC_DEFINE(HAVE_EXPAT)
++	AC_DEFINE([HAVE_EXPAT], [], [Use expat as libwmf_xml])
+ elif test $libwmf_xml = libxml2; then
+-	AC_DEFINE(HAVE_LIBXML2)
++	AC_DEFINE([HAVE_LIBXML2], [], [Use libxml2 as  libwmf_xml])
+ else
+ 	libwmf_xml=none
+ 	WMF_XML_CFLAGS=""
+@@ -524,7 +524,7 @@ AC_CHECK_HEADER(png.h,[
+ ],[	AC_MSG_ERROR(* * * unable to find "png.h" which is required by libwmf * * *)
+ ])
+ 
+-AC_DEFINE(HAVE_LIBPNG)
++AC_DEFINE([HAVE_LIBPNG], [], [Library libpng is available])
+ GD_DEFS="$GD_DEFS -DHAVE_LIBPNG"
+ 
+ fi # $LIBWMF_BUILDSTYLE = heavy
+@@ -567,7 +567,7 @@ if [ test "$search_for_jpeg" != "no" ]; then
+ 			else
+ 				WMF_JPEG_LDFLAGS="-ljpeg"
+ 			fi
+-			AC_DEFINE(HAVE_LIBJPEG)
++			AC_DEFINE([HAVE_LIBJPEG], [], [Library libjpeg is available])
+ 			GD_DEFS="$GD_DEFS -DHAVE_LIBJPEG"
+ 			libwmf_gd_jpeg=yes
+ 		])
+@@ -649,7 +649,7 @@ if [ test "$search_for_gd" != "no" ]; then
+ fi
+ 
+ if [ test "x$libwmf_gd" != "xnone" ]; then
+-	AC_DEFINE(HAVE_GD,1)
++	AC_DEFINE([HAVE_GD], [1], [Library gd is available])
+ 	build_gd_layer=yes
+ else
+ 	build_gd_layer=no
+@@ -711,7 +711,7 @@ if [ test "$search_for_plot" != "no" ]; then
+ 				else
+ 					WMF_PLOT_LDFLAGS="$LIBPLOT_LIBS"
+ 				fi
+-				AC_DEFINE(HAVE_LIBPLOT)
++				AC_DEFINE([HAVE_LIBPLOT], [], [Library libplot is available])
+ 				libwmf_plot=maybe
+ 			else
+ 				AC_MSG_ERROR(* * * sorry - unable to link against libplot * * *)
