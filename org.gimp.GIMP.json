@@ -355,29 +355,6 @@
             ]
         },
         {
-            "name": "lcms2",
-            "config-opts": [
-                "--disable-static"
-            ],
-            "cleanup": [
-                "/bin",
-                "/share"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/mm2/Little-CMS/releases/download/lcms2.13.1/lcms2-2.13.1.tar.gz",
-                    "sha512": "214ec63fa086b580a6507d493a54ccf5faf02c40e149d71e41f9fc8510efdb16554621c96d91cc886f09682c9631b10aa194b4b67eb6ffcc871d5d4666b05617",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 9815,
-                        "stable-only": true,
-                        "url-template": "https://github.com/mm2/Little-CMS/releases/download/lcms$version/lcms2-$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
             "name": "openexr",
             "modules": [
                 {
