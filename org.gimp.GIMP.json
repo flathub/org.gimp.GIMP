@@ -355,29 +355,6 @@
             ]
         },
         {
-            "name": "lcms2",
-            "config-opts": [
-                "--disable-static"
-            ],
-            "cleanup": [
-                "/bin",
-                "/share"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/mm2/Little-CMS/releases/download/lcms2.13.1/lcms2-2.13.1.tar.gz",
-                    "sha512": "214ec63fa086b580a6507d493a54ccf5faf02c40e149d71e41f9fc8510efdb16554621c96d91cc886f09682c9631b10aa194b4b67eb6ffcc871d5d4666b05617",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 9815,
-                        "stable-only": true,
-                        "url-template": "https://github.com/mm2/Little-CMS/releases/download/lcms$version/lcms2-$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
             "name": "openexr",
             "modules": [
                 {
@@ -471,7 +448,7 @@
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 3687,
-                                "stable-ony": true,
+                                "stable-only": true,
                                 "url-template": "https://poppler.freedesktop.org/poppler-data-$version.tar.gz"
                             }
                         }
@@ -561,7 +538,7 @@
                 {
                     "type": "archive",
                     "url": "https://github.com/caolanm/libwmf/archive/refs/tags/v0.2.12.tar.gz",
-                    "sha256": "464ff63605d7eaf61a4a12dbd420f7a41a4d854675d8caf37729f5bc744820e2",
+                    "sha512": "9280851e560becc91546906b911e0c59a1abd690e10680f6d94a335d66aeaec5eb12ccf2214ee7af2a15729a7b5f8b906022822399b4e2bc12c75a2d75748cab",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 230209,
@@ -886,18 +863,6 @@
                         "stable-only": true,
                         "url-template": "https://github.com/strukturag/libheif/releases/download/v$version/libheif-$version.tar.gz"
                     }
-                }
-            ]
-        },
-        {
-            "name": "libtiff",
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.com/libtiff/libtiff",
-                    "tag": "v4.1.0",
-                    "commit": "e0d707dc1524d8c0e20f03396f234e0f1b07b3f4"
                 }
             ]
         },
