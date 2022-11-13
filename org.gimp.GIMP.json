@@ -55,6 +55,9 @@
                 {
                     "name": "exiv2",
                     "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DEXIV2_ENABLE_BMFF=ON"
+                    ],
                     "builddir": true,
                     "cleanup": [
                         "/bin",
@@ -480,6 +483,8 @@
                 {
                     "name": "libde265",
                     "config-opts": [
+                        "--disable-dec265",
+                        "--disable-encoder",
                         "--disable-sherlock265"
                     ],
                     "cleanup": [
@@ -488,8 +493,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.8/libde265-1.0.8.tar.gz",
-                            "sha256": "24c791dd334fa521762320ff54f0febfd3c09fc978880a8c5fbc40a88f21d905",
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.9/libde265-1.0.9.tar.gz",
+                            "sha256": "29bc6b64bf658d81a4446a3f98e0e4636fd4fd3d971b072d440cef987d5439de",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 11239,
@@ -611,26 +616,50 @@
         {
             "name": "libjxl",
             "config-opts": [
-                "-DJPEGXL_ENABLE_PLUGINS=OFF",
                 "-DBUILD_TESTING=OFF",
-                "-DJPEGXL_WARNINGS_AS_ERRORS=OFF",
-                "-DJPEGXL_ENABLE_SJPEG=OFF",
                 "-DJPEGXL_ENABLE_BENCHMARK=OFF",
+                "-DJPEGXL_ENABLE_DOXYGEN=OFF",
                 "-DJPEGXL_ENABLE_EXAMPLES=OFF",
-                "-DJPEGXL_ENABLE_MANPAGES=OFF",
-                "-DJPEGXL_ENABLE_SKCMS=ON",
                 "-DJPEGXL_ENABLE_JNI=OFF",
+                "-DJPEGXL_ENABLE_MANPAGES=OFF",
+                "-DJPEGXL_ENABLE_PLUGINS=OFF",
+                "-DJPEGXL_ENABLE_SJPEG=OFF",
+                "-DJPEGXL_ENABLE_SKCMS=OFF",
                 "-DJPEGXL_ENABLE_TCMALLOC=OFF",
-                "-DJPEGXL_ENABLE_TOOLS=OFF"
+                "-DJPEGXL_ENABLE_TOOLS=OFF",
+                "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
+                "-DJPEGXL_FORCE_SYSTEM_HWY=ON",
+                "-DJPEGXL_FORCE_SYSTEM_LCMS2=ON",
+                "-DJPEGXL_WARNINGS_AS_ERRORS=OFF"
             ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
+            "modules": [
+                {
+                    "name": "libhwy",
+                    "config-opts": [
+                        "-DBUILD_TESTING=OFF",
+                        "-DBUILD_SHARED_LIBS=OFF",
+                        "-DHWY_ENABLE_EXAMPLES=OFF",
+                        "-DHWY_ENABLE_TESTS=OFF",
+                        "-DHWY_FORCE_STATIC_LIBS=ON"
+                    ],
+                    "buildsystem": "cmake-ninja",
+                    "builddir": true,
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/google/highway/archive/refs/tags/1.0.2.tar.gz",
+                            "sha256": "e8ef71236ac0d97f12d553ec1ffc5b6375d57b5f0b860c7447dd69b6ed1072db"
+                        }
+                    ]
+                }
+            ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libjxl/libjxl.git",
-                    "tag": "v0.6.1",
-                    "commit": "a205468bc5d3a353fb15dae2398a101dff52f2d3"
+                    "type": "archive",
+                    "url": "https://github.com/libjxl/libjxl/archive/refs/tags/v0.7.0.tar.gz",
+                    "sha256": "3114bba1fabb36f6f4adc2632717209aa6f84077bc4e93b420e0d63fa0455c5e"
                 }
             ]
         },
