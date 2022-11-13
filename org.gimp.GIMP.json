@@ -743,8 +743,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_96",
-                    "commit": "4fcc59632187d595df3443a94c78238af8c4867b"
+                    "tag": "BABL_0_1_98",
+                    "commit": "d26b50fb2647497b23445b4bfe220cd29b06c535"
                 }
             ]
         },
@@ -765,8 +765,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_38",
-                    "commit": "b7fbf39e8010a95977a1642b747b94205892ea57"
+                    "tag": "GEGL_0_4_40",
+                    "commit": "b3222c10c5ce8760bcd2a603dad2b3deb50fde6c"
                 }
             ],
             "modules": [
@@ -839,7 +839,7 @@
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
                     "//": "TODO: change to appropriate release tag when releasing",
-                    "commit": "6e92077a1f0f740c5b468011cd9879e555d6035f"
+                    "commit": "75e56986a0a0484c47f327438edfc13d17a5ef5b"
                 },
                 {
                     "type": "shell",
