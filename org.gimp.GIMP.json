@@ -929,8 +929,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_92",
-                    "commit": "befaba5cf1509d46fe27ccf609bd576db2bfebdc"
+                    "tag": "BABL_0_1_98",
+                    "commit": "d26b50fb2647497b23445b4bfe220cd29b06c535"
                 }
             ]
         },
@@ -951,8 +951,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_36",
-                    "commit": "31763e39265adab1142418f6d5cedbd4d3581e06"
+                    "tag": "GEGL_0_4_40",
+                    "commit": "b3222c10c5ce8760bcd2a603dad2b3deb50fde6c"
                 }
             ]
         },
