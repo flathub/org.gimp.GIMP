@@ -325,8 +325,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/Exiv2/exiv2/releases/download/v0.27.5/exiv2-0.27.5-Source.tar.gz",
-                            "sha256": "35a58618ab236a901ca4928b0ad8b31007ebdc0386d904409d825024e45ea6e2",
+                            "url": "https://github.com/Exiv2/exiv2/releases/download/v0.27.6/exiv2-0.27.6-Source.tar.gz",
+                            "sha256": "4c192483a1125dc59a3d70b30d30d32edace9e14adf52802d2f853abf72db8a6",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 769,
@@ -475,8 +475,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-22.11.0.tar.xz",
-                    "sha256": "093ba9844ed774285517361c15e21a31ba4df278a499263d4403cca74f2da828",
+                    "url": "https://poppler.freedesktop.org/poppler-23.01.0.tar.xz",
+                    "sha256": "fae9b88d3d5033117d38477b79220cfd0d8e252c278ec870ab1832501741fd94",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -864,8 +864,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.14.0/libheif-1.14.0.tar.gz",
-                    "sha256": "9a2b969d827e162fa9eba582ebd0c9f6891f16e426ef608d089b1f24962295b5",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.14.2/libheif-1.14.2.tar.gz",
+                    "sha256": "d016905e247d6952cd7ee4f9b90957350b6a6caa466bc76fdfe6eb302b6d088c",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
