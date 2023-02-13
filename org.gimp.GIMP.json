@@ -883,6 +883,7 @@
                 "-DJPEGXL_ENABLE_DOXYGEN=OFF",
                 "-DJPEGXL_ENABLE_EXAMPLES=OFF",
                 "-DJPEGXL_ENABLE_JNI=OFF",
+                "-DJPEGXL_ENABLE_JPEGLI_LIBJPEG=OFF",
                 "-DJPEGXL_ENABLE_MANPAGES=OFF",
                 "-DJPEGXL_ENABLE_PLUGINS=OFF",
                 "-DJPEGXL_ENABLE_SJPEG=OFF",
@@ -911,8 +912,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/google/highway/archive/refs/tags/1.0.2.tar.gz",
-                            "sha256": "e8ef71236ac0d97f12d553ec1ffc5b6375d57b5f0b860c7447dd69b6ed1072db"
+                            "url": "https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz",
+                            "sha256": "566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e"
                         }
                     ]
                 }
@@ -920,8 +921,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libjxl/libjxl/archive/refs/tags/v0.7.0.tar.gz",
-                    "sha256": "3114bba1fabb36f6f4adc2632717209aa6f84077bc4e93b420e0d63fa0455c5e"
+                    "url": "https://github.com/libjxl/libjxl/archive/refs/tags/v0.8.1.tar.gz",
+                    "sha256": "60f43921ad3209c9e180563025eda0c0f9b1afac51a2927b9ff59fff3950dc56"
                 }
             ]
         },
