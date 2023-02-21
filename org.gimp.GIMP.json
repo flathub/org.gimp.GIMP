@@ -174,8 +174,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.27/ibus-1.5.27.tar.gz",
-                            "sha256": "6efbda5adb96f607cf7108d1e270962c0729a59c9ea6d58eea2dde0e3cbb97df",
+                            "url": "https://github.com/ibus/ibus/releases/download/1.5.28/ibus-1.5.28.tar.gz",
+                            "sha256": "6c9ff3a7576c3d61264f386030f47ee467eb7298c8104367002986e008765667",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 1352,
@@ -864,8 +864,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.14.2/libheif-1.14.2.tar.gz",
-                    "sha256": "d016905e247d6952cd7ee4f9b90957350b6a6caa466bc76fdfe6eb302b6d088c",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.15.1/libheif-1.15.1.tar.gz",
+                    "sha256": "28d5a376fe7954d2d03453f983aaa0b7486f475c27c7806bda31df9102325556",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
@@ -941,8 +941,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.freedesktop.org/cairo/cairo/-/archive/1.17.6/cairo-1.17.6.tar.gz",
-                    "sha256": "a2227afc15e616657341c42af9830c937c3a6bfa63661074eabef13600e8936f",
+                    "url": "https://gitlab.freedesktop.org/cairo/cairo/-/archive/1.17.8/cairo-1.17.8.tar.gz",
+                    "sha256": "b4ed6d33037171d4c6594345b42d81796f335a6995fdf5638db0d306c17a0d3e",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 247,
