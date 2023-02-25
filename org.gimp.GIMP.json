@@ -963,8 +963,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_100",
-                    "commit": "ee571ffe47a6831553b181f3b612fac745db8557"
+                    "tag": "BABL_0_1_102",
+                    "commit": "47affe964dc714f45f38ea04a07f6b632ab36040"
                 }
             ]
         },
