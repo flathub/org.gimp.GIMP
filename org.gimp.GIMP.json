@@ -771,8 +771,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_42",
-                    "commit": "c111a9e5b0f6aa49b75c587608adb768148fa63e"
+                    "tag": "GEGL_0_4_44",
+                    "commit": "f58385300356e739491b4cf803e0f9591e34dd40"
                 }
             ],
             "modules": [
