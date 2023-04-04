@@ -216,8 +216,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.03.0.tar.xz",
-                    "sha256": "b04148bf849c1965ada7eff6be4685130e3a18a84e0cce73bf9bc472ec32f2b4",
+                    "url": "https://poppler.freedesktop.org/poppler-23.04.0.tar.xz",
+                    "sha256": "b6d893dc7dcd4138b9e9df59a13c59695e50e80dc5c2cacee0674670693951a1",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -326,8 +326,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10010/ghostscript-10.01.0.tar.xz",
-                    "sha512": "b679b35bcdcf211d6aa41a571225a50449e7e36def75cf37fee8f06889df3a5a9726a7aef2fd5ae819c2071cb6fcf8712741cd2c131c9341b60936e684bd8d98",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10011/ghostscript-10.01.1.tar.gz",
+                    "sha512": "985daedb3c74cf4b8edf33891532d37223752ed06ca45030962f182b2ffe1587ab42ad07641ee0f945b98beed2de4bee9948b9442f92f2a1f39300d332ddeb03",
                     "x-checker-data": {
                         "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
                         "type": "json",
@@ -462,8 +462,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.21.tar.gz",
-                            "sha256": "f36ba3d7a60e7c8bcc54cd9aaa9b1223dd42eaf02c811791c37e8ca707c241ca",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.23.tar.gz",
+                            "sha256": "5d9491d07168a5d00116cdc068a40022c3455bf9293c7cb86a65b1054d7e5114",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -607,8 +607,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.15.1/libheif-1.15.1.tar.gz",
-                    "sha256": "28d5a376fe7954d2d03453f983aaa0b7486f475c27c7806bda31df9102325556",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.15.2/libheif-1.15.2.tar.gz",
+                    "sha256": "7a4c6077f45180926583e2087571371bdd9cb21b6e6fada85a6fbd544f26a0e2",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
