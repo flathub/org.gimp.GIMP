@@ -475,8 +475,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.02.0.tar.xz",
-                    "sha256": "3315dda270fe2b35cf1f41d275948c39652fa863b90de0766f6b293d9a558fc9",
+                    "url": "https://poppler.freedesktop.org/poppler-23.04.0.tar.xz",
+                    "sha256": "b6d893dc7dcd4138b9e9df59a13c59695e50e80dc5c2cacee0674670693951a1",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -585,13 +585,14 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs1000/ghostscript-10.0.0.tar.gz",
-                    "sha512": "9aa5f310c250584312205b479ab9137d0fca56be214626782a1ba94b4b4ee15249b3eae703d08f48eb3cc06d71a2fae671d3570284b3fa9254ea3c1193ebc15b",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10011/ghostscript-10.01.1.tar.gz",
+                    "sha512": "985daedb3c74cf4b8edf33891532d37223752ed06ca45030962f182b2ffe1587ab42ad07641ee0f945b98beed2de4bee9948b9442f92f2a1f39300d332ddeb03",
                     "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 1157,
-                        "stable-only": true,
-                        "url-template": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs$major$minor$patch/ghostscript-$version.tar.gz"
+                        "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
+                        "type": "json",
+                        "url": "https://api.github.com/repos/ArtifexSoftware/ghostpdl-downloads/releases/latest",
+                        "version-query": ".name | split(\" \") | .[1]",
+                        "url-query": ".assets[] | select(.name|test(\"^ghostscript-(.*).tar.gz$\")) | .browser_download_url"
                     }
                 },
                 {
@@ -719,8 +720,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.21.tar.gz",
-                            "sha256": "f36ba3d7a60e7c8bcc54cd9aaa9b1223dd42eaf02c811791c37e8ca707c241ca",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.23.tar.gz",
+                            "sha256": "5d9491d07168a5d00116cdc068a40022c3455bf9293c7cb86a65b1054d7e5114",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -864,8 +865,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.15.1/libheif-1.15.1.tar.gz",
-                    "sha256": "28d5a376fe7954d2d03453f983aaa0b7486f475c27c7806bda31df9102325556",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.15.2/libheif-1.15.2.tar.gz",
+                    "sha256": "7a4c6077f45180926583e2087571371bdd9cb21b6e6fada85a6fbd544f26a0e2",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
@@ -985,8 +986,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_42",
-                    "commit": "c111a9e5b0f6aa49b75c587608adb768148fa63e"
+                    "tag": "GEGL_0_4_44",
+                    "commit": "f58385300356e739491b4cf803e0f9591e34dd40"
                 }
             ]
         },
