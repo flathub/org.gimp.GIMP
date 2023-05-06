@@ -346,8 +346,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.0.tar.xz",
-                    "sha256": "e58279a6ff20b6f64fa499615da5e9b57cf65ba7850b72fafdf17221a9d6d69e",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.1.tar.xz",
+                    "sha256": "ec3ee3ec3860b9c78958a55da89cf76ae2305848e12f41945b7b52124d8f6cf9",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1626,
@@ -475,8 +475,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.04.0.tar.xz",
-                    "sha256": "b6d893dc7dcd4138b9e9df59a13c59695e50e80dc5c2cacee0674670693951a1",
+                    "url": "https://poppler.freedesktop.org/poppler-23.05.0.tar.xz",
+                    "sha256": "38294de7149ebe458191a6e6d0e2837da7dba8683900a635252f6d0ee235f990",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -857,8 +857,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.15.2/libheif-1.15.2.tar.gz",
-                    "sha256": "7a4c6077f45180926583e2087571371bdd9cb21b6e6fada85a6fbd544f26a0e2",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.16.1/libheif-1.16.1.tar.gz",
+                    "sha256": "ac15b54b6d7c315710e156d119b8a1bfc89f29621e99222b2750b1f31c9c3558",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
