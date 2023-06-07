@@ -854,11 +854,6 @@
                     ]
                 },
                 {
-                    "//": "to be removed when moving to tag GIMP_2_99_16",
-                    "type": "patch",
-                    "path": "patches/0001-meson-take-into-account-babl-s-pkg-config-name-chang.patch"
-                },
-                {
                     "type": "patch",
                     "path": "patches/gimp-extension-path.patch"
                 }
