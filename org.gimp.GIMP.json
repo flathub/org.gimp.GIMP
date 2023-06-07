@@ -96,6 +96,11 @@
                         "stable-only": true,
                         "url-template": "https://download.gnome.org/sources/gexiv2/$major.$minor/gexiv2-$version.tar.xz"
                     }
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/gexiv2-0001-Fix-compatibility-with-exiv2-main-branch.patch",
+                    "//": "XXX remove this patch when we bump GExiv2 version (already in its source tree)"
                 }
             ]
         },
