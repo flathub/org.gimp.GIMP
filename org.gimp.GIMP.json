@@ -315,7 +315,8 @@
                     "name": "exiv2",
                     "buildsystem": "cmake-ninja",
                     "config-opts": [
-                        "-DEXIV2_ENABLE_BMFF=ON"
+                        "-DEXIV2_ENABLE_BMFF=ON",
+                        "-DEXIV2_ENABLE_INIH=OFF"
                     ],
                     "builddir": true,
                     "cleanup": [
