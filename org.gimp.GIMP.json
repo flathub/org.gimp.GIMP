@@ -733,8 +733,10 @@
         },
         {
             "name": "libheif",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
             "config-opts": [
-                "--disable-gdk-pixbuf"
+                "-DWITH_GDK_PIXBUF=OFF"
             ],
             "cleanup": [
                 "/bin",
