@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "beta",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "43",
+    "runtime-version": "44",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.99",
     "separate-locales": false,
@@ -56,7 +56,8 @@
                     "name": "exiv2",
                     "buildsystem": "cmake-ninja",
                     "config-opts": [
-                        "-DEXIV2_ENABLE_BMFF=ON"
+                        "-DEXIV2_ENABLE_BMFF=ON",
+                        "-DEXIV2_ENABLE_INIH=OFF"
                     ],
                     "builddir": true,
                     "cleanup": [
@@ -66,8 +67,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/Exiv2/exiv2/releases/download/v0.27.6/exiv2-0.27.6-Source.tar.gz",
-                            "sha256": "4c192483a1125dc59a3d70b30d30d32edace9e14adf52802d2f853abf72db8a6",
+                            "url": "https://github.com/Exiv2/exiv2/releases/download/v0.28.0/exiv2-0.28.0-Source.tar.gz",
+                            "sha256": "89af3b5ef7277753ef7a7b5374ae017c6b9e304db3b688f1948e73e103491f3d",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 769,
@@ -87,14 +88,19 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.0.tar.xz",
-                    "sha256": "e58279a6ff20b6f64fa499615da5e9b57cf65ba7850b72fafdf17221a9d6d69e",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.1.tar.xz",
+                    "sha256": "ec3ee3ec3860b9c78958a55da89cf76ae2305848e12f41945b7b52124d8f6cf9",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1626,
                         "stable-only": true,
                         "url-template": "https://download.gnome.org/sources/gexiv2/$major.$minor/gexiv2-$version.tar.xz"
                     }
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/gexiv2-0001-Fix-compatibility-with-exiv2-main-branch.patch",
+                    "//": "XXX remove this patch when we bump GExiv2 version (already in its source tree)"
                 }
             ]
         },
@@ -216,8 +222,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.04.0.tar.xz",
-                    "sha256": "b6d893dc7dcd4138b9e9df59a13c59695e50e80dc5c2cacee0674670693951a1",
+                    "url": "https://poppler.freedesktop.org/poppler-23.06.0.tar.xz",
+                    "sha256": "d38c6b2f31c8f6f3727fb60a011a0e6c567ebf56ef1ccad36263ca9ed6448a65",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -469,8 +475,10 @@
         },
         {
             "name": "libheif",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
             "config-opts": [
-                "--disable-gdk-pixbuf"
+                "-DWITH_GDK_PIXBUF=OFF"
             ],
             "cleanup": [
                 "/bin",
@@ -599,8 +607,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.15.2/libheif-1.15.2.tar.gz",
-                    "sha256": "7a4c6077f45180926583e2087571371bdd9cb21b6e6fada85a6fbd544f26a0e2",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.16.2/libheif-1.16.2.tar.gz",
+                    "sha256": "7f97e4205c0bd9f9b8560536c8bd2e841d1c9a6d610401eb3eb87ed9cdfe78ea",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
@@ -656,8 +664,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libjxl/libjxl/archive/refs/tags/v0.8.1.tar.gz",
-                    "sha256": "60f43921ad3209c9e180563025eda0c0f9b1afac51a2927b9ff59fff3950dc56"
+                    "url": "https://github.com/libjxl/libjxl/archive/refs/tags/v0.8.2.tar.gz",
+                    "sha256": "c70916fb3ed43784eb840f82f05d390053a558e2da106e40863919238fa7b420"
                 }
             ]
         },
@@ -741,8 +749,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_102",
-                    "commit": "47affe964dc714f45f38ea04a07f6b632ab36040"
+                    "tag": "BABL_0_1_106",
+                    "commit": "150294d22e9f151ebe0ca7ac1c3a72135d2e850e"
                 }
             ]
         },
@@ -763,8 +771,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_44",
-                    "commit": "f58385300356e739491b4cf803e0f9591e34dd40"
+                    "tag": "GEGL_0_4_46",
+                    "commit": "e6cb97763e422d8853fc95c665f8b0c73f025dd8"
                 }
             ],
             "modules": [
@@ -788,8 +796,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://gitlab.com/graphviz/graphviz/-/archive/7.1.0/graphviz-7.1.0.tar.gz",
-                            "sha256": "8b28a283644a8442e6925b15d95055228d25172c7c30681810625616cbb23913",
+                            "url": "https://gitlab.com/graphviz/graphviz/-/archive/8.0.5/graphviz-8.0.5.tar.gz",
+                            "sha256": "dd06f45f5bbcb1c7cbc67adab5359da2cd4b40533dc7c7424b3fc0e998bbd6c9",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 1249,
@@ -836,19 +844,14 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_14",
-                    "commit": "a0811ff614ec8361e570b2570dee05de6fc5a078"
+                    "tag": "GIMP_2_99_16",
+                    "commit": "d3c5536ac85bb84e1beaba68aea12cf28062e08c"
                 },
                 {
                     "type": "shell",
                     "commands": [
                         "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
                     ]
-                },
-                {
-                    "//": "to be removed when moving to tag GIMP_2_99_16",
-                    "type": "patch",
-                    "path": "patches/0001-meson-take-into-account-babl-s-pkg-config-name-chang.patch"
                 },
                 {
                     "type": "patch",
