@@ -347,8 +347,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.1.tar.xz",
-                    "sha256": "ec3ee3ec3860b9c78958a55da89cf76ae2305848e12f41945b7b52124d8f6cf9",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.2.tar.xz",
+                    "sha256": "2a0c9cf48fbe8b3435008866ffd40b8eddb0667d2212b42396fdf688e93ce0be",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1626,
@@ -481,8 +481,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.06.0.tar.xz",
-                    "sha256": "d38c6b2f31c8f6f3727fb60a011a0e6c567ebf56ef1ccad36263ca9ed6448a65",
+                    "url": "https://poppler.freedesktop.org/poppler-23.07.0.tar.xz",
+                    "sha256": "f29b4b4bf47572611176454c8f21506d71d27eca5011a39aa44038b30b957db0",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -583,8 +583,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10011/ghostscript-10.01.1.tar.gz",
-                    "sha512": "985daedb3c74cf4b8edf33891532d37223752ed06ca45030962f182b2ffe1587ab42ad07641ee0f945b98beed2de4bee9948b9442f92f2a1f39300d332ddeb03",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10012/ghostscript-10.01.2.tar.gz",
+                    "sha512": "11887850d440b8bbd8b83b8b58df8c743cf94be8fdbcfbda1a5fce55ce7c6a963d94b41a4ebcf1ba48f64f8af01e76dec789e2711212b1f7a32f98c42d75e0ff",
                     "x-checker-data": {
                         "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
                         "type": "json",
@@ -756,8 +756,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.11/libde265-1.0.11.tar.gz",
-                            "sha256": "2f8f12cabbdb15e53532b7c1eb964d4e15d444db1be802505e6ac97a25035bab",
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.12/libde265-1.0.12.tar.gz",
+                            "sha256": "62185ea2182e68cf68bba20cc6eb4c287407b509cf0a827d7ddb75614db77b5c",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 11239,
