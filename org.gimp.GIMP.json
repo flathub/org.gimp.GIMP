@@ -347,19 +347,14 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.1.tar.xz",
-                    "sha256": "ec3ee3ec3860b9c78958a55da89cf76ae2305848e12f41945b7b52124d8f6cf9",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.2.tar.xz",
+                    "sha256": "2a0c9cf48fbe8b3435008866ffd40b8eddb0667d2212b42396fdf688e93ce0be",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1626,
                         "stable-only": true,
                         "url-template": "https://download.gnome.org/sources/gexiv2/$major.$minor/gexiv2-$version.tar.xz"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/gexiv2-0001-Fix-compatibility-with-exiv2-main-branch.patch",
-                    "//": "XXX remove this patch when we bump GExiv2 version (already in its source tree)"
                 }
             ]
         },
