@@ -476,8 +476,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.08.0.tar.xz",
-                    "sha256": "4a4bf7fc903b9f1a2ab7d04b7c5d8220db9bc6261cc73fdb9a826dc272f49aa8",
+                    "url": "https://poppler.freedesktop.org/poppler-23.09.0.tar.xz",
+                    "sha256": "80d1d44dd8bdf4ac1a47d56c5065075eb9991790974b1ed7d14b972acde88e55",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -629,8 +629,8 @@
                         {
                             "type": "git",
                             "url": "https://github.com/json-c/json-c.git",
-                            "tag": "json-c-0.16-20220414",
-                            "commit": "2f2ddc1f2dbca56c874e8f9c31b5b963202d80e7",
+                            "tag": "json-c-0.17-20230812",
+                            "commit": "b4c371fa0cbc4dcbaccc359ce9e957a22988fb34",
                             "x-checker-data": {
                                 "type": "git",
                                 "tag-pattern": "^json-c-([\\d.]+)-[\\d]+$"
@@ -713,8 +713,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.23.tar.gz",
-                            "sha256": "5d9491d07168a5d00116cdc068a40022c3455bf9293c7cb86a65b1054d7e5114",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.24.tar.gz",
+                            "sha256": "ceadc5065da97bd92404cac7254da66cc6eb192679cf1002098688978d4d5132",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
