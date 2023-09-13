@@ -2,7 +2,7 @@
     "app-id": "org.gimp.GIMP",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "43",
+    "runtime-version": "44",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -187,6 +187,7 @@
                 }
             ]
         },
+        "shared-modules/libsoup/libsoup-2.4.json",
         {
             "name": "webkitgtk",
             "config-opts": [
