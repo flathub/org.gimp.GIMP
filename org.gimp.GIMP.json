@@ -525,7 +525,8 @@
                         "-DENABLE_ENCODER=OFF"
                     ],
                     "cleanup": [
-                        "/lib/libheif/bin"
+                        "/lib/libheif/bin",
+                        "/lib/libheif/include"
                     ],
                     "sources": [
                         {
@@ -553,7 +554,8 @@
                         "-DLINKED_12BIT=ON"
                     ],
                     "cleanup": [
-                        "/lib/libheif/bin"
+                        "/lib/libheif/bin",
+                        "/lib/libheif/include"
                     ],
                     "sources": [
                         {
