@@ -544,7 +544,7 @@
                 },
                 {
                     "name": "libx265",
-                    "buildsystem": "cmake",
+                    "buildsystem": "cmake-ninja",
                     "subdir": "source",
                     "config-opts": [
                         "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
@@ -581,7 +581,7 @@
                     "modules": [
                         {
                             "name": "libx265-10bpc",
-                            "buildsystem": "cmake",
+                            "buildsystem": "cmake-ninja",
                             "subdir": "source",
                             "config-opts": [
                                 "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
@@ -610,7 +610,7 @@
                         },
                         {
                             "name": "libx265-12bpc",
-                            "buildsystem": "cmake",
+                            "buildsystem": "cmake-ninja",
                             "subdir": "source",
                             "config-opts": [
                                 "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
