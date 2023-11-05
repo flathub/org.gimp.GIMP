@@ -1006,8 +1006,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_34",
-                    "commit": "b073805fb3cc3563aa0278573fb74364862ca21b"
+                    "tag": "GIMP_2_10_36",
+                    "commit": "1651e6e767965cf055e05d13e075095d226f1c66"
                 },
                 {
                     "type": "patch",
