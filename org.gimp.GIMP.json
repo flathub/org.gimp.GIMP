@@ -466,7 +466,8 @@
                 "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3",
                 "-DENABLE_BOOST=OFF",
                 "-DWITH_NSS3:BOOL=OFF",
-                "-DENABLE_QT5:BOOL=OFF"
+                "-DENABLE_QT5:BOOL=OFF",
+                "-DENABLE_QT6:BOOL=OFF"
             ],
             "cleanup": [
                 "/bin",
