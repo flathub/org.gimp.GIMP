@@ -1016,11 +1016,6 @@
                 },
                 {
                     "type": "patch",
-                    "use-git": true,
-                    "path": "patches/0002-Fix-flatpak-release-info-about-JPEG-XL.patch"
-                },
-                {
-                    "type": "patch",
                     "path": "patches/gimp-extension-path.patch"
                 }
             ],
