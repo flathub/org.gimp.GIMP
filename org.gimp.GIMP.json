@@ -477,8 +477,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.11.0.tar.xz",
-                    "sha256": "f99cca6799cb9cb6c92fc1e0eb78547b611cb733750ab7cb047cb0e6c246539c",
+                    "url": "https://poppler.freedesktop.org/poppler-23.12.0.tar.xz",
+                    "sha256": "beba398c9d37a9b6d02486496635e08f1df3d437cfe61dab2593f47c4d14cdbb",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -714,8 +714,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.24.tar.gz",
-                            "sha256": "ceadc5065da97bd92404cac7254da66cc6eb192679cf1002098688978d4d5132",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.25.tar.gz",
+                            "sha256": "4c25cb30c4bb23eddca05d7d0a85997b8db6144f5464ba7f8c09ce91e2f35543",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -752,8 +752,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.12/libde265-1.0.12.tar.gz",
-                            "sha256": "62185ea2182e68cf68bba20cc6eb4c287407b509cf0a827d7ddb75614db77b5c",
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.14/libde265-1.0.14.tar.gz",
+                            "sha256": "99f46ef77a438be639aa3c5d9632c0670541c5ed5d386524d4199da2d30df28f",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 11239,
@@ -861,8 +861,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.3/libheif-1.17.3.tar.gz",
-                    "sha256": "8d5b6292e7931324f81f871f250ecbb9f874aa3c66b4f6f35ceb0bf3163b53ea",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.5/libheif-1.17.5.tar.gz",
+                    "sha256": "38ab01938ef419dbebb98346dc0b1c8bb503a0449ea61a0e409a988786c2af5b",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
