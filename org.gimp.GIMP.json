@@ -173,8 +173,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.28/ibus-1.5.28.tar.gz",
-                            "sha256": "6c9ff3a7576c3d61264f386030f47ee467eb7298c8104367002986e008765667",
+                            "url": "https://github.com/ibus/ibus/releases/download/1.5.29/ibus-1.5.29.tar.gz",
+                            "sha256": "4a457f10e29da0623e96cbbaca89cc529145587141f8e64c305f17dc875d5e6e",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 1352,
@@ -326,8 +326,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.1.tar.gz",
-                            "sha256": "3078651f995cb6313b1041f07f4dd1bf0e9e4d394d6e2adc6e92ad0b621291fa",
+                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.2.tar.gz",
+                            "sha256": "543bead934135f20f438e0b6d8858c55c5fcb7ff80f5d1d55489965f1aad58b9",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 769,
@@ -376,8 +376,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.9.tar.gz",
-                            "sha256": "05bb9c2da3ff3508eee51c30f59c7f2c59bf068f3b636d12d5991e8bbaf13e01",
+                            "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.10.tar.gz",
+                            "sha256": "c081fd982a1ba960f0faf41f152ffa035e1fbb071283ce10424116874fc8ce48",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 13289,
@@ -413,8 +413,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.9.tar.gz",
-                    "sha256": "05bb9c2da3ff3508eee51c30f59c7f2c59bf068f3b636d12d5991e8bbaf13e01",
+                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.10.tar.gz",
+                    "sha256": "c081fd982a1ba960f0faf41f152ffa035e1fbb071283ce10424116874fc8ce48",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 13289,
@@ -477,8 +477,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.11.0.tar.xz",
-                    "sha256": "f99cca6799cb9cb6c92fc1e0eb78547b611cb733750ab7cb047cb0e6c246539c",
+                    "url": "https://poppler.freedesktop.org/poppler-24.02.0.tar.xz",
+                    "sha256": "19187a3fdd05f33e7d604c4799c183de5ca0118640c88b370ddcf3136343222e",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -714,8 +714,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.24.tar.gz",
-                            "sha256": "ceadc5065da97bd92404cac7254da66cc6eb192679cf1002098688978d4d5132",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.26.tar.gz",
+                            "sha256": "4e6e4f5cb14c209262e33e6816d70221a2fe49eb69eaf0a06f065598ac602c68",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -752,8 +752,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.12/libde265-1.0.12.tar.gz",
-                            "sha256": "62185ea2182e68cf68bba20cc6eb4c287407b509cf0a827d7ddb75614db77b5c",
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.15/libde265-1.0.15.tar.gz",
+                            "sha256": "00251986c29d34d3af7117ed05874950c875dd9292d016be29d3b3762666511d",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 11239,
@@ -861,8 +861,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.3/libheif-1.17.3.tar.gz",
-                    "sha256": "8d5b6292e7931324f81f871f250ecbb9f874aa3c66b4f6f35ceb0bf3163b53ea",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.6/libheif-1.17.6.tar.gz",
+                    "sha256": "8390baf4913eda0a183e132cec62b875fb2ef507ced5ddddc98dfd2f17780aee",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
