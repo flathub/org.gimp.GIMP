@@ -703,7 +703,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/phoboslab/qoi.git",
-                    "commit": "f6dffaf1e8170cdd79945a4fb60f6403e447e020"
+                    "commit": "30d15d79b7726b977cd889151cc5cd6b17742f8f"
                 }
             ]
         },
