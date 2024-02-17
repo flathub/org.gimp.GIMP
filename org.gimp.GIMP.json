@@ -83,8 +83,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.1.tar.gz",
-                            "sha256": "3078651f995cb6313b1041f07f4dd1bf0e9e4d394d6e2adc6e92ad0b621291fa",
+                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.2.tar.gz",
+                            "sha256": "543bead934135f20f438e0b6d8858c55c5fcb7ff80f5d1d55489965f1aad58b9",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 769,
@@ -490,7 +490,16 @@
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
-                "-DWITH_GDK_PIXBUF=OFF"
+                "-DWITH_GDK_PIXBUF=OFF",
+                "-DWITH_EXAMPLES=OFF",
+                "-DENABLE_PLUGIN_LOADING=OFF",
+                "-DWITH_LIBDE265=ON",
+                "-DWITH_X265=ON",
+                "-DWITH_DAV1D=ON",
+                "-DWITH_AOM_DECODER=ON",
+                "-DWITH_AOM_ENCODER=ON",
+                "-DWITH_JPEG_DECODER=ON",
+                "-DWITH_OpenJPEG_DECODER=ON"
             ],
             "cleanup": [
                 "/bin",
@@ -499,10 +508,11 @@
             "modules": [
                 {
                     "name": "libde265",
+                    "buildsystem": "cmake-ninja",
                     "config-opts": [
-                        "--disable-dec265",
-                        "--disable-encoder",
-                        "--disable-sherlock265"
+                        "-DENABLE_SDL=OFF",
+                        "-DENABLE_DECODER=OFF",
+                        "-DENABLE_ENCODER=OFF"
                     ],
                     "cleanup": [
                         "/bin"
@@ -510,8 +520,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.12/libde265-1.0.12.tar.gz",
-                            "sha256": "62185ea2182e68cf68bba20cc6eb4c287407b509cf0a827d7ddb75614db77b5c",
+                            "url": "https://github.com/strukturag/libde265/releases/download/v1.0.15/libde265-1.0.15.tar.gz",
+                            "sha256": "00251986c29d34d3af7117ed05874950c875dd9292d016be29d3b3762666511d",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 11239,
@@ -619,65 +629,14 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.3/libheif-1.17.3.tar.gz",
-                    "sha256": "8d5b6292e7931324f81f871f250ecbb9f874aa3c66b4f6f35ceb0bf3163b53ea",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.6/libheif-1.17.6.tar.gz",
+                    "sha256": "8390baf4913eda0a183e132cec62b875fb2ef507ced5ddddc98dfd2f17780aee",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
                         "stable-only": true,
                         "url-template": "https://github.com/strukturag/libheif/releases/download/v$version/libheif-$version.tar.gz"
                     }
-                }
-            ]
-        },
-        {
-            "name": "libjxl",
-            "config-opts": [
-                "-DBUILD_TESTING=OFF",
-                "-DJPEGXL_ENABLE_BENCHMARK=OFF",
-                "-DJPEGXL_ENABLE_DOXYGEN=OFF",
-                "-DJPEGXL_ENABLE_EXAMPLES=OFF",
-                "-DJPEGXL_ENABLE_JNI=OFF",
-                "-DJPEGXL_ENABLE_JPEGLI_LIBJPEG=OFF",
-                "-DJPEGXL_ENABLE_MANPAGES=OFF",
-                "-DJPEGXL_ENABLE_PLUGINS=OFF",
-                "-DJPEGXL_ENABLE_SJPEG=OFF",
-                "-DJPEGXL_ENABLE_SKCMS=OFF",
-                "-DJPEGXL_ENABLE_TCMALLOC=OFF",
-                "-DJPEGXL_ENABLE_TOOLS=OFF",
-                "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
-                "-DJPEGXL_FORCE_SYSTEM_HWY=ON",
-                "-DJPEGXL_FORCE_SYSTEM_LCMS2=ON",
-                "-DJPEGXL_WARNINGS_AS_ERRORS=OFF"
-            ],
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "modules": [
-                {
-                    "name": "libhwy",
-                    "config-opts": [
-                        "-DBUILD_TESTING=OFF",
-                        "-DBUILD_SHARED_LIBS=OFF",
-                        "-DHWY_ENABLE_EXAMPLES=OFF",
-                        "-DHWY_ENABLE_TESTS=OFF",
-                        "-DHWY_FORCE_STATIC_LIBS=ON"
-                    ],
-                    "buildsystem": "cmake-ninja",
-                    "builddir": true,
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/google/highway/archive/refs/tags/1.0.3.tar.gz",
-                            "sha256": "566fc77315878473d9a6bd815f7de78c73734acdcb745c3dde8579560ac5440e"
-                        }
-                    ]
-                }
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/libjxl/libjxl/archive/refs/tags/v0.8.2.tar.gz",
-                    "sha256": "c70916fb3ed43784eb840f82f05d390053a558e2da106e40863919238fa7b420"
                 }
             ]
         },
@@ -744,7 +703,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/phoboslab/qoi.git",
-                    "commit": "f6dffaf1e8170cdd79945a4fb60f6403e447e020"
+                    "commit": "30d15d79b7726b977cd889151cc5cd6b17742f8f"
                 }
             ]
         },
@@ -778,8 +737,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_106",
-                    "commit": "150294d22e9f151ebe0ca7ac1c3a72135d2e850e"
+                    "tag": "BABL_0_1_108",
+                    "commit": "d3337db41be34623dd2f29adf955bfbc459bb432"
                 }
             ]
         },
@@ -800,8 +759,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_46",
-                    "commit": "e6cb97763e422d8853fc95c665f8b0c73f025dd8"
+                    "tag": "GEGL_0_4_48",
+                    "commit": "9e86b27134d928237c21f93dd7b4936822f55d53"
                 }
             ],
             "modules": [
@@ -873,8 +832,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_16",
-                    "commit": "d3c5536ac85bb84e1beaba68aea12cf28062e08c"
+                    "tag": "GIMP_2_99_18",
+                    "commit": "f94c4cb5dbf9766b27ecb5016b7a39497cc74ddc"
                 },
                 {
                     "type": "shell",
