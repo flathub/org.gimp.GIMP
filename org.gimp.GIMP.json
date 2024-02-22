@@ -862,7 +862,10 @@
                 },
                 {
                     "type": "patch",
-                    "path": "patches/gimp-extension-path.patch"
+                    "paths": [
+                        "patches/gimp-extension-path.patch",
+                        "patches/gimp-missing-header.patch"
+                    ]
                 }
             ],
             "post-install": [
