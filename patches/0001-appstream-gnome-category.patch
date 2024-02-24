@@ -1,0 +1,44 @@
+From caf506af0c406721c2e4ec038e4caf40fe1eddc2 Mon Sep 17 00:00:00 2001
+From: Jehan <jehan@girinstud.io>
+Date: Tue, 3 May 2022 22:47:34 +0200
+Subject: [PATCH] desktop: we might not be valid project_group GNOME?
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+appstreamcli returns an info message:
+
+> I: org.gimp.GIMP:3: cid-missing-affiliation-gnome org.gimp.GIMP
+
+Checking the message, it happens because the application ID does not
+start with "org.gnome." (but "org.gimp.").
+
+Double-checking AppStream docs, a note says:
+
+> You should only identify with an umbrella project if you use all their
+> infrastructure and policies, for instance string freezes dates,
+> bugtracker and source control instance.
+
+GNOME Foundation is indeed an umbrella for us for the infrastructure and
+obviously part of its policies. But we are still independant and don't
+depend on GNOME's freeze dates, or release dates, or design rules
+(though we try to follow what makes sense), and so on. So I guess it
+means we should not set this metadata tag? 🤷 Let's drop it.
+
+See: https://freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-project_group
+---
+ desktop/org.gimp.GIMP.appdata.xml.in.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/desktop/org.gimp.GIMP.appdata.xml.in.in b/desktop/org.gimp.GIMP.appdata.xml.in.in
+index fc815254cb..a2a3faab2a 100644
+--- a/desktop/org.gimp.GIMP.appdata.xml.in.in
++++ b/desktop/org.gimp.GIMP.appdata.xml.in.in
+@@ -61,7 +61,6 @@
+     <kudo>ModernToolkit</kudo>
+     <kudo>UserDocs</kudo>
+   </kudos>
+-  <project_group>GNOME</project_group>
+   <translation type="gettext">gimp20</translation>
+ 
+   <launchable type="desktop-id">gimp.desktop</launchable>
