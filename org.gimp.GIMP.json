@@ -502,10 +502,12 @@
                 "-DWITH_LIBDE265_PLUGIN=ON",
                 "-DWITH_X265_PLUGIN=ON",
                 "-DWITH_DAV1D=ON",
+                "-DWITH_DAV1D_PLUGIN=OFF",
                 "-DWITH_AOM_DECODER=ON",
                 "-DWITH_AOM_ENCODER=ON",
                 "-DWITH_JPEG_DECODER=ON",
-                "-DWITH_OpenJPEG_DECODER=ON"
+                "-DWITH_OpenJPEG_DECODER=ON",
+                "-DWITH_OpenJPEG_DECODER_PLUGIN=OFF"
             ],
             "build-options": {
                 "append-pkg-config-path": "/app/lib/libheif/lib/pkgconfig"
