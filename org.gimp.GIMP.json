@@ -3,6 +3,9 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "45",
     "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+       "org.freedesktop.Sdk.Extension.llvm17"
+    ],
     "command": "gimp-2.99",
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
@@ -15,7 +18,7 @@
         "--socket=wayland",
         "--device=dri",
         "--filesystem=host",
-        "--filesystem=xdg-config/GIMP",
+        "--filesystem=xdg-config/GIMP:create",
         "--filesystem=xdg-config/gtk-3.0",
         "--filesystem=/tmp",
         "--filesystem=xdg-run/gvfs",
@@ -752,6 +755,14 @@
             "config-opts": [
                 "-Dwith-docs=false"
             ],
+            "build-options": {
+                "append-path": "/usr/lib/sdk/llvm17/bin",
+                "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
+                "env": {
+                    "CC": "clang",
+                    "CXX": "clang++"
+                }
+            },
             "sources": [
                 {
                     "type": "git",
@@ -769,7 +780,13 @@
                 "-Dworkshop=true"
             ],
             "build-options": {
-                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
+                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
+                "append-path": "/usr/lib/sdk/llvm17/bin",
+                "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
+                "env": {
+                    "CC": "clang",
+                    "CXX": "clang++"
+                }
             },
             "cleanup": [
                 "/bin"
@@ -837,6 +854,14 @@
         {
             "name": "gimp",
             "buildsystem": "meson",
+            "build-options": {
+                "append-path": "/usr/lib/sdk/llvm17/bin",
+                "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
+                "env": {
+                    "CC": "clang",
+                    "CXX": "clang++"
+                }
+            },
             "config-opts": [
                 "-Dg-ir-doc=false",
                 "-Dgi-docgen=disabled",
