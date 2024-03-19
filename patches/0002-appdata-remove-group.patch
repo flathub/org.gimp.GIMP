@@ -1,0 +1,12 @@
+diff --git a/desktop/org.gimp.GIMP.appdata.xml.in.in b/desktop/org.gimp.GIMP.appdata.xml.in.in
+index 91e470876a..ffbfcc8746 100644
+--- a/desktop/org.gimp.GIMP.appdata.xml.in.in
++++ b/desktop/org.gimp.GIMP.appdata.xml.in.in
+@@ -61,7 +61,6 @@
+     <kudo>ModernToolkit</kudo>
+     <kudo>UserDocs</kudo>
+   </kudos>
+-  <project_group>GNOME</project_group>
+   <translation type="gettext">gimp20</translation>
+ 
+   <launchable type="desktop-id">org.gimp.GIMP.desktop</launchable>
