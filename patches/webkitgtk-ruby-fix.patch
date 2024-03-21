@@ -1,0 +1,13 @@
+diff --git a/Source/JavaScriptCore/offlineasm/parser.rb b/Source/JavaScriptCore/offlineasm/parser.rb
+index 3b9c67b..3004e86 100644
+--- a/Source/JavaScriptCore/offlineasm/parser.rb
++++ b/Source/JavaScriptCore/offlineasm/parser.rb
+@@ -503,7 +503,7 @@ class Parser
+         firstCodeOrigin = @tokens[@idx].codeOrigin
+         list = []
+         loop {
+-            if (@idx == @tokens.length and not final) or (final and @tokens[@idx] =~ final)
++            if (@idx == @tokens.length and not final) or (final and final =~ @tokens[@idx].string)
+                 break
+             elsif @tokens[@idx].is_a? Annotation
+                 # This is the only place where we can encounter a global
