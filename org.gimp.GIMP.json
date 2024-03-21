@@ -1,7 +1,7 @@
 {
     "app-id": "org.gimp.GIMP",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "44",
+    "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -230,15 +230,12 @@
                 },
                 {
                     "type": "patch",
-                    "path": "patches/webkitgtk-2.4.11.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/webkitgtk-fix.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/webkitgtk-41-fix.patch"
+                    "paths": [
+                        "patches/webkitgtk-2.4.11.patch",
+                        "patches/webkitgtk-fix.patch",
+                        "patches/webkitgtk-41-fix.patch",
+                        "patches/webkitgtk-ruby-fix.patch"
+                    ]
                 }
             ]
         },
