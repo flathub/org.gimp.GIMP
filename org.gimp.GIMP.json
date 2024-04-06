@@ -960,7 +960,8 @@
                     "paths": [
                         "patches/0001-desktop-rename-launchable-in-appdata.patch",
                         "patches/0002-appdata-remove-group.patch",
-                        "patches/gimp-extension-path.patch"
+                        "patches/gimp-extension-path.patch",
+                        "patches/gimp-glib-crash.patch"
                     ]
                 }
             ],
