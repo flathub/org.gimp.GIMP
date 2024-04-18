@@ -4,9 +4,17 @@
     "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
-       "org.freedesktop.Sdk.Extension.llvm17"
+        "org.freedesktop.Sdk.Extension.llvm17"
     ],
     "command": "gimp-2.99",
+    "build-options": {
+        "append-path": "/usr/lib/sdk/llvm17/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
+        "env": {
+            "CC": "clang",
+            "CXX": "clang++"
+        }
+    },
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
@@ -126,79 +134,55 @@
         },
         {
             "name": "openexr",
-            "modules": [
-                {
-                    "name": "ilmbase",
-                    "subdir": "IlmBase",
-                    "config-opts": [
-                        "--disable-static"
-                    ],
-                    "build-options": {
-                        "cxxflags": "-std=c++14",
-                        "env": {
-                            "LDFLAGS": "-lpthread"
-                        }
-                    },
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.10.tar.gz",
-                            "sha256": "c081fd982a1ba960f0faf41f152ffa035e1fbb071283ce10424116874fc8ce48",
-                            "x-checker-data": {
-                                "type": "anitya",
-                                "project-id": 13289,
-                                "stable-only": true,
-                                "versions": {
-                                    "<": "3.0.0"
-                                },
-                                "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
-                            }
-                        },
-                        {
-                            "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "subdir": "OpenEXR",
             "config-opts": [
-                "--disable-static",
-                "--disable-ilmbasetest"
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DOPENEXR_BUILD_EXAMPLES=OFF",
+                "-DBUILD_TESTING=OFF",
+                "-DOPENEXR_INSTALL_PKG_CONFIG=ON"
             ],
             "cleanup": [
                 "/bin",
                 "/share/doc",
                 "/lib/libIlmImfUtil*"
             ],
-            "build-options": {
-                "cxxflags": "-std=c++14"
-            },
-            "sources": [
+            "builddir" : true,
+            "buildsystem" : "cmake-ninja",
+            "sources" : [
                 {
                     "type": "archive",
-                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.10.tar.gz",
-                    "sha256": "c081fd982a1ba960f0faf41f152ffa035e1fbb071283ce10424116874fc8ce48",
+                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.1.10.tar.gz",
+                    "sha256": "6e0fd3f0eb1cb907bd3593830ea2b3431b85f22a6f18f99f8cfa099fec70067d",
                     "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 13289,
-                        "stable-only": true,
-                        "versions": {
-                            "<": "3.0.0"
-                        },
-                        "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
-                    }
-                },
+                                "type": "anitya",
+                                "project-id": 13289,
+                                "stable-only": true,
+                                "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
+                            }
+                }
+            ],
+            "modules": [
                 {
-                    "type": "patch",
-                    "path": "patches/openexr-no-docs.patch"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                    "name" : "imath",
+                    "config-opts": [
+                        "-DBUILD_SHARED_LIBS=ON",
+                        "-DBUILD_TESTING=OFF",
+                        "-DIMATH_INSTALL_PKG_CONFIG=ON"
+                    ],
+
+                    "builddir" : true,
+                    "buildsystem" : "cmake-ninja",
+                    "sources" : [
+                        {
+                            "type": "archive",
+                            "url" : "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.9.tar.gz",
+                            "sha256": "f1d8aacd46afed958babfced3190d2d3c8209b66da451f556abd6da94c165cf3",
+                            "x-checker-data": {
+                                        "type": "anitya",
+                                        "project-id": 223366,
+                                        "stable-only": true,
+                                        "url-template": "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v$version.tar.gz"
+                                    }
+                        }
                     ]
                 }
             ]
@@ -255,7 +239,14 @@
             ]
         },
         {
+            "//": "FIX ME! aalib isn't building with Clang even with MSYS2 patches",
             "name": "aalib",
+            "build-options": {
+                "env": {
+                    "CC": "gcc",
+                    "CXX": "gcc"
+                }
+            },
             "config-opts": [
                 "--disable-static",
                 "--with-slang-driver=no"
@@ -428,40 +419,28 @@
             ]
         },
         {
-            "//": "Shamelessly taken from org.octave.Octave manifest!",
+            "//": "Originally taken from org.octave.Octave manifest",
             "name": "SuiteSparse",
-            "no-autogen": true,
-            "make-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "library"
-            ],
-            "make-install-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "INSTALL_LIB=/app/lib",
-                "INSTALL_INCLUDE=/app/include/suitesparse",
-                "library"
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DBLA_VENDOR=OpenBLAS",
+                "-DSUITESPARSE_USE_OPENMP=OFF",
+                "-DSUITESPARSE_DEMOS=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include/suitesparse"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.13.0.tar.gz",
-                    "sha256": "59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d",
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v7.6.0.tar.gz",
+                    "sha256": "19cbeb9964ebe439413dd66d82ace1f904adc5f25d8a823c1b48c34bd0d29ea5",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4908,
                         "stable-only": true,
-                        "//": "patches don't apply. Avoiding flathubbot to spam us with broken updates",
-                        "versions": {
-                            "<": "6.0.0"
-                        },
                         "url-template": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v$version.tar.gz"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/suitesparse-reduce-build.patch"
                 }
             ],
             "modules": [
@@ -732,9 +711,7 @@
             "config-opts": [
                 "--enable-reentrant"
             ],
-            "make-args": [
-                "shared"
-            ],
+            "make-args": ["shared"],
             "cleanup": [
                 "/include",
                 "/lib/*.a",
@@ -755,14 +732,6 @@
             "config-opts": [
                 "-Dwith-docs=false"
             ],
-            "build-options": {
-                "append-path": "/usr/lib/sdk/llvm17/bin",
-                "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
-                "env": {
-                    "CC": "clang",
-                    "CXX": "clang++"
-                }
-            },
             "sources": [
                 {
                     "type": "git",
@@ -779,15 +748,6 @@
                 "-Ddocs=false",
                 "-Dworkshop=true"
             ],
-            "build-options": {
-                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
-                "append-path": "/usr/lib/sdk/llvm17/bin",
-                "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
-                "env": {
-                    "CC": "clang",
-                    "CXX": "clang++"
-                }
-            },
             "cleanup": [
                 "/bin"
             ],
@@ -854,14 +814,6 @@
         {
             "name": "gimp",
             "buildsystem": "meson",
-            "build-options": {
-                "append-path": "/usr/lib/sdk/llvm17/bin",
-                "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
-                "env": {
-                    "CC": "clang",
-                    "CXX": "clang++"
-                }
-            },
             "config-opts": [
                 "-Dg-ir-doc=false",
                 "-Dgi-docgen=disabled",
