@@ -329,6 +329,16 @@
         },
         {
             "name": "ghostscript",
+            "build-options": {
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
+            },
             "config-opts": [
                 "--disable-cups"
             ],
