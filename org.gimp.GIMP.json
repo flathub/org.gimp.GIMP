@@ -84,6 +84,16 @@
         },
         {
             "name": "gexiv2",
+            "build-options": {
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
+            },
             "modules": [
                 {
                     "name": "exiv2",
