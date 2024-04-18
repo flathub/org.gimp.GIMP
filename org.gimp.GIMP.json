@@ -222,7 +222,7 @@
             "config-opts": [
                 "-DENABLE_GOBJECT_INTROSPECTION=OFF",
                 "-DENABLE_CPP=OFF",
-                "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3",
+                "-DENABLE_LIBOPENJPEG=openjpeg2",
                 "-DENABLE_BOOST=OFF",
                 "-DWITH_NSS3:BOOL=OFF",
                 "-DENABLE_QT5:BOOL=OFF",
@@ -469,9 +469,8 @@
                     "no-autogen": true,
                     "make-args": [
                         "DYNAMIC_ARCH=1",
-                        "FC=gfortran",
-                        "NO_CBLAS=1",
-                        "NO_LAPACKE=1",
+                        "DNOFORTRAN=1",
+                        "DC_LAPACK=1",
                         "USE_OPENMP=0"
                     ],
                     "make-install-args": [
