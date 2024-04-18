@@ -403,6 +403,16 @@
             "modules": [
                 {
                     "name": "json-c",
+                    "build-options": {
+                        "arch": {
+                            "aarch64": {
+                                "env": {
+                                    "CC": "gcc",
+                                    "CXX": "g++"
+                                }
+                            }
+                        }
+                    },
                     "buildsystem": "cmake-ninja",
                     "sources": [
                         {
