@@ -1,9 +1,20 @@
 {
     "app-id": "org.gimp.GIMP",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "45",
+    "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.llvm17"
+    ],
     "command": "gimp-2.99",
+    "build-options": {
+        "append-path": "/usr/lib/sdk/llvm17/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
+        "env": {
+            "CC": "clang",
+            "CXX": "clang++"
+        }
+    },
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
@@ -15,7 +26,7 @@
         "--socket=wayland",
         "--device=dri",
         "--filesystem=host",
-        "--filesystem=xdg-config/GIMP",
+        "--filesystem=xdg-config/GIMP:create",
         "--filesystem=xdg-config/gtk-3.0",
         "--filesystem=/tmp",
         "--filesystem=xdg-run/gvfs",
@@ -73,6 +84,16 @@
         },
         {
             "name": "gexiv2",
+            "build-options": {
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
+            },
             "modules": [
                 {
                     "name": "exiv2",
@@ -123,79 +144,55 @@
         },
         {
             "name": "openexr",
-            "modules": [
-                {
-                    "name": "ilmbase",
-                    "subdir": "IlmBase",
-                    "config-opts": [
-                        "--disable-static"
-                    ],
-                    "build-options": {
-                        "cxxflags": "-std=c++14",
-                        "env": {
-                            "LDFLAGS": "-lpthread"
-                        }
-                    },
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.9.tar.gz",
-                            "sha256": "05bb9c2da3ff3508eee51c30f59c7f2c59bf068f3b636d12d5991e8bbaf13e01",
-                            "x-checker-data": {
-                                "type": "anitya",
-                                "project-id": 13289,
-                                "stable-only": true,
-                                "versions": {
-                                    "<": "3.0.0"
-                                },
-                                "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
-                            }
-                        },
-                        {
-                            "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "subdir": "OpenEXR",
             "config-opts": [
-                "--disable-static",
-                "--disable-ilmbasetest"
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DOPENEXR_BUILD_EXAMPLES=OFF",
+                "-DBUILD_TESTING=OFF",
+                "-DOPENEXR_INSTALL_PKG_CONFIG=ON"
             ],
             "cleanup": [
                 "/bin",
                 "/share/doc",
                 "/lib/libIlmImfUtil*"
             ],
-            "build-options": {
-                "cxxflags": "-std=c++14"
-            },
-            "sources": [
+            "builddir" : true,
+            "buildsystem" : "cmake-ninja",
+            "sources" : [
                 {
                     "type": "archive",
-                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.9.tar.gz",
-                    "sha256": "05bb9c2da3ff3508eee51c30f59c7f2c59bf068f3b636d12d5991e8bbaf13e01",
+                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.1.10.tar.gz",
+                    "sha256": "6e0fd3f0eb1cb907bd3593830ea2b3431b85f22a6f18f99f8cfa099fec70067d",
                     "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 13289,
-                        "stable-only": true,
-                        "versions": {
-                            "<": "3.0.0"
-                        },
-                        "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
-                    }
-                },
+                                "type": "anitya",
+                                "project-id": 13289,
+                                "stable-only": true,
+                                "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
+                            }
+                }
+            ],
+            "modules": [
                 {
-                    "type": "patch",
-                    "path": "patches/openexr-no-docs.patch"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                    "name" : "imath",
+                    "config-opts": [
+                        "-DBUILD_SHARED_LIBS=ON",
+                        "-DBUILD_TESTING=OFF",
+                        "-DIMATH_INSTALL_PKG_CONFIG=ON"
+                    ],
+
+                    "builddir" : true,
+                    "buildsystem" : "cmake-ninja",
+                    "sources" : [
+                        {
+                            "type": "archive",
+                            "url" : "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.9.tar.gz",
+                            "sha256": "f1d8aacd46afed958babfced3190d2d3c8209b66da451f556abd6da94c165cf3",
+                            "x-checker-data": {
+                                        "type": "anitya",
+                                        "project-id": 223366,
+                                        "stable-only": true,
+                                        "url-template": "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v$version.tar.gz"
+                                    }
+                        }
                     ]
                 }
             ]
@@ -225,7 +222,7 @@
             "config-opts": [
                 "-DENABLE_GOBJECT_INTROSPECTION=OFF",
                 "-DENABLE_CPP=OFF",
-                "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3",
+                "-DENABLE_LIBOPENJPEG=openjpeg2",
                 "-DENABLE_BOOST=OFF",
                 "-DWITH_NSS3:BOOL=OFF",
                 "-DENABLE_QT5:BOOL=OFF",
@@ -240,8 +237,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-23.11.0.tar.xz",
-                    "sha256": "f99cca6799cb9cb6c92fc1e0eb78547b611cb733750ab7cb047cb0e6c246539c",
+                    "url": "https://poppler.freedesktop.org/poppler-24.04.0.tar.xz",
+                    "sha256": "1e804ec565acf7126eb2e9bb3b56422ab2039f7e05863a5dfabdd1ffd1bb77a7",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -252,7 +249,14 @@
             ]
         },
         {
+            "//": "FIX ME! aalib isn't building with Clang even with MSYS2 patches",
             "name": "aalib",
+            "build-options": {
+                "env": {
+                    "CC": "gcc",
+                    "CXX": "gcc"
+                }
+            },
             "config-opts": [
                 "--disable-static",
                 "--with-slang-driver=no"
@@ -325,6 +329,16 @@
         },
         {
             "name": "ghostscript",
+            "build-options": {
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
+            },
             "config-opts": [
                 "--disable-cups"
             ],
@@ -342,8 +356,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10021/ghostscript-10.02.1.tar.gz",
-                    "sha512": "24eeff047a24085413283ee42539a2feea4d3de81077664861399055a9d30349a0ef0950746bb0b0ee2237b4b9ee215340204ab0e33347b53dc2acee85fcfc19",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10030/ghostscript-10.03.0.tar.gz",
+                    "sha512": "880fc78f8a6afe9181cfbb8a416e3399d7f21550a9d50da3a4b97b38c7fe2a5acaed42df12b7d1dd6e5a769d2824e999f09d394216a4cab93f61e1a0459f31e5",
                     "x-checker-data": {
                         "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
                         "type": "json",
@@ -389,6 +403,16 @@
             "modules": [
                 {
                     "name": "json-c",
+                    "build-options": {
+                        "arch": {
+                            "aarch64": {
+                                "env": {
+                                    "CC": "gcc",
+                                    "CXX": "g++"
+                                }
+                            }
+                        }
+                    },
                     "buildsystem": "cmake-ninja",
                     "sources": [
                         {
@@ -425,40 +449,28 @@
             ]
         },
         {
-            "//": "Shamelessly taken from org.octave.Octave manifest!",
+            "//": "Originally taken from org.octave.Octave manifest",
             "name": "SuiteSparse",
-            "no-autogen": true,
-            "make-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "library"
-            ],
-            "make-install-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "INSTALL_LIB=/app/lib",
-                "INSTALL_INCLUDE=/app/include/suitesparse",
-                "library"
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DBLA_VENDOR=OpenBLAS",
+                "-DSUITESPARSE_USE_OPENMP=OFF",
+                "-DSUITESPARSE_DEMOS=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include/suitesparse"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.13.0.tar.gz",
-                    "sha256": "59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d",
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v7.6.0.tar.gz",
+                    "sha256": "19cbeb9964ebe439413dd66d82ace1f904adc5f25d8a823c1b48c34bd0d29ea5",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4908,
                         "stable-only": true,
-                        "//": "patches don't apply. Avoiding flathubbot to spam us with broken updates",
-                        "versions": {
-                            "<": "6.0.0"
-                        },
                         "url-template": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v$version.tar.gz"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/suitesparse-reduce-build.patch"
                 }
             ],
             "modules": [
@@ -467,9 +479,8 @@
                     "no-autogen": true,
                     "make-args": [
                         "DYNAMIC_ARCH=1",
-                        "FC=gfortran",
-                        "NO_CBLAS=1",
-                        "NO_LAPACKE=1",
+                        "DNOFORTRAN=1",
+                        "DC_LAPACK=1",
                         "USE_OPENMP=0"
                     ],
                     "make-install-args": [
@@ -478,8 +489,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.25.tar.gz",
-                            "sha256": "4c25cb30c4bb23eddca05d7d0a85997b8db6144f5464ba7f8c09ce91e2f35543",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.26.tar.gz",
+                            "sha256": "4e6e4f5cb14c209262e33e6816d70221a2fe49eb69eaf0a06f065598ac602c68",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -510,7 +521,15 @@
                 "-DWITH_OpenJPEG_DECODER_PLUGIN=OFF"
             ],
             "build-options": {
-                "append-pkg-config-path": "/app/lib/libheif/lib/pkgconfig"
+                "append-pkg-config-path": "/app/lib/libheif/lib/pkgconfig",
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
             },
             "cleanup": [
                 "/bin",
@@ -546,6 +565,16 @@
                 },
                 {
                     "name": "libx265",
+                    "build-options": {
+                        "arch": {
+                            "aarch64": {
+                                "env": {
+                                    "CC": "gcc",
+                                    "CXX": "g++"
+                                }
+                            }
+                        }
+                    },
                     "buildsystem": "cmake-ninja",
                     "subdir": "source",
                     "config-opts": [
@@ -729,9 +758,7 @@
             "config-opts": [
                 "--enable-reentrant"
             ],
-            "make-args": [
-                "shared"
-            ],
+            "make-args": ["shared"],
             "cleanup": [
                 "/include",
                 "/lib/*.a",
@@ -768,9 +795,6 @@
                 "-Ddocs=false",
                 "-Dworkshop=true"
             ],
-            "build-options": {
-                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
-            },
             "cleanup": [
                 "/bin"
             ],
@@ -837,6 +861,16 @@
         {
             "name": "gimp",
             "buildsystem": "meson",
+            "build-options": {
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
+            },
             "config-opts": [
                 "-Dg-ir-doc=false",
                 "-Dgi-docgen=disabled",
