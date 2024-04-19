@@ -557,6 +557,16 @@
                 },
                 {
                     "name": "libx265",
+                    "build-options": {
+                        "arch": {
+                            "aarch64": {
+                                "env": {
+                                    "CC": "gcc",
+                                    "CXX": "g++"
+                                }
+                            }
+                        }
+                    },
                     "buildsystem": "cmake-ninja",
                     "subdir": "source",
                     "config-opts": [
