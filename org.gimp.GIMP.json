@@ -521,7 +521,15 @@
                 "-DWITH_OpenJPEG_DECODER_PLUGIN=OFF"
             ],
             "build-options": {
-                "append-pkg-config-path": "/app/lib/libheif/lib/pkgconfig"
+                "append-pkg-config-path": "/app/lib/libheif/lib/pkgconfig",
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
             },
             "cleanup": [
                 "/bin",
