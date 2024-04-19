@@ -861,6 +861,16 @@
         {
             "name": "gimp",
             "buildsystem": "meson",
+            "build-options": {
+                "arch": {
+                    "aarch64": {
+                        "env": {
+                            "CC": "gcc",
+                            "CXX": "g++"
+                        }
+                    }
+                }
+            },
             "config-opts": [
                 "-Dg-ir-doc=false",
                 "-Dgi-docgen=disabled",
