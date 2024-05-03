@@ -951,8 +951,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_36",
-                    "commit": "1651e6e767965cf055e05d13e075095d226f1c66"
+                    "tag": "GIMP_2_10_38",
+                    "commit": "a8b1173ca441283971ee48f4778e2ffd1cca7284"
                 },
                 {
                     "type": "patch",
@@ -960,8 +960,7 @@
                     "paths": [
                         "patches/0001-desktop-rename-launchable-in-appdata.patch",
                         "patches/0002-appdata-remove-group.patch",
-                        "patches/gimp-extension-path.patch",
-                        "patches/gimp-glib-crash.patch"
+                        "patches/gimp-extension-path.patch"
                     ]
                 }
             ],
