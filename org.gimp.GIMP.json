@@ -402,40 +402,28 @@
             ]
         },
         {
-            "//": "Shamelessly taken from org.octave.Octave manifest!",
+            "//": "Originally taken from org.octave.Octave manifest",
             "name": "SuiteSparse",
-            "no-autogen": true,
-            "make-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "library"
-            ],
-            "make-install-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "INSTALL_LIB=/app/lib",
-                "INSTALL_INCLUDE=/app/include/suitesparse",
-                "library"
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DBLA_VENDOR=OpenBLAS",
+                "-DSUITESPARSE_USE_OPENMP=OFF",
+                "-DSUITESPARSE_DEMOS=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include/suitesparse"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.13.0.tar.gz",
-                    "sha256": "59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d",
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v7.6.0.tar.gz",
+                    "sha256": "19cbeb9964ebe439413dd66d82ace1f904adc5f25d8a823c1b48c34bd0d29ea5",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4908,
                         "stable-only": true,
-                        "//": "patches don't apply. Avoiding flathubbot to spam us with broken updates",
-                        "versions": {
-                            "<": "6.0.0"
-                        },
                         "url-template": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v$version.tar.gz"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/suitesparse-reduce-build.patch"
                 }
             ],
             "modules": [
@@ -444,9 +432,8 @@
                     "no-autogen": true,
                     "make-args": [
                         "DYNAMIC_ARCH=1",
-                        "FC=gfortran",
-                        "NO_CBLAS=1",
-                        "NO_LAPACKE=1",
+                        "DNOFORTRAN=0",
+                        "DC_LAPACK=0",
                         "USE_OPENMP=0"
                     ],
                     "make-install-args": [
@@ -455,8 +442,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.25.tar.gz",
-                            "sha256": "4c25cb30c4bb23eddca05d7d0a85997b8db6144f5464ba7f8c09ce91e2f35543",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.26.tar.gz",
+                            "sha256": "4e6e4f5cb14c209262e33e6816d70221a2fe49eb69eaf0a06f065598ac602c68",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
