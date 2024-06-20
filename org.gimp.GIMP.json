@@ -392,6 +392,9 @@
                 {
                     "name": "json-c",
                     "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DDISABLE_WERROR=ON"
+                    ],
                     "sources": [
                         {
                             "type": "git",
