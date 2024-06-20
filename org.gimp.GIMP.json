@@ -327,7 +327,8 @@
         {
             "name": "ghostscript",
             "config-opts": [
-                "--disable-cups"
+                "--disable-cups",
+                "--disable-neon"
             ],
             "make-args": [
                 "so"
