@@ -4,12 +4,12 @@
     "runtime-version": "45",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
-        "org.freedesktop.Sdk.Extension.llvm17"
+        "org.freedesktop.Sdk.Extension.llvm18"
     ],
     "command": "gimp-2.99",
     "build-options": {
-        "append-path": "/usr/lib/sdk/llvm17/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm17/lib",
+        "append-path": "/usr/lib/sdk/llvm18/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm18/lib",
         "env": {
             "CC": "ccache clang",
             "CXX": "ccache clang++",
