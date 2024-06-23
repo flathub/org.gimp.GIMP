@@ -654,6 +654,9 @@
         {
             "name": "luajit",
             "no-autogen": true,
+            "make-args": [
+                "DEFAULT_CC=ccache clang"
+            ],
             "cleanup": [
                 "/lib/*.a",
                 "/include",
