@@ -1,0 +1,87 @@
+From df6a03e99767a0d269166feb6291bd062700c856 Mon Sep 17 00:00:00 2001
+From: Bruno <brunvonlope@outlook.com>
+Date: Thu, 20 Jun 2024 18:55:23 -0300
+Subject: [PATCH] Disable 'mfpu' when using Clang
+
+https://github.com/llvm/llvm-project/issues/74361
+---
+ configure.ac             | 11 +++++++----
+ tesseract/CMakeLists.txt |  5 +++--
+ tesseract/configure.ac   |  2 +-
+ 3 files changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 3e5efc2..6c6f445 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -754,7 +754,10 @@ dnl Check for NEON support
+ dnl --------------------------------------------------
+ save_cflags=$CFLAGS
+ AC_MSG_CHECKING([neon support])
+-CFLAGS="$save_cflags $OPT_CFLAGS -mfpu=neon -mcpu=cortex-a53"
++if test x"$GCC" = x"yes"; then
++  CURSED_FLAG="-mfpu=neon"
++fi
++CFLAGS="$save_cflags $OPT_CFLAGS $CURSED_FLAG -mcpu=cortex-a53"
+ HAVE_NEON=""
+ AC_LINK_IFELSE(
+   [AC_LANG_PROGRAM([#include "arm_neon.h"], [
+@@ -988,14 +991,14 @@ if test x$with_tesseract != xno; then
+         fi
+ 
+         AC_MSG_CHECKING([neon support])
+-        CXXFLAGS="$save_cxxflags -mfpu=neon -mcpu=cortex-a53"
++        CXXFLAGS="$save_cxxflags $CURSED_FLAG -mcpu=cortex-a53"
+ 
+         TESS_NEON=""
+         AC_LINK_IFELSE(
+          [AC_LANG_PROGRAM([#include "arm_neon.h"],
+                           [int32x4_t round = vdupq_n_s32(10);
+                            return(0);])],
+-         [TESS_NEON="-mfpu=neon -mcpu=cortex-a53 -D__ARM_NEON__"],
++         [TESS_NEON="$CURSED_FLAG -mcpu=cortex-a53 -D__ARM_NEON__"],
+          [TESS_NEON=""])
+ 
+         if test "x$TESS_NEON" != x && test "x$enable_neon" != xno; then
+@@ -2432,7 +2435,7 @@ if test x$WITH_CAL != x0; then
+     CAL_CFLAGS="$CAL_CFLAGS $HAVE_AVX2"
+   fi
+   if test "x$HAVE_NEON" != x; then
+-    CAL_NEON_CFLAGS="-mfpu=neon -mcpu=cortex-a53"
++    CAL_NEON_CFLAGS="$CURSED_FLAG -mcpu=cortex-a53"
+     CAL_CFLAGS="$CAL_CFLAGS $HAVE_NEON"
+   fi
+ fi
+diff --git a/tesseract/CMakeLists.txt b/tesseract/CMakeLists.txt
+index 68da6c5..50ba651 100644
+--- a/tesseract/CMakeLists.txt
++++ b/tesseract/CMakeLists.txt
+@@ -260,9 +260,10 @@ elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "arm.*")
+   set(HAVE_SSE4_1 FALSE)
+ 
+   check_cxx_compiler_flag("-mfpu=neon" HAVE_NEON)
+-  if(HAVE_NEON)
++  if(NOT CLANG
++     AND HAVE_NEON)
+     set(NEON_COMPILE_FLAGS "-mfpu=neon")
+-  endif(HAVE_NEON)
++  endif()
+ 
+ else()
+ 
+diff --git a/tesseract/configure.ac b/tesseract/configure.ac
+index 4e257a0..dbddb40 100644
+--- a/tesseract/configure.ac
++++ b/tesseract/configure.ac
+@@ -181,7 +181,7 @@ case "${host_cpu}" in
+ 
+     AX_CHECK_COMPILE_FLAG([-mfpu=neon], [neon=true], [neon=false], [$WERROR])
+     AM_CONDITIONAL([HAVE_NEON], $neon)
+-    if $neon; then
++    if $neon && test "x$CLANG" = "xno"; then
+       AC_DEFINE([HAVE_NEON], [1], [Enable NEON instructions])
+       NEON_CXXFLAGS="-mfpu=neon"
+       AC_SUBST([NEON_CXXFLAGS])
+-- 
+2.45.0.windows.1
+
