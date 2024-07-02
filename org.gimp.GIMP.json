@@ -828,7 +828,8 @@
                     "type": "patch",
                     "paths": [
                         "patches/gimp-extension-path.patch",
-                        "patches/gimp-missing-header.patch"
+                        "patches/gimp-missing-header.patch",
+                        "patches/gimp-missing-header-labelstringwidget.patch"
                     ]
                 }
             ],
