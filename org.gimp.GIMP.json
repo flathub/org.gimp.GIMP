@@ -895,9 +895,6 @@
                 "-Dbuild-id=org.gimp.GIMP.flatpak.dev",
                 "-Dcheck-update=no"
             ],
-            "cleanup": [
-                "/bin/gimp-console-2.99"
-            ],
             "sources": [
                 {
                     "type": "git",
