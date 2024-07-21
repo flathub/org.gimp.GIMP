@@ -3,7 +3,23 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "45",
     "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.llvm18"
+    ],
     "command": "gimp-2.99",
+    "build-options": {
+        "append-path": "/usr/lib/sdk/llvm18/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm18/lib",
+        "env": {
+            "CC": "ccache clang",
+            "CXX": "ccache clang++",
+            "CC_LD": "lld",
+            "CXX_LD": "lld",
+            "CLICOLOR_FORCE": "1"
+        },
+        "cflags": "-fcolor-diagnostics",
+        "cxxflags": "-fcolor-diagnostics"
+    },
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
@@ -258,32 +274,6 @@
             ]
         },
         {
-            "name": "aalib",
-            "config-opts": [
-                "--disable-static",
-                "--with-slang-driver=no"
-            ],
-            "cleanup": [
-                "/bin",
-                "/include",
-                "/info",
-                "/lib/pkgconfig"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/aalib/aalib-1.4rc5.tar.gz/9801095c42bba12edebd1902bcf0a990/aalib-1.4rc5.tar.gz",
-                    "sha256": "fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                    ]
-                }
-            ]
-        },
-        {
             "name": "libmng",
             "config-opts": [
                 "--disable-static"
@@ -410,6 +400,7 @@
                     "name": "json-c",
                     "buildsystem": "cmake-ninja",
                     "config-opts": [
+                        "-DDISABLE_WERROR=ON",
                         "-DBUILD_TESTING=OFF"
                     ],
                     "cleanup": [
@@ -574,11 +565,16 @@
                     "buildsystem": "cmake-ninja",
                     "subdir": "source",
                     "config-opts": [
+                        "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache",
+                        "-DCMAKE_CXX_COMPILER=clang++",
+                        "-DCMAKE_CXX_FLAGS=-fuse-ld=lld",
                         "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
                         "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
                         "-DEXTRA_LINK_FLAGS=-L/app/lib/libheif/lib",
                         "-DLINKED_10BIT=ON",
-                        "-DLINKED_12BIT=ON"
+                        "-DLINKED_12BIT=ON",
+                        "-DENABLE_CLI=OFF",
+                        "-DENABLE_ASSEMBLY=OFF"
                     ],
                     "cleanup": [
                         "/lib/libheif/bin",
@@ -685,6 +681,9 @@
         {
             "name": "luajit",
             "no-autogen": true,
+            "make-args": [
+                "DEFAULT_CC=ccache clang"
+            ],
             "cleanup": [
                 "/include",
                 "/lib/pkgconfig",
