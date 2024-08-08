@@ -890,8 +890,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_18",
-                    "commit": "f94c4cb5dbf9766b27ecb5016b7a39497cc74ddc"
+                    "commit": "ddfb4d4f739dcdc79561d8db76bd929e1442e7cd"
                 },
                 {
                     "type": "shell",
