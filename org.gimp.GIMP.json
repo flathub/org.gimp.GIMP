@@ -3,7 +3,7 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
-    "command": "gimp-2.99",
+    "command": "gimp-3.0",
     "build-options": {
         "env": {
             "CC": "ccache cc",
@@ -909,8 +909,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_18",
-                    "commit": "f94c4cb5dbf9766b27ecb5016b7a39497cc74ddc"
+                    "tag": "GIMP_3_0_0_RC1",
+                    "commit": "76036f4833f1131fe6a74c1a7837e246bb0ee680"
                 },
                 {
                     "type": "shell",
@@ -937,7 +937,7 @@
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins"
             ],
             "cleanup": [
-                "/bin/gimp-console-2.99"
+                "/bin/gimp-console-3.0"
             ]
         }
     ]
