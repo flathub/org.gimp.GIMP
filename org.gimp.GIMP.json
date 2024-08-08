@@ -726,8 +726,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_108",
-                    "commit": "d3337db41be34623dd2f29adf955bfbc459bb432"
+                    "commit": "f01b19ca5f97a7f2fd2835e45df06684b2f4eaf6"
                 }
             ],
             "buildsystem": "meson",
@@ -745,8 +744,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_48",
-                    "commit": "9e86b27134d928237c21f93dd7b4936822f55d53"
+                    "commit": "deff819f9e93410a29d94dd10956b006c02862d4"
                 }
             ],
             "buildsystem": "meson",
