@@ -888,7 +888,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "commit": "ddfb4d4f739dcdc79561d8db76bd929e1442e7cd"
+                    "commit": "f2d47ee53aff238cf142d60e3ca06d4deb91f75f"
                 },
                 {
                     "type": "shell",
