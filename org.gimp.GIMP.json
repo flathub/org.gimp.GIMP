@@ -914,8 +914,8 @@
                 "-Dg-ir-doc=false",
                 "-Dgi-docgen=disabled",
                 "-Dicc-directory=/run/host/usr/share/color/icc/",
-                "-Dbuild-id=org.gimp.GIMP.flatpak.dev",
-                "-Dcheck-update=no"
+                "-Dcheck-update=no",
+                "-Dbuild-id=org.gimp.GIMP.flatpak.dev"
             ],
             "post-install": [
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins"
