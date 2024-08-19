@@ -128,10 +128,6 @@
                 "-Dtools=false",
                 "-Dvapi=false"
             ],
-            "cleanup": [
-                "/include",
-                "/lib/pkgconfig"
-            ],
             "modules": [
                 {
                     "name": "exiv2",
