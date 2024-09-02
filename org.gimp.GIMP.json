@@ -858,8 +858,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.6/libheif-1.17.6.tar.gz",
-                    "sha256": "8390baf4913eda0a183e132cec62b875fb2ef507ced5ddddc98dfd2f17780aee",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.18.2/libheif-1.18.2.tar.gz",
+                    "sha256": "c4002a622bec9f519f29d84bfdc6024e33fd67953a5fb4dc2c2f11f67d5e45bf",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
@@ -885,8 +885,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cairographics.org/releases/cairo-1.18.0.tar.xz",
-                    "sha256": "243a0736b978a33dee29f9cca7521733b78a65b5418206fef7bd1c3d4cf10b64",
+                    "url": "https://cairographics.org/releases/cairo-1.18.2.tar.xz",
+                    "sha256": "a62b9bb42425e844cc3d6ddde043ff39dbabedd1542eba57a2eb79f85889d45a",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 247,
