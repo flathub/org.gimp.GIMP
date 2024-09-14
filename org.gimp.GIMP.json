@@ -31,7 +31,7 @@
         "--socket=wayland",
         "--device=dri",
         "--filesystem=host",
-        "--filesystem=xdg-config/GIMP",
+        "--filesystem=xdg-config/GIMP:create",
         "--filesystem=xdg-config/gtk-3.0",
         "--filesystem=/tmp",
         "--filesystem=xdg-run/gvfs",
@@ -791,8 +791,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_108",
-                    "commit": "d3337db41be34623dd2f29adf955bfbc459bb432"
+                    "commit": "f01b19ca5f97a7f2fd2835e45df06684b2f4eaf6"
                 }
             ],
             "buildsystem": "meson",
@@ -810,8 +809,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_48",
-                    "commit": "9e86b27134d928237c21f93dd7b4936822f55d53"
+                    "commit": "deff819f9e93410a29d94dd10956b006c02862d4"
                 }
             ],
             "buildsystem": "meson",
@@ -956,21 +954,18 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_18",
-                    "commit": "f94c4cb5dbf9766b27ecb5016b7a39497cc74ddc"
+                    "commit": "f2d47ee53aff238cf142d60e3ca06d4deb91f75f"
                 },
                 {
                     "type": "shell",
                     "commands": [
-                        "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
+                        "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/linux/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
                     ]
                 },
                 {
                     "type": "patch",
                     "paths": [
-                        "patches/gimp-extension-path.patch",
-                        "patches/gimp-missing-header.patch",
-                        "patches/gimp-missing-header-labelstringwidget.patch"
+                        "patches/gimp-extension-path.patch"
                     ]
                 }
             ],
