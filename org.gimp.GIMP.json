@@ -76,6 +76,33 @@
     },
     "modules": [
         {
+            "name" : "openmp",
+            "sources" : [
+                {
+                    "type": "archive",
+                    "url" : "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/openmp-18.1.8.src.tar.xz",
+                    "sha256": "60ed57245e73894e4a2a89b15889f367bd906abfe6d3f92e1718223d4b496150",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1830,
+                        "stable-only": true,
+                        "url-template": "https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/openmp-$version.src.tar.xz"
+                    }
+                }
+            ],
+            "buildsystem" : "cmake-ninja",
+            "builddir" : true,
+            "config-opts": [
+                "-DOPENMP_STANDALONE_BUILD=true",
+                "-DCMAKE_C_COMPILER=clang",
+                "-DCMAKE_CXX_COMPILER=clang++"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
             "name": "appstream-glib",
             "sources": [
                 {
@@ -848,7 +875,7 @@
                     "config-opts": [
                         "-DBLA_VENDOR=OpenBLAS",
                         "-DGRAPHBLAS_COMPACT=ON",
-                        "-DSUITESPARSE_USE_OPENMP=OFF",
+                        "-DSUITESPARSE_USE_OPENMP=ON",
                         "-DSUITESPARSE_USE_PYTHON=OFF",
                         "-DSUITESPARSE_DEMOS=OFF",
                         "-DBUILD_TESTING=OFF",
@@ -879,7 +906,7 @@
                             "no-autogen": true,
                             "make-args": [
                                 "DYNAMIC_ARCH=1",
-                                "USE_OPENMP=0",
+                                "USE_OPENMP=1",
                                 "NO_CBLAS=1",
                                 "NO_LAPACKE=1"
                             ],
