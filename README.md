@@ -120,3 +120,12 @@ $ git push -u origin wip/release/2-10-24
   publish after a few hours).
 
 * Enjoy the rest of the day.
+
+## Maintainers
+
+This build is maintained by the following people:
+
+* Upstream GIMP maintainer and original flatpak package author: @Jehan.
+* Additional package maintainers: @hfiguiere, @HarryMichal, @novomesk and
+  @brunolopesdsilv.
+* Flathub maintainers.

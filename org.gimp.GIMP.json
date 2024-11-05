@@ -3,22 +3,15 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions": [
-        "org.freedesktop.Sdk.Extension.llvm18"
-    ],
-    "command": "gimp-2.99",
+    "command": "gimp-3.0",
     "build-options": {
-        "append-path": "/usr/lib/sdk/llvm18/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm18/lib",
         "env": {
-            "CC": "ccache clang",
-            "CXX": "ccache clang++",
-            "CC_LD": "lld",
-            "CXX_LD": "lld",
+            "CC": "ccache cc",
+            "CXX": "ccache c++",
             "CLICOLOR_FORCE": "1"
         },
-        "cflags": "-fcolor-diagnostics",
-        "cxxflags": "-fcolor-diagnostics"
+        "cflags": "-fdiagnostics-color=always",
+        "cxxflags": "-fdiagnostics-color=always"
     },
     "separate-locales": false,
     "rename-desktop-file": "gimp.desktop",
@@ -31,7 +24,7 @@
         "--socket=wayland",
         "--device=dri",
         "--filesystem=host",
-        "--filesystem=xdg-config/GIMP",
+        "--filesystem=xdg-config/GIMP:create",
         "--filesystem=xdg-config/gtk-3.0",
         "--filesystem=/tmp",
         "--filesystem=xdg-run/gvfs",
@@ -556,8 +549,7 @@
                     "buildsystem": "cmake-ninja",
                     "config-opts": [
                         "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache",
-                        "-DCMAKE_CXX_COMPILER=clang++",
-                        "-DCMAKE_CXX_FLAGS=-fuse-ld=lld",
+                        "-DCMAKE_CXX_COMPILER=c++",
                         "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
                         "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
                         "-DEXTRA_LINK_FLAGS=-L/app/lib/libheif/lib",
@@ -689,45 +681,6 @@
             ]
         },
         {
-            "name": "luajit",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/LuaJIT/LuaJIT.git",
-                    "commit": "f725e44cda8f359869bf8f92ce71787ddca45618"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "sed -i 's|/usr/local|/app|' ./Makefile"
-                    ]
-                }
-            ],
-            "no-autogen": true,
-            "make-args": [
-                "DEFAULT_CC=ccache clang"
-            ],
-            "cleanup": [
-                "/include",
-                "/lib/pkgconfig",
-                "/share"
-            ]
-        },
-        {
-            "name": "lua-lgi",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/lgi-devs/lgi.git",
-                    "commit": "48ff62e5bc63d69c00085909a09cc5c75267e1c6"
-                }
-            ],
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dtests=false"
-            ]
-        },
-        {
             "name": "xmu",
             "sources": [
                 {
@@ -791,8 +744,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_108",
-                    "commit": "d3337db41be34623dd2f29adf955bfbc459bb432"
+                    "tag": "BABL_0_1_110",
+                    "commit": "ef6409d7b76250b5f762c37e30cbf887cdec0097"
                 }
             ],
             "buildsystem": "meson",
@@ -810,8 +763,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_48",
-                    "commit": "9e86b27134d928237c21f93dd7b4936822f55d53"
+                    "tag": "GEGL_0_4_50",
+                    "commit": "47473023a967c80f8bf24bf47b834bccfa3db25a"
                 }
             ],
             "buildsystem": "meson",
@@ -956,21 +909,19 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_99_18",
-                    "commit": "f94c4cb5dbf9766b27ecb5016b7a39497cc74ddc"
+                    "tag": "GIMP_3_0_0_RC1",
+                    "commit": "76036f4833f1131fe6a74c1a7837e246bb0ee680"
                 },
                 {
                     "type": "shell",
                     "commands": [
-                        "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
+                        "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/linux/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
                     ]
                 },
                 {
                     "type": "patch",
                     "paths": [
-                        "patches/gimp-extension-path.patch",
-                        "patches/gimp-missing-header.patch",
-                        "patches/gimp-missing-header-labelstringwidget.patch"
+                        "patches/gimp-extension-path.patch"
                     ]
                 }
             ],
@@ -986,7 +937,7 @@
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins"
             ],
             "cleanup": [
-                "/bin/gimp-console-2.99"
+                "/bin/gimp-console-3.0"
             ]
         }
     ]
