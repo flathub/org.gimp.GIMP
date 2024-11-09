@@ -1,7 +1,7 @@
 {
     "app-id": "org.gimp.GIMP",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "46",
+    "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
     "command": "gimp-2.10",
     "separate-locales": false,
@@ -121,19 +121,13 @@
                         },
                         {
                             "type": "patch",
-                            "path": "shared-modules/gtk2/gtk2-use-adwaita-theme.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk+-2.24-gimp-issue-2828-0001.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk+-2.24-gimp-issue-2828-0002.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk-2.24-bug795635.patch"
+                            "paths": [
+                                "shared-modules/gtk2/gtk2-use-adwaita-theme.patch",
+                                "shared-modules/gtk2/gtk2-gcc14.patch",
+                                "patches/gtk+-2.24-gimp-issue-2828-0001.patch",
+                                "patches/gtk+-2.24-gimp-issue-2828-0002.patch",
+                                "patches/gtk-2.24-bug795635.patch"
+                            ]
                         }
                     ]
                 },
