@@ -884,8 +884,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_50",
-                    "commit": "47473023a967c80f8bf24bf47b834bccfa3db25a"
+                    "tag": "GEGL_0_4_52",
+                    "commit": "eb62ca7ce670ff10fccbbbb939cf06316f7d0823"
                 }
             ],
             "buildsystem": "meson",
@@ -907,8 +907,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_0_0_RC1",
-                    "commit": "76036f4833f1131fe6a74c1a7837e246bb0ee680"
+                    "tag": "GIMP_3_0_0_RC2",
+                    "commit": "d52117a7f753353b5f900d8195a2443c603d6c94"
                 },
                 {
                     "type": "shell",
