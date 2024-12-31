@@ -229,6 +229,29 @@
             ]
         },
         {
+            "name": "libthai",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/tlwg/libthai/releases/download/v0.1.29/libthai-0.1.29.tar.xz",
+                    "sha256": "fc80cc7dcb50e11302b417cebd24f2d30a8b987292e77e003267b9100d0f4bcd",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1737,
+                        "stable-only": true,
+                        "url-template": "https://github.com/tlwg/libthai/releases/download/v${version}/libthai-${version}.tar.xz"
+                    }
+                }
+            ],
+            "config-opts": [
+                "--disable-doxygen-doc"
+            ],
+            "cleanup": [
+              "/include",
+              "/lib/pkgconfig"
+            ]
+        },
+        {
             "name": "poppler",
             "sources": [
                 {
