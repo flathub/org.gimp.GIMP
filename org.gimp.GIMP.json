@@ -915,8 +915,7 @@
             "buildsystem": "meson",
             "config-opts": [
                 "-Ddocs=false",
-                "-Dgi-docgen=disabled",
-                "-Dworkshop=true"
+                "-Dgi-docgen=disabled"
             ],
             "build-options": {
                 "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
