@@ -958,7 +958,7 @@
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins"
             ],
             "cleanup": [
-                "/bin/gimp-console-3.0"
+                "/bin/gimp-console*"
             ]
         }
     ]
