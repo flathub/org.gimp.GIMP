@@ -919,6 +919,7 @@
                 "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
             },
             "cleanup": [
+                "/bin/gegl-imgcmp",
                 "/share/gegl*"
             ]
         },
