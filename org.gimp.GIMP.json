@@ -173,8 +173,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.30/ibus-1.5.30.tar.gz",
-                            "sha256": "05b84d4a45139face161596e5ade8e6c5da55cfaf6f194861da66516190f5b96",
+                            "url": "https://github.com/ibus/ibus/releases/download/1.5.31/ibus-1.5.31.tar.gz",
+                            "sha256": "5093994c8342551134c81f2d271575efbc459bb756cef1173c22430c8601a1e1",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 1352,
@@ -474,8 +474,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-24.09.0.tar.xz",
-                    "sha256": "ebd857987e2395608c69fdc44009692d5906f13b612c5280beff65a0b75dc255",
+                    "url": "https://poppler.freedesktop.org/poppler-25.02.0.tar.xz",
+                    "sha256": "21234cb2a9647d73c752ce4031e65a79d11a511a835f2798284c2497b8701dee",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -576,8 +576,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10031/ghostscript-10.03.1.tar.gz",
-                    "sha512": "c1eec6550ce2d9c8fe78c2e9c91eaa40e1ae3d8625b510e712c0e0ab39ad00d4fa493af5f798a06c21a4acd72a0b503758a0d8f79cc37d5cc1a23ac7f3ba41e2",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10040/ghostscript-10.04.0.tar.gz",
+                    "sha512": "75e49a1778b7cc4fdfb5d871355cbd653458250cddc9075d70df8e4200ccd0a49de22f101450c1d0790a7ee3475b94835265ff295498495eb0dcfd04efee2e8d",
                     "x-checker-data": {
                         "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
                         "type": "json",
@@ -627,8 +627,8 @@
                         {
                             "type": "git",
                             "url": "https://github.com/json-c/json-c.git",
-                            "tag": "json-c-0.17-20230812",
-                            "commit": "b4c371fa0cbc4dcbaccc359ce9e957a22988fb34",
+                            "tag": "json-c-0.18-20240915",
+                            "commit": "41a55cfcedb54d9c1874f2f0eb07b504091d7e37",
                             "x-checker-data": {
                                 "type": "git",
                                 "tag-pattern": "^json-c-([\\d.]+)-[\\d]+$"
@@ -711,8 +711,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.28.tar.gz",
-                            "sha256": "f1003466ad074e9b0c8d421a204121100b0751c96fc6fcf3d1456bd12f8a00a1",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.29.tar.gz",
+                            "sha256": "38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -776,8 +776,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_3.6.tar.gz",
-                            "sha256": "663531f341c5389f460d730e62e10a4fcca3428ca2ca109693867bc5fe2e2807",
+                            "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+                            "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 7275,
@@ -809,8 +809,8 @@
                             "sources": [
                                 {
                                     "type": "archive",
-                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_3.6.tar.gz",
-                                    "sha256": "663531f341c5389f460d730e62e10a4fcca3428ca2ca109693867bc5fe2e2807",
+                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+                                    "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
                                     "x-checker-data": {
                                         "type": "anitya",
                                         "project-id": 7275,
@@ -838,8 +838,8 @@
                             "sources": [
                                 {
                                     "type": "archive",
-                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_3.6.tar.gz",
-                                    "sha256": "663531f341c5389f460d730e62e10a4fcca3428ca2ca109693867bc5fe2e2807",
+                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+                                    "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
                                     "x-checker-data": {
                                         "type": "anitya",
                                         "project-id": 7275,
