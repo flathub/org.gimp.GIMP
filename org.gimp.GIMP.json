@@ -747,17 +747,15 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/cfitsio/cfitsio-4.4.0.tar.gz/sha512/9358b1ed94fdc456cf8c0ddcb346c08f6bc97ee862c31366f3fae2d1be8d5278ffc79da01e41ceebf67ebc831f58bce3551e087c883bbf6b396133110d74b076/cfitsio-4.4.0.tar.gz",
-                    "sha256": "95900cf95ae760839e7cb9678a7b2fad0858d6ac12234f934bd1cb6bfc246ba9"
+                    "url": "https://src.fedoraproject.org/repo/pkgs/cfitsio/cfitsio-4.5.0.tar.gz/sha512/03746bf49cfcd97991be54f3e4dd51fb45c7b3a75f581dc6ab9ee5726a342dc11b651667807fd67e5318576d9b15e3580dd62ceab02fd684feff7ee6bb2edc7c/cfitsio-4.5.0.tar.gz",
+                    "sha256": "e4854fc3365c1462e493aa586bfaa2f3d0bb8c20b75a524955db64c27427ce09"
                 }
             ],
             "config-opts": [
                 "--enable-reentrant"
             ],
-            "make-args": [
-                "shared"
-            ],
             "cleanup": [
+                "/bin",
                 "/include",
                 "/lib/pkgconfig"
             ]
@@ -908,20 +906,20 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_52",
-                    "commit": "eb62ca7ce670ff10fccbbbb939cf06316f7d0823"
+                    "tag": "GEGL_0_4_54",
+                    "commit": "dfac5d6abb046b621bcbccf91cce038e280c8d81"
                 }
             ],
             "buildsystem": "meson",
             "config-opts": [
                 "-Ddocs=false",
-                "-Dgi-docgen=disabled",
-                "-Dworkshop=true"
+                "-Dgi-docgen=disabled"
             ],
             "build-options": {
                 "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
             },
             "cleanup": [
+                "/bin/gegl-imgcmp",
                 "/share/gegl*"
             ]
         },
@@ -931,8 +929,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_0_0_RC2",
-                    "commit": "d52117a7f753353b5f900d8195a2443c603d6c94"
+                    "tag": "GIMP_3_0_0_RC3",
+                    "commit": "9130eb81526dbb8277ed0938aeb129c67f83ee99"
                 },
                 {
                     "type": "shell",
@@ -949,7 +947,6 @@
             ],
             "buildsystem": "meson",
             "config-opts": [
-                "-Dg-ir-doc=false",
                 "-Dgi-docgen=disabled",
                 "-Dicc-directory=/run/host/usr/share/color/icc/",
                 "-Dcheck-update=no",
