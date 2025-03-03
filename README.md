@@ -38,7 +38,10 @@ $ git checkout -b wip/release/2-10-24
 
   The OCI image approach is not straightforward at first but is the least
   intrusive if you already have docker or podman installed:
-  $ podman run --rm --privileged -v "$(pwd):/run/host:rw" ghcr.io/flathub/flatpak-external-data-checker:latest /run/host/org.gimp.GIMP.json
+  
+```
+$ podman run --rm --privileged -v "$(pwd):/run/host:rw" ghcr.io/flathub/flatpak-external-data-checker:latest /run/host/org.gimp.GIMP.json
+```
 
 * If the GIMP release has not been tagged yet, set the "gimp" module to
   `HEAD` of the source with the temporary description (replace
@@ -117,3 +120,12 @@ $ git push -u origin wip/release/2-10-24
   publish after a few hours).
 
 * Enjoy the rest of the day.
+
+## Maintainers
+
+This build is maintained by the following people:
+
+* Upstream GIMP maintainer and original flatpak package author: @Jehan.
+* Additional package maintainers: @hfiguiere, @HarryMichal, @novomesk and
+  @brunolopesdsilv.
+* Flathub maintainers.
