@@ -809,15 +809,17 @@
                             }
                         }
                     ],
-                    "no-autogen": true,
-                    "make-args": [
-                        "DYNAMIC_ARCH=1",
-                        "USE_OPENMP=1",
-                        "NO_CBLAS=1",
-                        "NO_LAPACKE=1"
-                    ],
-                    "make-install-args": [
-                        "PREFIX=/app"
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_C_COMPILER_LAUNCHER=ccache",
+                        "-DCMAKE_C_COMPILER=cc",
+                        "-DCMAKE_Fortran_COMPILER_LAUNCHER=ccache",
+                        "-DCMAKE_Fortran_COMPILER=gfortran",
+                        "-DBUILD_SHARED_LIBS=ON",
+                        "-DDYNAMIC_ARCH=ON",
+                        "-DUSE_OPENMP=ON",
+                        "-DBUILD_WITHOUT_CBLAS=ON",
+                        "-DNO_LAPACKE=1"
                     ],
                     "cleanup": [
                         "/include",
