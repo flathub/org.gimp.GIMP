@@ -36,9 +36,8 @@
     ],
     "tags": [
         "GTK+3",
-        "development"
+        "stable"
     ],
-    "desktop-file-name-prefix": "(beta) ",
     "cleanup": [
         "/lib/cmake",
         "/man",
@@ -949,7 +948,7 @@
                 "-Dgi-docgen=disabled",
                 "-Dicc-directory=/run/host/usr/share/color/icc/",
                 "-Dcheck-update=no",
-                "-Dbuild-id=org.gimp.GIMP.flatpak.dev"
+                "-Dbuild-id=org.gimp.GIMP.flatpak.stable"
             ],
             "post-install": [
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins"
