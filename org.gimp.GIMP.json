@@ -257,8 +257,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-24.12.0.tar.xz",
-                    "sha256": "1cf374c3146f3f685d9257701bf0c2866c61d6c202c14d1f5c01a1f3a089028a",
+                    "url": "https://poppler.freedesktop.org/poppler-25.03.0.tar.xz",
+                    "sha256": "97da4ff88517a6bbd729529f195f85c8d7a0c3bb4a3d57cb0c685cbb052fe837",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -483,8 +483,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.18.2/libheif-1.18.2.tar.gz",
-                    "sha256": "c4002a622bec9f519f29d84bfdc6024e33fd67953a5fb4dc2c2f11f67d5e45bf",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.19.7/libheif-1.19.7.tar.gz",
+                    "sha256": "161c042d2102665fcee3ded851c78a0eb5f2d4bfe39fba48ba6e588fd6e964f3",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
