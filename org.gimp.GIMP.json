@@ -908,8 +908,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_54",
-                    "commit": "dfac5d6abb046b621bcbccf91cce038e280c8d81"
+                    "tag": "GEGL_0_4_56",
+                    "commit": "de5444c51df0e61f93f95321d465cd29ed712dfb"
                 }
             ],
             "buildsystem": "meson",
