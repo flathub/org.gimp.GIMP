@@ -3,7 +3,7 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
-    "command": "gimp-3.0",
+    "command": "gimp",
     "build-options": {
         "env": {
             "CC": "ccache cc",
@@ -14,6 +14,7 @@
         "cxxflags": "-fdiagnostics-color=always"
     },
     "separate-locales": false,
+    "rename-appdata-file": "org.gimp.GIMP.appdata.xml",
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
     "copy-icon": true,
@@ -947,6 +948,7 @@
                 "-Dgi-docgen=disabled",
                 "-Dicc-directory=/run/host/usr/share/color/icc/",
                 "-Dcheck-update=no",
+                "-Denable-default-bin=enabled",
                 "-Dbuild-id=org.gimp.GIMP.flatpak.stable"
             ],
             "post-install": [
