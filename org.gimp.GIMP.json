@@ -1,19 +1,31 @@
 {
     "app-id": "org.gimp.GIMP",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "46",
+    "runtime-version": "48",
     "sdk": "org.gnome.Sdk",
-    "command": "gimp-2.10",
+    "command": "gimp",
+    "build-options": {
+        "env": {
+            "CC": "ccache cc",
+            "CXX": "ccache c++",
+            "CLICOLOR_FORCE": "1"
+        },
+        "cflags": "-fdiagnostics-color=always",
+        "cxxflags": "-fdiagnostics-color=always"
+    },
     "separate-locales": false,
+    "rename-appdata-file": "org.gimp.GIMP.appdata.xml",
     "rename-desktop-file": "gimp.desktop",
     "rename-icon": "gimp",
+    "copy-icon": true,
     "finish-args": [
         "--share=ipc",
         "--share=network",
-        "--socket=x11",
+        "--socket=fallback-x11",
+        "--socket=wayland",
         "--device=dri",
         "--filesystem=host",
-        "--filesystem=xdg-config/GIMP",
+        "--filesystem=xdg-config/GIMP:create",
         "--filesystem=xdg-config/gtk-3.0",
         "--filesystem=/tmp",
         "--filesystem=xdg-run/gvfs",
@@ -24,323 +36,95 @@
         "--talk-name=org.kde.kwin.Screenshot"
     ],
     "tags": [
+        "GTK+3",
         "stable"
     ],
     "cleanup": [
-        "/lib/cmake/",
+        "/lib/cmake",
         "/man",
-        "/share/man",
-        "/share/gtk-doc",
+        "/share/aclocal",
         "/share/doc",
+        "/share/gir-1.0",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
         "/share/vala",
         "*.la",
-        "*.a",
-        "/bin/wmf*",
-        "/bin/libwmf-*",
-        "/share/pygobject/2.0/codegen",
-        "/bin/pygtk*",
-        "/bin/pygobject*",
-        "/lib/pygtk",
-        "/bin/python*-config",
-        "/bin/pip*",
-        "/bin/smtpd.py"
+        "*.a"
     ],
     "add-extensions": {
-        "org.gimp.GIMP.Manual": {
-            "version": "2.10",
-            "directory": "share/gimp/2.0/help",
-            "locale-subset": true,
-            "no-autodownload": true
+        "org.gimp.GIMP.HEIC": {
+            "directory": "lib/libheif",
+            "add-ld-path": "lib",
+            "bundle": true,
+            "autodelete": true
         },
         "org.gimp.GIMP.Plugin": {
-            "version": "2-40",
+            "version": "3",
             "directory": "extensions",
             "add-ld-path": "lib",
-            "merge-dirs": "plug-ins;scripts;help",
+            "merge-dirs": "plug-ins;scripts",
             "subdirectories": true,
             "no-autodownload": true
         }
     },
     "modules": [
-        "shared-modules/python2.7/python-2.7.json",
         {
-            "//": "Taken from shared-modules/gtk2/gtk2.json with a few more patches.",
-            "name": "gnome-themes-extra",
-            "rm-configure": true,
-            "config-opts": [
-                "--disable-dependency-tracking",
-                "--disable-gtk3-engine"
-            ],
-            "cleanup": [
-                "/share/themes/Adwaita/gtk-3.0",
-                "/share/themes/Adwaita-dark/gtk-3.0",
-                "/share/themes/HighContrast/gtk-3.0",
-                "*.la"
-            ],
+            "name": "libbacktrace",
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz",
-                    "sha256": "7c4ba0bff001f06d8983cfc105adaac42df1d1267a2591798a780bac557a5819"
+                    "type": "git",
+                    "url": "https://github.com/ianlancetaylor/libbacktrace.git",
+                    "commit": "1db85642e3fca189cf4e076f840a45d6934b2456"
                 },
                 {
                     "type": "shell",
-                    "//": "We want to avoid generating icons as its 99% of the build time and gnome runtime has it",
                     "commands": [
-                        "sed -i 's/icons//' themes/HighContrast/Makefile.am"
-                    ]
-                },
-                {
-                    "type": "script",
-                    "commands": [
-                        "autoreconf -fsi"
+                        "autoreconf -vfi"
                     ]
                 }
             ],
-            "modules": [
-                {
-                    "name": "gtk2",
-                    "cleanup": [
-                        "/bin",
-                        "/share/gtk-doc"
-                    ],
-                    "x-cpe": {
-                        "product": "gtk+"
-                    },
-                    "config-opts": [
-                        "--disable-dependency-tracking",
-                        "--disable-gtk-doc-html",
-                        "--disable-introspection",
-                        "--with-xinput=xfree"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz",
-                            "sha256": "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "shared-modules/gtk2/gtk2-use-adwaita-theme.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk+-2.24-gimp-issue-2828-0001.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk+-2.24-gimp-issue-2828-0002.patch"
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/gtk-2.24-bug795635.patch"
-                        }
-                    ]
-                },
-                "shared-modules/intltool/intltool-0.51.json",
-                {
-                    "name": "ibus-gtk2",
-                    "no-make-install": true,
-                    "config-opts": [
-                        "--disable-xim",
-                        "--disable-dconf",
-                        "--disable-gconf",
-                        "--disable-memconf",
-                        "--disable-schemas-compile",
-                        "--disable-schemas-install",
-                        "--disable-gtk3",
-                        "--disable-setup",
-                        "--disable-ui",
-                        "--disable-engine",
-                        "--disable-python-library",
-                        "--disable-libnotify",
-                        "--disable-emoji-dict",
-                        "--disable-appindicator",
-                        "--disable-glibtest",
-                        "--disable-tests",
-                        "--disable-unicode-dict",
-                        "--disable-introspection",
-                        "--disable-python2",
-                        "--disable-systemd-services"
-                    ],
-                    "ensure-writable": [
-                        "/lib/gtk-2.0/2.10.0/immodules.cache"
-                    ],
-                    "post-install": [
-                        "install -m644 --target-directory=${FLATPAK_DEST}/lib/gtk-2.0/2.10.0/immodules client/gtk2/.libs/im-ibus.so",
-                        "gtk-query-immodules-2.0 > ${FLATPAK_DEST}/lib/gtk-2.0/2.10.0/immodules.cache"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/ibus/ibus/releases/download/1.5.30/ibus-1.5.30.tar.gz",
-                            "sha256": "05b84d4a45139face161596e5ade8e6c5da55cfaf6f194861da66516190f5b96",
-                            "x-checker-data": {
-                                "type": "anitya",
-                                "project-id": 1352,
-                                "stable-only": true,
-                                "url-template": "https://github.com/ibus/ibus/releases/download/$version/ibus-$version.tar.gz"
-                            }
-                        }
-                    ]
-                }
+            "config-opts": [
+                "--enable-shared"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
             ]
         },
-        "shared-modules/libsoup/libsoup-2.4.json",
         {
-            "name": "webkitgtk",
-            "config-opts": [
-                "--with-gtk=2.0",
-                "--disable-webkit2",
-                "--disable-geolocation",
-                "--disable-video",
-                "--disable-spellcheck",
-                "--disable-credential-storage",
-                "--disable-web-audio"
-            ],
-            "build-options": {
-                "env": {
-                    "PYTHON": "/usr/bin/python3"
-                },
-                "cflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
-                "cflags-override": true,
-                "cxxflags": "-O2 -g -pipe -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
-                "cxxflags-override": true,
-                "arch": {
-                    "aarch64": {
-                        "cflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
-                        "cflags-override": true,
-                        "cxxflags": "-O2 -g -pipe -DENABLE_YARR_JIT=0 -Wno-expansion-to-defined -Wno-class-memaccess -fno-delete-null-pointer-checks -fpermissive -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60",
-                        "cxxflags-override": true,
-                        "config-opts": [
-                            "--disable-jit"
-                        ]
-                    }
-                }
-            },
-            "cleanup": [
-                "/share/doc",
-                "/bin"
-            ],
+            "name": "appstream-glib",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.webkitgtk.org/releases/webkitgtk-2.4.11.tar.xz",
-                    "sha256": "588aea051bfbacced27fdfe0335a957dca839ebe36aa548df39c7bbafdb65bf7"
-                },
-                {
-                    "type": "patch",
-                    "paths": [
-                        "patches/webkitgtk-2.4.11.patch",
-                        "patches/webkitgtk-fix.patch",
-                        "patches/webkitgtk-41-fix.patch",
-                        "patches/webkitgtk-ruby-fix.patch"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "python",
-            "modules": [
-                {
-                    "name": "py2cairo",
-                    "rm-configure": true,
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://cairographics.org/releases/py2cairo-1.10.0.tar.bz2",
-                            "sha256": "d30439f06c2ec1a39e27464c6c828b6eface3b22ee17b2de05dc409e429a7431"
-                        },
-                        {
-                            "type": "script",
-                            "commands": [
-                                "libtoolize --force",
-                                "aclocal",
-                                "autoheader",
-                                "automake --force-missing --add-missing --foreign",
-                                "autoconf"
-                            ],
-                            "dest-filename": "autogen.sh"
-                        }
-                    ]
-                },
-                {
-                    "name": "pygobject",
-                    "config-opts": [
-                        "--disable-introspection"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz",
-                            "sha256": "bb9d25a3442ca7511385a7c01b057492095c263784ef31231ffe589d83a96a5a"
-                        },
-                        {
-                            "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "pygtk",
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.gz",
-                            "sha256": "6e3e54fa6e65a69ac60bd58cb2e60a57f3346ac52efe995f3d10b6c38c972fd8"
-                        },
-                        {
-                            "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
-                        },
-                        {
-                            "type": "patch",
-                            "path": "patches/pygtk-Drop-the-PangoFont-find_shaper-virtual-method.patch"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "gexiv2",
-            "modules": [
-                {
-                    "name": "exiv2",
-                    "buildsystem": "cmake-ninja",
-                    "config-opts": [
-                        "-DEXIV2_ENABLE_BMFF=ON",
-                        "-DEXIV2_ENABLE_INIH=OFF"
-                    ],
-                    "builddir": true,
-                    "cleanup": [
-                        "/bin",
-                        "/share"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.3.tar.gz",
-                            "sha256": "1315e17d454bf4da3cc0edb857b1d2c143670f3485b537d0f946d9ed31d87b70",
-                            "x-checker-data": {
-                                "type": "anitya",
-                                "project-id": 769,
-                                "stable-only": true,
-                                "url-template": "https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz"
-                            }
-                        }
-                    ]
+                    "url": "https://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.8.3.tar.xz",
+                    "sha256": "84754064c560fca6e1ab151dc64354fc235a5798f016b91b38c9617253a8cf11",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 14018,
+                        "stable-only": true,
+                        "url-template": "https://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-$version.tar.xz"
+                    }
                 }
             ],
             "buildsystem": "meson",
             "config-opts": [
-                "-Dintrospection=false",
-                "-Dpython3=false",
-                "-Dvapi=false"
+                "-Drpm=false",
+                "-Dfonts=false",
+                "-Ddep11=false",
+                "-Dbuilder=false",
+                "-Dman=false",
+                "-Dintrospection=false"
             ],
+            "cleanup": [
+              "/bin",
+              "/include",
+              "/lib/pkgconfig",
+              "/share"
+            ]
+        },
+        {
+            "name": "gexiv2",
             "sources": [
                 {
                     "type": "archive",
@@ -353,94 +137,160 @@
                         "url-template": "https://download.gnome.org/sources/gexiv2/$major.$minor/gexiv2-$version.tar.xz"
                     }
                 }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dintrospection=false",
+                "-Dpython3=false",
+                "-Dtools=false",
+                "-Dvapi=false"
+            ],
+            "modules": [
+                {
+                    "name": "exiv2",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz",
+                            "sha256": "e1671f744e379a87ba0c984617406fdf8c0ad0c594e5122f525b2fb7c28d394d",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 769,
+                                "stable-only": true,
+                                "url-template": "https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz"
+                            }
+                        }
+                    ],
+                    "buildsystem": "cmake-ninja",
+                    "builddir": true,
+                    "config-opts": [
+                        "-DEXIV2_BUILD_EXIV2_COMMAND=OFF",
+                        "-DEXIV2_ENABLE_INIH=OFF",
+                        "-DEXIV2_ENABLE_VIDEO=OFF"
+                    ]
+                }
             ]
         },
         {
             "name": "openexr",
-            "modules": [
-                {
-                    "name": "ilmbase",
-                    "subdir": "IlmBase",
-                    "config-opts": [
-                        "--disable-static"
-                    ],
-                    "build-options": {
-                        "cxxflags": "-std=c++14",
-                        "env": {
-                            "LDFLAGS": "-lpthread"
-                        }
-                    },
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.10.tar.gz",
-                            "sha256": "c081fd982a1ba960f0faf41f152ffa035e1fbb071283ce10424116874fc8ce48",
-                            "x-checker-data": {
-                                "type": "anitya",
-                                "project-id": 13289,
-                                "stable-only": true,
-                                "versions": {
-                                    "<": "3.0.0"
-                                },
-                                "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
-                            }
-                        },
-                        {
-                            "type": "shell",
-                            "commands": [
-                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "subdir": "OpenEXR",
-            "config-opts": [
-                "--disable-static",
-                "--disable-ilmbasetest"
-            ],
-            "cleanup": [
-                "/bin",
-                "/share/doc",
-                "/lib/libIlmImfUtil*"
-            ],
-            "build-options": {
-                "cxxflags": "-std=c++14"
-            },
-            "sources": [
+            "sources" : [
                 {
                     "type": "archive",
-                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v2.5.10.tar.gz",
-                    "sha256": "c081fd982a1ba960f0faf41f152ffa035e1fbb071283ce10424116874fc8ce48",
+                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.2.tar.gz",
+                    "sha256": "5013e964de7399bff1dd328cbf65d239a989a7be53255092fa10b85a8715744d",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 13289,
                         "stable-only": true,
-                        "versions": {
-                            "<": "3.0.0"
-                        },
                         "url-template": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v$version.tar.gz"
                     }
+                }
+            ],
+            "buildsystem" : "cmake-ninja",
+            "builddir" : true,
+            "config-opts": [
+                "-DOPENEXR_BUILD_TOOLS=OFF",
+                "-DOPENEXR_BUILD_EXAMPLES=OFF",
+                "-DBUILD_TESTING=OFF"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "modules": [
+                {
+                    "name" : "imath",
+                    "sources" : [
+                        {
+                            "type": "archive",
+                            "url" : "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.12.tar.gz",
+                            "sha256": "8a1bc258f3149b5729c2f4f8ffd337c0e57f09096e4ba9784329f40c4a9035da",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 223366,
+                                "stable-only": true,
+                                "url-template": "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v$version.tar.gz"
+                            }
+                        }
+                    ],
+                    "buildsystem" : "cmake-ninja",
+                    "builddir" : true,
+                    "config-opts": [
+                        "-DBUILD_TESTING=OFF"
+                    ],
+                    "cleanup": [
+                        "/include",
+                        "/lib/pkgconfig"
+                    ]
                 },
                 {
-                    "type": "patch",
-                    "path": "patches/openexr-no-docs.patch"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                    "name" : "libdeflate",
+                    "sources" : [
+                        {
+                            "type": "archive",
+                            "url" : "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.23.zip",
+                            "sha256": "e0d9562aa27c6c0d47054002a400dcc17215a41386aee36e72b012b77d95a698",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 242778,
+                                "stable-only": true,
+                                "url-template": "https://github.com/ebiggers/libdeflate/archive/refs/tags/v$version.zip"
+                            }
+                        }
+                    ],
+                    "buildsystem" : "cmake-ninja",
+                    "builddir" : true,
+                    "config-opts": [
+                        "-DLIBDEFLATE_BUILD_STATIC_LIB=OFF",
+                        "-DLIBDEFLATE_GZIP_SUPPORT=OFF",
+                        "-DLIBDEFLATE_BUILD_GZIP=OFF"
+                    ],
+                    "cleanup": [
+                        "/include",
+                        "/lib/pkgconfig"
                     ]
                 }
             ]
         },
         {
             "name": "poppler",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://poppler.freedesktop.org/poppler-25.03.0.tar.xz",
+                    "sha256": "97da4ff88517a6bbd729529f195f85c8d7a0c3bb4a3d57cb0c685cbb052fe837",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3686,
+                        "stable-only": true,
+                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
+                    }
+                }
+            ],
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DBUILD_GTK_TEST=OFF",
+                "-DBUILD_QT5_TESTS=OFF",
+                "-DBUILD_QT6_TESTS=OFF",
+                "-DBUILD_CPP_TESTS=OFF",
+                "-DBUILD_MANUAL_TESTS=OFF",
+                "-DENABLE_GOBJECT_INTROSPECTION=OFF",
+                "-DENABLE_UTILS=OFF",
+                "-DENABLE_CPP=OFF",
+                "-DENABLE_LIBOPENJPEG=openjpeg2",
+                "-DENABLE_BOOST=OFF",
+                "-DENABLE_NSS3=OFF",
+                "-DENABLE_QT5=OFF",
+                "-DENABLE_QT6=OFF"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
             "modules": [
                 {
                     "name": "popplerdata",
-                    "buildsystem": "cmake-ninja",
-                    "builddir": true,
                     "sources": [
                         {
                             "type": "archive",
@@ -453,89 +303,31 @@
                                 "url-template": "https://poppler.freedesktop.org/poppler-data-$version.tar.gz"
                             }
                         }
-                    ]
-                }
-            ],
-            "config-opts": [
-                "-DENABLE_GOBJECT_INTROSPECTION=OFF",
-                "-DENABLE_CPP=OFF",
-                "-DOpenJPEG_DIR=/usr/lib64/openjpeg-2.3",
-                "-DENABLE_BOOST=OFF",
-                "-DWITH_NSS3:BOOL=OFF",
-                "-DENABLE_QT5:BOOL=OFF",
-                "-DENABLE_QT6:BOOL=OFF"
-            ],
-            "cleanup": [
-                "/bin",
-                "/share"
-            ],
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-24.09.0.tar.xz",
-                    "sha256": "ebd857987e2395608c69fdc44009692d5906f13b612c5280beff65a0b75dc255",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 3686,
-                        "stable-only": true,
-                        "url-template": "https://poppler.freedesktop.org/poppler-$version.tar.xz"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "aalib",
-            "config-opts": [
-                "--disable-static",
-                "--with-slang-driver=no"
-            ],
-            "cleanup": [
-                "/bin",
-                "/info",
-                "/man"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/rpms/aalib/aalib-1.4rc5.tar.gz/9801095c42bba12edebd1902bcf0a990/aalib-1.4rc5.tar.gz",
-                    "sha256": "fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee"
-                },
-                {
-                    "type": "shell",
-                    "commands": [
-                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
-                    ]
+                    ],
+                    "buildsystem": "cmake-ninja",
+                    "builddir": true
                 }
             ]
         },
         {
             "name": "libmng",
-            "config-opts": [
-                "--disable-static"
-            ],
-            "cleanup": [
-                "/share"
-            ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://src.fedoraproject.org/repo/pkgs/rpms/libmng/libmng-2.0.3.tar.gz/7e9a12ba2a99dff7e736902ea07383d4/libmng-2.0.3.tar.gz",
                     "sha256": "cf112a1fb02f5b1c0fce5cab11ea8243852c139e669c44014125874b14b7dfaa"
                 }
+            ],
+            "config-opts": [
+                "--disable-static"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
             ]
         },
         {
             "name": "libwmf",
-            "config-opts": [
-                "--disable-static",
-                "--disable-dependency-tracking"
-            ],
-            "cleanup": [
-                "/share/doc",
-                "/bin"
-            ],
             "sources": [
                 {
                     "type": "archive",
@@ -555,29 +347,25 @@
                         "autoreconf -vfi"
                     ]
                 }
+            ],
+            "config-opts": [
+                "--disable-static",
+                "--disable-dependency-tracking"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/gdk-pixbuf-*",
+                "/lib/pkgconfig"
             ]
         },
         {
             "name": "ghostscript",
-            "config-opts": [
-                "--disable-cups"
-            ],
-            "make-args": [
-                "so"
-            ],
-            "make-install-args": [
-                "soinstall"
-            ],
-            "cleanup": [
-                "/bin",
-                "/share/man",
-                "/share/doc"
-            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10031/ghostscript-10.03.1.tar.gz",
-                    "sha512": "c1eec6550ce2d9c8fe78c2e9c91eaa40e1ae3d8625b510e712c0e0ab39ad00d4fa493af5f798a06c21a4acd72a0b503758a0d8f79cc37d5cc1a23ac7f3ba41e2",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10040/ghostscript-10.04.0.tar.gz",
+                    "sha512": "75e49a1778b7cc4fdfb5d871355cbd653458250cddc9075d70df8e4200ccd0a49de22f101450c1d0790a7ee3475b94835265ff295498495eb0dcfd04efee2e8d",
                     "x-checker-data": {
                         "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
                         "type": "json",
@@ -598,14 +386,30 @@
                         "rm -rf libpng/pngread.c"
                     ]
                 }
+            ],
+            "config-opts": [
+                "--disable-cups",
+                "--disable-gtk",
+                "--without-tesseract",
+                "--without-libpaper",
+                "--without-pdftoraster"
+            ],
+            "make-args": [
+                "so"
+            ],
+            "make-install-args": [
+                "soinstall"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig",
+                "/share"
             ]
         },
+        "shared-modules/intltool/intltool-0.51.json",
         {
             "name": "libmypaint",
-            "config-opts": [
-                "--disable-gegl",
-                "--disable-introspection"
-            ],
             "sources": [
                 {
                     "type": "archive",
@@ -619,21 +423,38 @@
                     }
                 }
             ],
+            "config-opts": [
+                "--disable-gegl",
+                "--disable-introspection"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig",
+                "/share"
+            ],
             "modules": [
                 {
                     "name": "json-c",
-                    "buildsystem": "cmake-ninja",
                     "sources": [
                         {
                             "type": "git",
                             "url": "https://github.com/json-c/json-c.git",
-                            "tag": "json-c-0.17-20230812",
-                            "commit": "b4c371fa0cbc4dcbaccc359ce9e957a22988fb34",
+                            "tag": "json-c-0.18-20240915",
+                            "commit": "41a55cfcedb54d9c1874f2f0eb07b504091d7e37",
                             "x-checker-data": {
                                 "type": "git",
                                 "tag-pattern": "^json-c-([\\d.]+)-[\\d]+$"
                             }
                         }
+                    ],
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DDISABLE_WERROR=ON",
+                        "-DBUILD_TESTING=OFF"
+                    ],
+                    "cleanup": [
+                        "/include",
+                        "/lib/pkgconfig"
                     ]
                 }
             ]
@@ -658,94 +479,48 @@
             ]
         },
         {
-            "//": "Shamelessly taken from org.octave.Octave manifest!",
-            "name": "SuiteSparse",
-            "no-autogen": true,
-            "make-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "library"
-            ],
-            "make-install-args": [
-                "BLAS=-lopenblas",
-                "LAPACK=",
-                "INSTALL_LIB=/app/lib",
-                "INSTALL_INCLUDE=/app/include/suitesparse",
-                "library"
-            ],
+            "name": "libheif",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.13.0.tar.gz",
-                    "sha256": "59c6ca2959623f0c69226cf9afb9a018d12a37fab3a8869db5f6d7f83b6b147d",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.19.7/libheif-1.19.7.tar.gz",
+                    "sha256": "161c042d2102665fcee3ded851c78a0eb5f2d4bfe39fba48ba6e588fd6e964f3",
                     "x-checker-data": {
                         "type": "anitya",
-                        "project-id": 4908,
+                        "project-id": 64439,
                         "stable-only": true,
-                        "//": "patches don't apply. Avoiding flathubbot to spam us with broken updates",
-                        "versions": {
-                            "<": "6.0.0"
-                        },
-                        "url-template": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v$version.tar.gz"
+                        "url-template": "https://github.com/strukturag/libheif/releases/download/v$version/libheif-$version.tar.gz"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/suitesparse-reduce-build.patch"
                 }
             ],
-            "modules": [
-                {
-                    "name": "openblas",
-                    "no-autogen": true,
-                    "make-args": [
-                        "DYNAMIC_ARCH=1",
-                        "FC=gfortran",
-                        "NO_CBLAS=1",
-                        "NO_LAPACKE=1",
-                        "USE_OPENMP=0"
-                    ],
-                    "make-install-args": [
-                        "PREFIX=/app"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.28.tar.gz",
-                            "sha256": "f1003466ad074e9b0c8d421a204121100b0751c96fc6fcf3d1456bd12f8a00a1",
-                            "x-checker-data": {
-                                "type": "anitya",
-                                "project-id": 2540,
-                                "stable-only": true,
-                                "url-template": "https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "libheif",
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
-                "-DWITH_GDK_PIXBUF=OFF"
+                "-DWITH_GDK_PIXBUF=OFF",
+                "-DWITH_EXAMPLES=OFF",
+                "-DENABLE_PLUGIN_LOADING=ON",
+                "-DWITH_LIBDE265_PLUGIN=ON",
+                "-DWITH_X265_PLUGIN=ON",
+                "-DWITH_DAV1D=ON",
+                "-DWITH_DAV1D_PLUGIN=OFF",
+                "-DWITH_AOM_DECODER=ON",
+                "-DWITH_AOM_ENCODER=ON",
+                "-DWITH_JPEG_DECODER=ON",
+                "-DWITH_OpenJPEG_DECODER=ON",
+                "-DWITH_OpenJPEG_DECODER_PLUGIN=OFF"
             ],
+            "build-options": {
+                "append-pkg-config-path": "/app/lib/libheif/lib/pkgconfig"
+            },
             "cleanup": [
                 "/bin",
+                "/include/libheif",
+                "/lib/pkgconfig",
                 "/share/thumbnailers"
             ],
             "modules": [
                 {
                     "name": "libde265",
-                    "config-opts": [
-                        "--disable-dec265",
-                        "--disable-encoder",
-                        "--disable-sherlock265"
-                    ],
-                    "cleanup": [
-                        "/bin"
-                    ],
                     "sources": [
                         {
                             "type": "archive",
@@ -758,26 +533,26 @@
                                 "url-template": "https://github.com/strukturag/libde265/releases/download/v$version/libde265-$version.tar.gz"
                             }
                         }
+                    ],
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
+                        "-DENABLE_SDL=OFF",
+                        "-DENABLE_DECODER=OFF",
+                        "-DENABLE_ENCODER=OFF"
+                    ],
+                    "cleanup": [
+                        "/lib/libheif/bin",
+                        "/lib/libheif/include"
                     ]
                 },
                 {
                     "name": "libx265",
-                    "buildsystem": "cmake",
-                    "subdir": "source",
-                    "config-opts": [
-                        "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
-                        "-DEXTRA_LINK_FLAGS=-L.",
-                        "-DLINKED_10BIT=ON",
-                        "-DLINKED_12BIT=ON"
-                    ],
-                    "cleanup": [
-                        "/bin"
-                    ],
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_3.6.tar.gz",
-                            "sha256": "663531f341c5389f460d730e62e10a4fcca3428ca2ca109693867bc5fe2e2807",
+                            "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+                            "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 7275,
@@ -788,29 +563,37 @@
                         {
                             "type": "shell",
                             "commands": [
-                                "ln -s ${FLATPAK_DEST}/lib/libx265-10.a",
-                                "ln -s ${FLATPAK_DEST}/lib/libx265-12.a",
-                                "rm -fr ${FLATPAK_DEST}/lib/libx265.so*"
+                                "ln -s ${FLATPAK_DEST}/lib/libheif/lib/libx265-10.a",
+                                "ln -s ${FLATPAK_DEST}/lib/libheif/lib/libx265-12.a",
+                                "rm -fr ${FLATPAK_DEST}/lib/libheif/lib/libx265.so*"
                             ]
                         }
+                    ],
+                    "subdir": "source",
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache",
+                        "-DCMAKE_CXX_COMPILER=c++",
+                        "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
+                        "-DEXTRA_LIB='libx265-10.a;libx265-12.a'",
+                        "-DEXTRA_LINK_FLAGS=-L/app/lib/libheif/lib",
+                        "-DLINKED_10BIT=ON",
+                        "-DLINKED_12BIT=ON",
+                        "-DENABLE_CLI=OFF",
+                        "-DENABLE_ASSEMBLY=OFF"
+                    ],
+                    "cleanup": [
+                        "/lib/libheif/bin",
+                        "/lib/libheif/include"
                     ],
                     "modules": [
                         {
                             "name": "libx265-10bpc",
-                            "buildsystem": "cmake",
-                            "subdir": "source",
-                            "config-opts": [
-                                "-DHIGH_BIT_DEPTH=ON",
-                                "-DEXPORT_C_API=OFF",
-                                "-DENABLE_SHARED=OFF",
-                                "-DENABLE_CLI=OFF",
-                                "-DENABLE_ASSEMBLY=OFF"
-                            ],
                             "sources": [
                                 {
                                     "type": "archive",
-                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_3.6.tar.gz",
-                                    "sha256": "663531f341c5389f460d730e62e10a4fcca3428ca2ca109693867bc5fe2e2807",
+                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+                                    "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
                                     "x-checker-data": {
                                         "type": "anitya",
                                         "project-id": 7275,
@@ -819,15 +602,39 @@
                                     }
                                 }
                             ],
+                            "subdir": "source",
+                            "buildsystem": "cmake-ninja",
+                            "config-opts": [
+                                "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
+                                "-DHIGH_BIT_DEPTH=ON",
+                                "-DEXPORT_C_API=OFF",
+                                "-DENABLE_SHARED=OFF",
+                                "-DENABLE_CLI=OFF",
+                                "-DENABLE_ASSEMBLY=OFF"
+                            ],
                             "post-install": [
-                                "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-10.a"
+                                "mv ${FLATPAK_DEST}/lib/libheif/lib/libx265.a ${FLATPAK_DEST}/lib/libheif/lib/libx265-10.a"
                             ]
                         },
                         {
                             "name": "libx265-12bpc",
-                            "buildsystem": "cmake",
+                            "sources": [
+                                {
+                                    "type": "archive",
+                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+                                    "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
+                                    "x-checker-data": {
+                                        "type": "anitya",
+                                        "project-id": 7275,
+                                        "stable-only": true,
+                                        "url-template": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_$version.tar.gz"
+                                    }
+                                }
+                            ],
                             "subdir": "source",
+                            "buildsystem": "cmake-ninja",
                             "config-opts": [
+                                "-DCMAKE_INSTALL_PREFIX=/app/lib/libheif",
                                 "-DHIGH_BIT_DEPTH=ON",
                                 "-DEXPORT_C_API=OFF",
                                 "-DENABLE_SHARED=OFF",
@@ -835,40 +642,65 @@
                                 "-DENABLE_ASSEMBLY=OFF",
                                 "-DMAIN12=ON"
                             ],
-                            "sources": [
-                                {
-                                    "type": "archive",
-                                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_3.6.tar.gz",
-                                    "sha256": "663531f341c5389f460d730e62e10a4fcca3428ca2ca109693867bc5fe2e2807",
-                                    "x-checker-data": {
-                                        "type": "anitya",
-                                        "project-id": 7275,
-                                        "stable-only": true,
-                                        "url-template": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_$version.tar.gz"
-                                    }
-                                }
-                            ],
                             "post-install": [
-                                "mv ${FLATPAK_DEST}/lib/libx265.a ${FLATPAK_DEST}/lib/libx265-12.a"
+                                "mv ${FLATPAK_DEST}/lib/libheif/lib/libx265.a ${FLATPAK_DEST}/lib/libheif/lib/libx265-12.a"
                             ]
                         }
                     ]
                 }
-            ],
+            ]
+        },
+        {
+            "name": "libilbm",
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.17.6/libheif-1.17.6.tar.gz",
-                    "sha256": "8390baf4913eda0a183e132cec62b875fb2ef507ced5ddddc98dfd2f17780aee",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 64439,
-                        "stable-only": true,
-                        "versions": {
-                            "<": "1.18.0"
+                    "type": "git",
+                    "url": "https://github.com/svanderburg/libilbm.git",
+                    "commit": "586f5822275ef5780509a851cb90c7407b2633d9"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "./bootstrap"
+                    ]
+                },
+                {
+                    "type": "patch",
+                    "paths": [
+                        "patches/libilbm-no-ilbmpack-ilbmpp-acbm2ilbm-ilbm2acbm.patch"
+                    ]
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "modules": [
+                {
+                    "name": "libiff",
+                    "sources": [
+                        {
+                            "type": "git",
+                            "url": "https://github.com/svanderburg/libiff.git",
+                            "commit": "b5f542a83c824f26e0816770c9a17c22bd388606"
                         },
-                        "url-template": "https://github.com/strukturag/libheif/releases/download/v$version/libheif-$version.tar.gz"
-                    }
+                        {
+                            "type": "shell",
+                            "commands": [
+                                "./bootstrap"
+                            ]
+                        },
+                        {
+                            "type": "patch",
+                            "paths": [
+                                "patches/libiff-no-iffjoin-and-iffp.patch"
+                            ]
+                        }
+                    ],
+                    "cleanup": [
+                        "/include",
+                        "/lib/pkgconfig"
+                    ]
                 }
             ]
         },
@@ -877,99 +709,254 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://xorg.freedesktop.org/releases/individual/lib/libXmu-1.1.3.tar.bz2",
-                    "sha256": "9c343225e7c3dc0904f2122b562278da5fed639b1b5e880d25111561bac5b731"
+                    "url": "https://xorg.freedesktop.org/releases/individual/lib/libXmu-1.2.1.tar.xz",
+                    "sha256": "fcb27793248a39e5fcc5b9c4aec40cc0734b3ca76aac3d7d1c264e7f7e14e8b2",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1785,
+                        "stable-only": true,
+                        "url-template": "https://xorg.freedesktop.org/releases/individual/lib/libXmu-$version.tar.xz"
+                    }
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "name": "qoi",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/phoboslab/qoi.git",
+                    "commit": "30d15d79b7726b977cd889151cc5cd6b17742f8f"
+                }
+            ],
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -D qoi.h /app/include/qoi.h"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "name": "cfitsio",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://src.fedoraproject.org/repo/pkgs/cfitsio/cfitsio-4.5.0.tar.gz/sha512/03746bf49cfcd97991be54f3e4dd51fb45c7b3a75f581dc6ab9ee5726a342dc11b651667807fd67e5318576d9b15e3580dd62ceab02fd684feff7ee6bb2edc7c/cfitsio-4.5.0.tar.gz",
+                    "sha256": "e4854fc3365c1462e493aa586bfaa2f3d0bb8c20b75a524955db64c27427ce09"
+                }
+            ],
+            "config-opts": [
+                "--enable-reentrant"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "//": "Originally taken from org.octave.Octave manifest",
+            "name": "SuiteSparse",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v7.9.0.tar.gz",
+                    "sha256": "bc0b3987a502913959581614ab67098f9f203a45bb424870f2342375f96dbcb7",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 4908,
+                        "stable-only": true,
+                        "url-template": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v$version.tar.gz"
+                    }
+                }
+            ],
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DBLA_VENDOR=OpenBLAS",
+                "-DGRAPHBLAS_COMPACT=ON",
+                "-DSUITESPARSE_USE_OPENMP=ON",
+                "-DSUITESPARSE_USE_PYTHON=OFF",
+                "-DSUITESPARSE_DEMOS=OFF",
+                "-DBUILD_TESTING=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DCMAKE_INSTALL_INCLUDEDIR=/app/include"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "modules": [
+                {
+                    "name": "openblas",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.29.tar.gz",
+                            "sha256": "38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 2540,
+                                "stable-only": true,
+                                "url-template": "https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz"
+                            }
+                        }
+                    ],
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_C_COMPILER_LAUNCHER=ccache",
+                        "-DCMAKE_C_COMPILER=cc",
+                        "-DCMAKE_Fortran_COMPILER_LAUNCHER=ccache",
+                        "-DCMAKE_Fortran_COMPILER=gfortran",
+                        "-DBUILD_SHARED_LIBS=ON",
+                        "-DDYNAMIC_ARCH=ON",
+                        "-DUSE_OPENMP=ON",
+                        "-DBUILD_WITHOUT_CBLAS=ON",
+                        "-DNO_LAPACKE=1"
+                    ],
+                    "cleanup": [
+                        "/include",
+                        "/lib/pkgconfig"
+                    ]
                 }
             ]
         },
         {
-            "name": "cairo",
-            "buildsystem": "meson",
+            "name": "maxflow",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/gerddie/maxflow.git",
+                    "commit": "6ac148f164b9567ac81fbb4ebb36112f850c902b"
+                }
+            ],
+            "buildsystem": "cmake-ninja",
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "name": "graphviz",
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cairographics.org/releases/cairo-1.18.2.tar.xz",
-                    "sha256": "a62b9bb42425e844cc3d6ddde043ff39dbabedd1542eba57a2eb79f85889d45a",
+                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/12.2.1/graphviz-12.2.1.tar.gz",
+                    "sha256": "91d444b4dabdaf5bfa7c6fcc3a1ee5d41e588af6079ebc030f0acb79e48a56ea",
                     "x-checker-data": {
                         "type": "anitya",
-                        "project-id": 247,
+                        "project-id": 1249,
                         "stable-only": true,
-                        "url-template": "https://cairographics.org/releases/cairo-$version.tar.xz"
+                        "url-template": "https://gitlab.com/graphviz/graphviz/-/archive/$version/graphviz-$version.tar.gz"
                     }
                 }
+            ],
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--with-gdk=no",
+                "--with-gtk=no",
+                "--with-poppler=no",
+                "--with-rsvg=no",
+                "--with-webp=no",
+                "--with-x=no",
+                "--with-xlib=no"
+            ],
+            "cleanup": [
+                "/bin/??",
+                "/bin/????*",
+                "/bin/fdp",
+                "/bin/nop",
+                "/include",
+                "/lib/libgvpr*",
+                "/lib/graphviz/libgvplugin_core*",
+                "/lib/graphviz/libgvplugin_kitty*",
+                "/lib/graphviz/libgvplugin_neato_layout*",
+                "/lib/graphviz/libgvplugin_vt*",
+                "/lib/pkgconfig",
+                "/share"
             ]
         },
         {
             "name": "babl",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dwith-docs=false"
-            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_106",
-                    "commit": "150294d22e9f151ebe0ca7ac1c3a72135d2e850e"
+                    "tag": "BABL_0_1_112",
+                    "commit": "937c0a4bb348c9c5a5015618b3173ba962dd9bf6"
                 }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dwith-docs=false",
+                "-Dgi-docgen=disabled"
+            ],
+            "cleanup": [
+                "/bin"
             ]
         },
         {
             "name": "gegl",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Ddocs=false",
-                "-Dintrospection=false"
-            ],
-            "build-options": {
-                "cppflags": "-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_60"
-            },
-            "cleanup": [
-                "/bin"
-            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_46",
-                    "commit": "e6cb97763e422d8853fc95c665f8b0c73f025dd8"
+                    "tag": "GEGL_0_4_56",
+                    "commit": "de5444c51df0e61f93f95321d465cd29ed712dfb"
                 }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Ddocs=false",
+                "-Dgi-docgen=disabled"
+            ],
+            "cleanup": [
+                "/bin/gegl-imgcmp",
+                "/share/gegl*"
             ]
         },
         {
             "name": "gimp",
-            "config-opts": [
-                "--disable-docs",
-                "--disable-gtk-doc",
-                "--disable-gtk-doc-html",
-                "--with-icc-directory=/run/host/usr/share/color/icc/",
-                "--with-build-id=org.gimp.GIMP.flatpak.stable",
-                "--disable-check-update"
-            ],
-            "cleanup": [
-                "/bin/gimp-console-2.10",
-                "/bin/gimp-console"
-            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_2_10_38",
-                    "commit": "a8b1173ca441283971ee48f4778e2ffd1cca7284"
+                    "tag": "GIMP_3_0_0",
+                    "commit": "9785099e5a0dcdc3011dd26c6c2e9b332d36c035"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "xsltproc -o desktop/org.gimp.GIMP.appdata.xml.in.in build/linux/flatpak/remove-future-appdata-release.xslt desktop/org.gimp.GIMP.appdata.xml.in.in"
+                    ]
                 },
                 {
                     "type": "patch",
-                    "use-git": true,
                     "paths": [
-                        "patches/0001-desktop-rename-launchable-in-appdata.patch",
-                        "patches/0002-appdata-remove-group.patch",
                         "patches/gimp-extension-path.patch"
                     ]
                 }
             ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dgi-docgen=disabled",
+                "-Dicc-directory=/run/host/usr/share/color/icc/",
+                "-Dcheck-update=no",
+                "-Denable-default-bin=enabled",
+                "-Dbuild-id=org.gimp.GIMP.flatpak.stable"
+            ],
             "post-install": [
-                "install -d ${FLATPAK_DEST}/share/gimp/2.0/help",
-                "install -d ${FLATPAK_DEST}/extensions"
+                "install -d ${FLATPAK_DEST}/extensions/plug-ins"
+            ],
+            "cleanup": [
+                "/bin/gimp-console*"
             ]
         }
     ]

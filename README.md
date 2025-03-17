@@ -24,31 +24,20 @@ $ git checkout -b wip/release/2-10-24
 * In the manifest `org.gimp.GIMP.json`, update:
 
   - the "runtime-version" if needed.
-  - the version of "org.gimp.GIMP.Manual" extension with the
-    `major.minor` version of GIMP.
-  - the "version" of "org.gimp.GIMP.Plugin" extension with the following
-    scheme: GIMP API (2 or 3) and the Runtime versions (40 for GNOME 40
-    runtime for instance). 
-  - any dependency module which might be outdated.
-  - "babl" and "gegl" module in particular to the last tagged release.
-
-* To check possible updates of some dependency modules use the
-  flatpak-external-data-checker tool. Either install it locally, via
-  flatpak or via OCI image.
-
-  The OCI image approach is not straightforward at first but is the least
-  intrusive if you already have docker or podman installed:
-  $ podman run --rm --privileged -v "$(pwd):/run/host:rw" ghcr.io/flathub/flatpak-external-data-checker:latest /run/host/org.gimp.GIMP.json
+  - any dependency module if not already updated by flathubbot or if they are
+    behind the nightly manifest. You will find detailed and up-to-date info about
+    manually updating modules on GIMP upstream repo: https://gitlab.gnome.org/GNOME/gimp/-/blob/master/build/linux/flatpak/README.md?ref_type=heads
+  - the "version" of "org.gimp.GIMP.Plugin" extension with GIMP API version (`major`).
+  - the "version" of "org.gimp.GIMP.Manual" extension with GIMP app version (`major.minor`)
 
 * If the GIMP release has not been tagged yet, set the "gimp" module to
-  `HEAD` of the source with the temporary description (replace
-  "gimp-2-10" by "master" for a development release):
+  `HEAD` of the source by changing "commit" (the same goes for babl and GEGL):
 
 ```
                  {
                      "type": "git",
                      "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                     "branch": "gimp-2-10"
+                     "commit": "full_commit_sha_here"
                  }
 ```
 
@@ -69,24 +58,18 @@ $ git push -u origin wip/release/2-10-24
   can request a new build by adding a command saying only "bot, build"
   in the pull request.
 
-* If you had to update the "version" of "org.gimp.GIMP.Plugin" extension
-  (as previously described), also notify if possible maintainers of
-  various known plug-ins, i.e. currently only Hubert Figuière
+* If you had to update the "version" of "org.gimp.GIMP.Plugin" or the
+  "runtime-version" (as previously described), also notify if possible
+  maintainers of various known plug-ins, i.e. currently only Hubert
   (@hfiguiere), because the plug-ins may have to be rebuilt too. Making
   a comment to the pull request @-naming people's nickname is probably
   enough.
 
-* When the CI build is done, test it (the bot will give you a command
-  line to install it). If all works fine, wait for the release day.
+* Keep in touch with GIMP maintainer(s) to change again GIMP 'commit'
+  a few hours before source release tag if needed, because the previous
+  CI build was based on `HEAD` of the source from a few days before.
 
-* On release day, even if no changes have to be done on the manifest,
-  trigger a new build by commenting "bot, build" a few hours before
-  source release, because the previous CI build was based on `HEAD` of
-  the source from a few days before.
-  If any build issue occurs because of a source bug, make sure you fix
-  it upstream before actually tagging GIMP main repository.
-
-  Repeat as long as it still doesn't work.
+  Repeat as long they fixed all the eventual bugs.
 
 * If all goes fine, wait for GIMP maintainer(s) to tag the main
   repository. When they do, switch the manifest to the new tag and
@@ -101,10 +84,7 @@ $ git push -u origin wip/release/2-10-24
                 },
 ```
 
-* Push to the remote and merge. You may want to wait for the CI build,
-  but if you did the previous steps fine, this should not be needed
-  (there is supposed to be no real source change since your last CI
-  build) so you can probably merge directly.
+* Push to the remote, wait for the CI build (it is mandatory), then merge.
 
 * To be perfectionist, you may want to check https://flathub.org/builds/
   just in case some unexpected error occurs. You can also cancel the
@@ -117,3 +97,12 @@ $ git push -u origin wip/release/2-10-24
   publish after a few hours).
 
 * Enjoy the rest of the day.
+
+## Maintainers
+
+This build is maintained by the following people:
+
+* Upstream GIMP maintainer and original flatpak package author: @Jehan.
+* Additional package maintainers: @hfiguiere, @HarryMichal, @novomesk and
+  @brunvonlope.
+* Flathub maintainers.
