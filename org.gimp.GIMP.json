@@ -1,7 +1,7 @@
 {
     "app-id": "org.gimp.GIMP",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "47",
+    "runtime-version": "48",
     "sdk": "org.gnome.Sdk",
     "command": "gimp",
     "build-options": {
@@ -890,8 +890,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_110",
-                    "commit": "ef6409d7b76250b5f762c37e30cbf887cdec0097"
+                    "tag": "BABL_0_1_112",
+                    "commit": "937c0a4bb348c9c5a5015618b3173ba962dd9bf6"
                 }
             ],
             "buildsystem": "meson",
@@ -909,8 +909,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_54",
-                    "commit": "dfac5d6abb046b621bcbccf91cce038e280c8d81"
+                    "tag": "GEGL_0_4_56",
+                    "commit": "de5444c51df0e61f93f95321d465cd29ed712dfb"
                 }
             ],
             "buildsystem": "meson",
@@ -929,8 +929,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_0_0_RC3",
-                    "commit": "9130eb81526dbb8277ed0938aeb129c67f83ee99"
+                    "tag": "GIMP_3_0_0",
+                    "commit": "9785099e5a0dcdc3011dd26c6c2e9b332d36c035"
                 },
                 {
                     "type": "shell",
