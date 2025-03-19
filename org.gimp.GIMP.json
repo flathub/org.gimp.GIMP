@@ -70,6 +70,17 @@
     },
     "modules": [
         {
+            "name": "pixman",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cairographics.org/releases/pixman-0.43.4.tar.gz",
+                    "sha512": "08802916648bab51fd804fc3fd823ac2c6e3d622578a534052b657491c38165696d5929d03639c52c4f29d8850d676a909f0299d1a4c76a07df18a34a896e43d"
+                }
+            ],
+            "buildsystem": "meson"
+        },
+        {
             "name": "libbacktrace",
             "sources": [
                 {
