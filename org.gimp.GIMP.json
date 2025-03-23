@@ -928,8 +928,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_0_0",
-                    "commit": "9785099e5a0dcdc3011dd26c6c2e9b332d36c035"
+                    "commit": "7cfb94b1d5dbde537270f5b17eb49ef12cbd4ea5"
                 },
                 {
                     "type": "shell",
