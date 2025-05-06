@@ -364,8 +364,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10040/ghostscript-10.04.0.tar.gz",
-                    "sha512": "75e49a1778b7cc4fdfb5d871355cbd653458250cddc9075d70df8e4200ccd0a49de22f101450c1d0790a7ee3475b94835265ff295498495eb0dcfd04efee2e8d",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10051/ghostscript-10.05.1.tar.gz",
+                    "sha512": "ac1ab58f474467006d7735858e42a3db9a07aa092f907b14f1147447d08c8b4f5b499bca31c09c1558304787fe59d666c9f1aa531d219f27e17d5f9c9523f58c",
                     "x-checker-data": {
                         "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
                         "type": "json",
