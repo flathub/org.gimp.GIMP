@@ -889,8 +889,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_112",
-                    "commit": "937c0a4bb348c9c5a5015618b3173ba962dd9bf6"
+                    "tag": "BABL_0_1_114",
+                    "commit": "ccc4c720bec6894f622cdad31d911bee4960cf8c"
                 }
             ],
             "buildsystem": "meson",
