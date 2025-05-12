@@ -228,8 +228,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.23.zip",
-                            "sha256": "e0d9562aa27c6c0d47054002a400dcc17215a41386aee36e72b012b77d95a698",
+                            "url": "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.24.zip",
+                            "sha256": "1e33358dc545a3258af213e2fb0ebb84e6d970bb098d774c33bdacfbdde4a087",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 242778,
