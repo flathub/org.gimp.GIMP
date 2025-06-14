@@ -7,13 +7,10 @@ jobs:
   flatpak-external-data-checker:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'flathub'
-    strategy:
-      matrix:
-        branch: [ master, beta ]
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ matrix.branch }}
+          ref: master
       - uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
         env:
           GIT_AUTHOR_NAME: Flatpak External Data Checker
@@ -23,4 +20,4 @@ jobs:
           EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: --update --never-fork org.gimp.GIMP.json
+          args: --update --never-fork --pr-labels="1. Stable" org.gimp.GIMP.json
