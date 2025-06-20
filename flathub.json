@@ -1,4 +1,4 @@
 {
-  "//": "Since we run flatpak-external-data-checker with GH Actions for both branches, we need to disable the default of running on its own on 'master'",
+  "//": "Since we run flatpak-external-data-checker ourselves to allow checking both branches (see .github/workflows/update.yaml), we need to disable the default of running on its own on 'master'",
   "disable-external-data-checker": true
 }
