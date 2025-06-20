@@ -130,8 +130,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.3.tar.xz",
-                    "sha256": "21e64d2c56e9b333d44fef3f2a4b25653d922c419acd972fa96fab695217e2c8",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.5.tar.xz",
+                    "sha256": "0913c53daabab1f1ab586afd55bb55370796f2b8abcc6e37640ab7704ad99ce1",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1626,
@@ -178,8 +178,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.3.tar.gz",
-                    "sha256": "0ffbd842a7ee2128d44affdea30f42294b4061293cde3aa75b61a53573413d1e",
+                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.4.tar.gz",
+                    "sha256": "63abac7c52f280e3e16fc868ac40e06449733bb19179008248ae7e34e4f19824",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 13289,
@@ -801,8 +801,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.29.tar.gz",
-                            "sha256": "38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.30.tar.gz",
+                            "sha256": "27342cff518646afb4c2b976d809102e368957974c250a25ccc965e53063c95d",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
@@ -850,8 +850,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/12.2.1/graphviz-12.2.1.tar.gz",
-                    "sha256": "91d444b4dabdaf5bfa7c6fcc3a1ee5d41e588af6079ebc030f0acb79e48a56ea",
+                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/13.0.1/graphviz-13.0.1.tar.gz",
+                    "sha256": "b91a80434f34986c47410b490d15ab1bd87fc7fea4e130161c8f029c548055a3",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1249,
