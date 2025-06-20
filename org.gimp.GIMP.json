@@ -820,7 +820,9 @@
                         "-DDYNAMIC_ARCH=ON",
                         "-DUSE_OPENMP=ON",
                         "-DBUILD_WITHOUT_CBLAS=ON",
-                        "-DNO_LAPACKE=1"
+                        "-DBUILD_WITHOUT_LAPACKE=ON",
+                        "-DBUILD_LAPACK_DEPRECATED=OFF",
+                        "-DBUILD_TESTING=OFF"
                     ],
                     "cleanup": [
                         "/include",
