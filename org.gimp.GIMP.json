@@ -921,7 +921,8 @@
             "buildsystem": "meson",
             "config-opts": [
                 "-Ddocs=false",
-                "-Dgi-docgen=disabled"
+                "-Dgi-docgen=disabled",
+                "-Dworkshop=true"
             ],
             "cleanup": [
                 "/bin/gegl-imgcmp",
