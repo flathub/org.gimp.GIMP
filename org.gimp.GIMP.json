@@ -130,8 +130,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.3.tar.xz",
-                    "sha256": "21e64d2c56e9b333d44fef3f2a4b25653d922c419acd972fa96fab695217e2c8",
+                    "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.5.tar.xz",
+                    "sha256": "0913c53daabab1f1ab586afd55bb55370796f2b8abcc6e37640ab7704ad99ce1",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1626,
@@ -178,8 +178,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.3.tar.gz",
-                    "sha256": "0ffbd842a7ee2128d44affdea30f42294b4061293cde3aa75b61a53573413d1e",
+                    "url": "https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.3.4.tar.gz",
+                    "sha256": "63abac7c52f280e3e16fc868ac40e06449733bb19179008248ae7e34e4f19824",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 13289,
@@ -807,6 +807,10 @@
                                 "type": "anitya",
                                 "project-id": 2540,
                                 "stable-only": true,
+                                "//": "https://github.com/OpenMathLib/OpenBLAS/issues/5324",
+                                "versions": {
+                                    "<": "0.3.30"
+                                },
                                 "url-template": "https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz"
                             }
                         }
@@ -850,8 +854,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/12.2.1/graphviz-12.2.1.tar.gz",
-                    "sha256": "91d444b4dabdaf5bfa7c6fcc3a1ee5d41e588af6079ebc030f0acb79e48a56ea",
+                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/13.0.1/graphviz-13.0.1.tar.gz",
+                    "sha256": "b91a80434f34986c47410b490d15ab1bd87fc7fea4e130161c8f029c548055a3",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1249,
@@ -917,7 +921,8 @@
             "buildsystem": "meson",
             "config-opts": [
                 "-Ddocs=false",
-                "-Dgi-docgen=disabled"
+                "-Dgi-docgen=disabled",
+                "-Dworkshop=true"
             ],
             "cleanup": [
                 "/bin/gegl-imgcmp",
@@ -930,8 +935,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_0_4",
-                    "commit": "c1901c5be644ab8dcaf779b1f383bf5370bc90c6"
+                    "tag": "GIMP_3_1_2",
+                    "commit": "b4e25704613eb985c8bf31bfc699a8c712e97ff1"
                 },
                 {
                     "type": "shell",
