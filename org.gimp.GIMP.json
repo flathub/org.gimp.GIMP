@@ -969,7 +969,8 @@
                 "-Dbuild-id=org.gimp.GIMP.flatpak.stable"
             ],
             "post-install": [
-                "install -d ${FLATPAK_DEST}/extensions/plug-ins"
+                "install -d ${FLATPAK_DEST}/extensions/plug-ins",
+                "for gimp_api_version in ${FLATPAK_DEST}/share/gimp/*; do install -d $gimp_api_version/help; done"
             ],
             "cleanup": [
                 "/bin/gimp-console*"
