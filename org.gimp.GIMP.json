@@ -66,6 +66,12 @@
             "merge-dirs": "plug-ins;scripts",
             "subdirectories": true,
             "no-autodownload": true
+        },
+        "org.gimp.GIMP.Manual": {
+            "version": "3.0",
+            "directory": "share/gimp/3.0/help",
+            "locale-subset": true,
+            "no-autodownload": true
         }
     },
     "modules": [
