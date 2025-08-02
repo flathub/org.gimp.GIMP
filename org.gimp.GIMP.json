@@ -754,15 +754,23 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://src.fedoraproject.org/repo/pkgs/cfitsio/cfitsio-4.5.0.tar.gz/sha512/03746bf49cfcd97991be54f3e4dd51fb45c7b3a75f581dc6ab9ee5726a342dc11b651667807fd67e5318576d9b15e3580dd62ceab02fd684feff7ee6bb2edc7c/cfitsio-4.5.0.tar.gz",
-                    "sha256": "e4854fc3365c1462e493aa586bfaa2f3d0bb8c20b75a524955db64c27427ce09"
+                    "url": "https://github.com/HEASARC/cfitsio/archive/refs/tags/cfitsio-4.6.2.tar.gz",
+                    "sha256": "83f710f9441e7c703eeb485c9a475f50801ae7fad32ac7e356a406d318b4c02f",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 270,
+                        "stable-only": true,
+                        "url-template": "https://github.com/HEASARC/cfitsio/archive/refs/tags/cfitsio-$version.tar.gz"
+                    }
                 }
             ],
-            "config-opts": [
-                "--enable-reentrant"
+           "buildsystem": "cmake-ninja",
+           "builddir": true,
+           "config-opts": [
+                "-DUTILS=OFF",
+                "-DTESTS=OFF"
             ],
             "cleanup": [
-                "/bin",
                 "/include",
                 "/lib/pkgconfig"
             ]
