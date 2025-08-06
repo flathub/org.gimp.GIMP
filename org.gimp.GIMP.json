@@ -263,8 +263,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://poppler.freedesktop.org/poppler-25.07.0.tar.xz",
-                    "sha256": "c504a9066dbdfebe377ad53cec641fd971ee96c4e1e8ca74e6c9c03d46d817ae",
+                    "url": "https://poppler.freedesktop.org/poppler-25.08.0.tar.xz",
+                    "sha256": "425ed4d4515a093bdcdbbaac6876f20617451edc710df6a4fd6c45dd67eb418d",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 3686,
@@ -490,8 +490,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.20.1/libheif-1.20.1.tar.gz",
-                    "sha256": "55cc76b77c533151fc78ba58ef5ad18562e84da403ed749c3ae017abaf1e2090",
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.20.2/libheif-1.20.2.tar.gz",
+                    "sha256": "68ac9084243004e0ef3633f184eeae85d615fe7e4444373a0a21cebccae9d12a",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 64439,
@@ -505,6 +505,7 @@
             "config-opts": [
                 "-DWITH_GDK_PIXBUF=OFF",
                 "-DWITH_EXAMPLES=OFF",
+                "-DWITH_EXAMPLE_HEIF_VIEW=OFF",
                 "-DENABLE_PLUGIN_LOADING=ON",
                 "-DWITH_LIBDE265_PLUGIN=ON",
                 "-DWITH_X265_PLUGIN=ON",
@@ -764,9 +765,9 @@
                     }
                 }
             ],
-           "buildsystem": "cmake-ninja",
-           "builddir": true,
-           "config-opts": [
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
                 "-DUTILS=OFF",
                 "-DTESTS=OFF"
             ],
