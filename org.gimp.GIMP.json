@@ -967,7 +967,7 @@
                 "-Dicc-directory=/run/host/usr/share/color/icc/",
                 "-Dcheck-update=no",
                 "-Denable-default-bin=enabled",
-                "-Dbuild-id=org.gimp.GIMP.flatpak.stable"
+                "-Dbuild-id=org.gimp.GIMP.flatpak.stle"
             ],
             "post-install": [
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins",
