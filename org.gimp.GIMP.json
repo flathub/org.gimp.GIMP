@@ -290,6 +290,7 @@
                 "-DENABLE_LIBOPENJPEG=openjpeg2",
                 "-DENABLE_BOOST=OFF",
                 "-DENABLE_NSS3=OFF",
+                "-DENABLE_GPGME=OFF",
                 "-DENABLE_QT5=OFF",
                 "-DENABLE_QT6=OFF"
             ],
