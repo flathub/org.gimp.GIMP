@@ -228,8 +228,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/aous72/OpenJPH/archive/refs/tags/0.22.0.tar.gz",
-                            "sha256": "c9c6e9ec82ee8770ede41eeffe8acaab1814724c698b258c3de160dc09cb7d12",
+                            "url": "https://github.com/aous72/OpenJPH/archive/refs/tags/0.23.0.tar.gz",
+                            "sha256": "483079f402ee6701d5f35a12c96657a715851da770d5d101c3baa239f8dd26d2",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 375199,
@@ -242,7 +242,7 @@
                     "builddir": true,
                     "config-opts": [
                         "-DOJPH_ENABLE_TIFF_SUPPORT=OFF",
-                        "-DOJPH_BUILD_EXECUTABLES=OFF"  
+                        "-DOJPH_BUILD_EXECUTABLES=OFF"
                     ],
                     "cleanup": [
                         "/include",
@@ -364,8 +364,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10051/ghostscript-10.05.1.tar.gz",
-                    "sha512": "ac1ab58f474467006d7735858e42a3db9a07aa092f907b14f1147447d08c8b4f5b499bca31c09c1558304787fe59d666c9f1aa531d219f27e17d5f9c9523f58c",
+                    "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10060/ghostscript-10.06.0.tar.gz",
+                    "sha512": "21ba2110693cfb98126f06daff410b0a94ae9b1690b867a383aa82b56a817ffd237044e024c2cf26daa6efe4d5cf8903db8e637c4629f0c8a0eb325a30fdc0cb",
                     "x-checker-data": {
                         "//": "Bypass broken url-template with anitya checker - See https://github.com/flathub/flatpak-external-data-checker/issues/360",
                         "type": "json",
