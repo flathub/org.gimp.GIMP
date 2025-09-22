@@ -222,8 +222,8 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/aous72/OpenJPH/archive/refs/tags/0.22.0.tar.gz",
-                            "sha256": "c9c6e9ec82ee8770ede41eeffe8acaab1814724c698b258c3de160dc09cb7d12",
+                            "url": "https://github.com/aous72/OpenJPH/archive/refs/tags/0.23.1.tar.gz",
+                            "sha256": "8a0357075fb92feeaa36e23de78f81a869c7bb6189091cc34f41bb061c1db22b",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 375199,
@@ -697,8 +697,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/13.1.2/graphviz-13.1.2.tar.gz",
-                    "sha256": "0e79b8402e8ea13f05c0fc0e30604f1d0731cd3f60f85850cedac7e0ee420ef8",
+                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/14.0.0/graphviz-14.0.0.tar.gz",
+                    "sha256": "ff40891d521a680d109d77e2c6fe172173c4b63c59c5dd526d599d7af62cf290",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1249,
