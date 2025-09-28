@@ -22,7 +22,7 @@
         "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
-        "--filesystem=host",
+        "--filesystem=xdg-pictures",
         "--filesystem=xdg-config/GIMP:create",
         "--filesystem=xdg-config/gtk-3.0",
         "--filesystem=/tmp",
