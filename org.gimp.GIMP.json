@@ -93,37 +93,6 @@
             ]
         },
         {
-            "name": "appstream-glib",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/hughsie/appstream-glib/archive/refs/tags/appstream_glib_0_8_3.zip",
-                    "sha256": "d9d3c5cc690c1f0ccd630c4f70298ee68277586a59500a9cb04b8e8b2c0ae7e6",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 14018,
-                        "stable-only": true,
-                        "url-template": "https://github.com/hughsie/appstream-glib/archive/refs/tags/appstream_glib_$version.zip"
-                    }
-                }
-            ],
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Drpm=false",
-                "-Dfonts=false",
-                "-Ddep11=false",
-                "-Dbuilder=false",
-                "-Dman=false",
-                "-Dintrospection=false"
-            ],
-            "cleanup": [
-                "/bin",
-                "/include",
-                "/lib/pkgconfig",
-                "/share"
-            ]
-        },
-        {
             "name": "gexiv2",
             "sources": [
                 {
@@ -144,10 +113,8 @@
             ],
             "buildsystem": "meson",
             "config-opts": [
-                "-Dintrospection=false",
                 "-Dpython3=false",
-                "-Dtools=false",
-                "-Dvapi=false"
+                "-Dtools=false"
             ],
             "modules": [
                 {
@@ -772,8 +739,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_114",
-                    "commit": "ccc4c720bec6894f622cdad31d911bee4960cf8c"
+                    "tag": "BABL_0_1_116",
+                    "commit": "733f6b2029cb724d09b7fe4220ab79a8e659f771"
                 }
             ],
             "buildsystem": "meson",
@@ -791,8 +758,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_62",
-                    "commit": "7b3aff1e7cab39272d7242683e9a599e9b1dc5f9"
+                    "tag": "GEGL_0_4_64",
+                    "commit": "6fd34bca5d2d42131216421d4e759543f8125181"
                 }
             ],
             "buildsystem": "meson",
@@ -811,8 +778,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_0_4",
-                    "commit": "c1901c5be644ab8dcaf779b1f383bf5370bc90c6"
+                    "tag": "GIMP_3_0_6",
+                    "commit": "a77e8fd05d3d08a58650531a3700100f6a3216b7"
                 },
                 {
                     "type": "shell",
