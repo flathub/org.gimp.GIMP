@@ -108,10 +108,8 @@
             ],
             "buildsystem": "meson",
             "config-opts": [
-                "-Dintrospection=false",
                 "-Dpython3=false",
-                "-Dtools=false",
-                "-Dvapi=false"
+                "-Dtools=false"
             ],
             "modules": [
                 {
