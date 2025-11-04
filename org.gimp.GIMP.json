@@ -610,9 +610,9 @@
             "name": "SuiteSparse",
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v7.12.0.tar.gz",
-                    "sha256": "1908d5a8813dabae78cacb47a1f656dda34d4647cf4384b5988836ed821e5bd4",
+                    "type": "git",
+                    "url": "https://github.com/DrTimothyAldenDavis/SuiteSparse",
+                    "commit": "85d70ca01edc01ef388fb1163b78391ca0d7421e",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4908,
