@@ -731,8 +731,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_116",
-                    "commit": "733f6b2029cb724d09b7fe4220ab79a8e659f771"
+                    "tag": "BABL_0_1_118",
+                    "commit": "b47df7d3da1fdd3bf751a369a7ce453a63b2bebf"
                 }
             ],
             "buildsystem": "meson",
@@ -750,8 +750,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_64",
-                    "commit": "6fd34bca5d2d42131216421d4e759543f8125181"
+                    "tag": "GEGL_0_4_66",
+                    "commit": "3ed6237faa44bc64bdff8dcb2750c734ac680d40"
                 }
             ],
             "buildsystem": "meson",
@@ -770,14 +770,14 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_2_0_RC1",
-                    "commit": "4fed5c263b914b1140da7f1d71e3bd942d162b8d"
+                    "tag": "GIMP_3_2_0_RC2",
+                    "commit": "25e96437550cc118a04f4df400499bdc9d8d3cc0"
                 },
                 {
                     "type": "shell",
                     "commands": [
                         "sed -i \"/<release[^>]*date=\\\"TODO\\\"[^>]*>/,/<\\/release>/d\" desktop/org.gimp.GIMP.appdata.xml.in.in",
-                        "v=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); grep -q \"version=\\\"$v\\\"\" desktop/org.gimp.GIMP.appdata.xml.in.in || sed -i \"/<releases>/a <release version=\\\"$v\\\" date=\\\"$(date --iso-8601)\\\" type=\\\"snapshot\\\"></release>\" desktop/org.gimp.GIMP.appdata.xml.in.in"
+                        "appdata='desktop/org.gimp.GIMP.appdata.xml.in.in'; v=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); grep -q \"version=\\\"$v\\\"\" $appdata || grep -q \"date=\\\"$(date --iso-8601)\\\"\" $appdata || sed -i \"/<releases>/a <release version=\\\"$v\\\" date=\\\"$(date --iso-8601)\\\" type=\\\"snapshot\\\"></release>\" $appdata"
                     ]
                 },
                 {
