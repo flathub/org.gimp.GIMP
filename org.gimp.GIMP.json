@@ -797,9 +797,6 @@
             ],
             "post-install": [
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins"
-            ],
-            "cleanup": [
-                "/bin/gimp-console*"
             ]
         }
     ]
