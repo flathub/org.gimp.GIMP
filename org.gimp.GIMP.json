@@ -63,7 +63,7 @@
             "no-autodownload": true
         },
         "org.gimp.GIMP.Manual": {
-            "version": "3.0",
+            "version": "3.2",
             "directory": "share/gimp/3.0/help",
             "locale-subset": true,
             "no-autodownload": true
@@ -470,18 +470,21 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/mypaint/mypaint-brushes/releases/download/v1.3.1/mypaint-brushes-1.3.1.tar.xz",
-                    "sha256": "fef66ffc241b7c5cd29e9c518e933c739618cb51c4ed4d745bf648a1afc3fe70",
+                    "url": "https://github.com/mypaint/mypaint-brushes/releases/download/v2.0.2/mypaint-brushes-2.0.2.tar.xz",
+                    "sha256": "7984a74edef94571d872d0629b224abaa956a36f632f5c5516b33d22e49eb566",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 17096,
                         "stable-only": true,
-                        "//": "https://github.com/mypaint/libmypaint/issues/101",
-                        "versions": {
-                            "<": "2.0.0"
-                        },
                         "url-template": "https://github.com/mypaint/mypaint-brushes/releases/download/v$version/mypaint-brushes-$version.tar.xz"
                     }
+                },
+                {
+                    "//": "https://gitlab.gnome.org/GNOME/gimp/-/issues/14461",
+                    "type": "shell",
+                    "commands": [
+                        "find brushes/Dieterle -iname '*.myb' ! -name 'arrow#1.myb' ! -name 'Fount-offset#1.myb' ! -name 'Pencil-_Left_Handed.myb' ! -name 'HalfToneCMY#1.myb' ! -name 'Fountain_SF#1.myb' ! -name 'HalfTone#1.myb' ! -name '8B_Pencil#1.myb' -print0 | xargs -0 -n1 perl -i -pe 'BEGIN{$m=0} $m=1 if s/surfacemap_x/gridmap_x/g; $m=1 if s/surfacemap_y/gridmap_y/g; END{ if(!$m){ warn \"Patch failed on $ARGV\\n\"; exit 1 } }'"
+                    ]
                 }
             ]
         },
@@ -636,16 +639,12 @@
                     "sources": [
                         {
                             "type": "archive",
-                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.29.tar.gz",
-                            "sha256": "38240eee1b29e2bde47ebb5d61160207dc68668a54cac62c076bb5032013b1eb",
+                            "url": "https://github.com/xianyi/OpenBLAS/archive/v0.3.31.tar.gz",
+                            "sha256": "6dd2a63ac9d32643b7cc636eab57bf4e57d0ed1fff926dfbc5d3d97f2d2be3a6",
                             "x-checker-data": {
                                 "type": "anitya",
                                 "project-id": 2540,
                                 "stable-only": true,
-                                "//": "https://github.com/OpenMathLib/OpenBLAS/issues/5324",
-                                "versions": {
-                                    "<": "0.3.30"
-                                },
                                 "url-template": "https://github.com/xianyi/OpenBLAS/archive/v$version.tar.gz"
                             }
                         }
@@ -729,8 +728,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_122",
-                    "commit": "fbd72abf40672d323c8fad6381730f132e456948"
+                    "tag": "BABL_0_1_124",
+                    "commit": "535d66b5e13ec65e5db1bb944a3e3ee5783182a8"
                 }
             ],
             "buildsystem": "meson",
@@ -748,8 +747,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_66",
-                    "commit": "3ed6237faa44bc64bdff8dcb2750c734ac680d40"
+                    "tag": "GEGL_0_4_68",
+                    "commit": "377a737cdfcddf81c41ba5938f061d2b331f2df6"
                 }
             ],
             "buildsystem": "meson",
@@ -768,14 +767,14 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_0_8",
-                    "commit": "6ac8031c9555667e080fef0324fca9f28a02e5ab"
+                    "tag": "GIMP_3_2_0",
+                    "commit": "edbd1ea7384e63efa8fe326dd79ffe4fbe6722db"
                 },
                 {
                     "type": "shell",
                     "commands": [
                         "sed -i \"/<release[^>]*date=\\\"TODO\\\"[^>]*>/,/<\\/release>/d\" desktop/org.gimp.GIMP.appdata.xml.in.in",
-                        "v=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); grep -q \"version=\\\"$v\\\"\" desktop/org.gimp.GIMP.appdata.xml.in.in || sed -i \"/<releases>/a <release version=\\\"$v\\\" date=\\\"$(date --iso-8601)\\\" type=\\\"snapshot\\\"></release>\" desktop/org.gimp.GIMP.appdata.xml.in.in"
+                        "appdata='desktop/org.gimp.GIMP.appdata.xml.in.in'; v=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); grep -q \"version=\\\"$v\\\"\" $appdata || grep -q \"date=\\\"$(date --iso-8601)\\\"\" $appdata || sed -i \"/<releases>/a <release version=\\\"$v\\\" date=\\\"$(date --iso-8601)\\\" type=\\\"snapshot\\\"></release>\" $appdata"
                     ]
                 },
                 {
@@ -796,9 +795,6 @@
             "post-install": [
                 "install -d ${FLATPAK_DEST}/extensions/plug-ins",
                 "for gimp_api_version in ${FLATPAK_DEST}/share/gimp/*; do install -d $gimp_api_version/help; done"
-            ],
-            "cleanup": [
-                "/bin/gimp-console*"
             ]
         }
     ]
