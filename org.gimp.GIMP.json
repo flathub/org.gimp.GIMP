@@ -574,8 +574,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/HEASARC/cfitsio/archive/refs/tags/cfitsio-4.6.3.tar.gz",
-                    "sha256": "e9f1017e942f4a90d2db8984a7677e9d01a5da877a43ed905b9b5108451a68a0",
+                    "url": "https://github.com/HEASARC/cfitsio/archive/refs/tags/cfitsio-4.6.4.tar.gz",
+                    "sha256": "fb09b18638b0a71fa3c2612aac4fafd29cae8642266ba690803eb95f037a5268",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 270,
