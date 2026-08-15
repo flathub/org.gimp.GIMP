@@ -573,8 +573,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/HEASARC/cfitsio/archive/refs/tags/cfitsio-4.6.4.tar.gz",
-                    "sha256": "fb09b18638b0a71fa3c2612aac4fafd29cae8642266ba690803eb95f037a5268",
+                    "url": "https://github.com/HEASARC/cfitsio/archive/refs/tags/cfitsio-4.7.0.tar.gz",
+                    "sha256": "f281ca292407d8682e83a37ea68fce6e1383d2449d923647ea62fa0570c59aee",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 270,
@@ -681,8 +681,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/15.1.1/graphviz-15.1.1.tar.gz",
-                    "sha256": "7c78c26f366158ccacb625238d4a0939e49d2e9607332f171d0f62050eed73f8",
+                    "url": "https://gitlab.com/graphviz/graphviz/-/archive/16.0.0/graphviz-16.0.0.tar.gz",
+                    "sha256": "028f199ee3c77781360a600bac2e1fa56797011188772a2c8ea45be4ca7dde7b",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1249,
