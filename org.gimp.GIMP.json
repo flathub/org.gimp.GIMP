@@ -722,8 +722,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/babl.git",
-                    "tag": "BABL_0_1_126",
-                    "commit": "8307f8d3347f5fececca88e264632d49df9bcb85"
+                    "tag": "BABL_0_1_128",
+                    "commit": "4abcea43550699e0c93e6f154c44d68822e62753"
                 }
             ],
             "buildsystem": "meson",
@@ -741,8 +741,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gegl.git",
-                    "tag": "GEGL_0_4_70",
-                    "commit": "ca5a1ef1428a1cb225e293b41a4e759d0654942e"
+                    "tag": "GEGL_0_4_72",
+                    "commit": "02096df3c53f95970c4347a57b43ee571c78a968"
                 }
             ],
             "buildsystem": "meson",
@@ -761,8 +761,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_2_4",
-                    "commit": "6987b3853c10517eb581deeb20572fb5f99a7086"
+                    "tag": "GIMP_3_2_6",
+                    "commit": "e101dd19b165f927d3ba0a74658a71537c5661b9"
                 },
                 {
                     "type": "shell",
