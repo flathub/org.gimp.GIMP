@@ -853,17 +853,16 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/gimp.git",
-                    "tag": "GIMP_3_2_6",
-                    "commit": "e101dd19b165f927d3ba0a74658a71537c5661b9"
+                    "commit": "2cfcdc12b9fb7037f366163fc880235a660d01f8"
                 },
                 {
                     "type": "shell",
                     "commands": [
-                        "sed -i \"/<release[^>]*date=\\\"TODO\\\"[^>]*>/,/<\\/release>/d\" desktop/org.gimp.GIMP.appdata.xml.in.in",
-                        "appdata='desktop/org.gimp.GIMP.appdata.xml.in.in'; mv=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); av=$(grep '<release[^>]*version=' $appdata | head -1 | sed 's/^.*version=\"\\([^\"]*\\)\".*$/\\1/'); appstreamcli vercmp $mv '>=' $av || sed -i \"/<release[^>]*version=\\\"$av\\\"[^>]*>/,/<\\/release>/d\" $appdata",
-                        "appdata='desktop/org.gimp.GIMP.appdata.xml.in.in'; v=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); grep -q \"version=\\\"$v\\\"\" $appdata || grep -q \"date=\\\"$(date --iso-8601)\\\"\" $appdata || sed -i \"/<releases>/a <release version=\\\"$v\\\" date=\\\"$(date --iso-8601)\\\" type=\\\"snapshot\\\"></release>\" $appdata",
+                        "sed -i \"/<release[^>]*date=\\\"TODO\\\"[^>]*>/,/<\\/release>/d\" desktop/org.gimp.GIMP.appdata.xml.in.in.in",
+                        "appdata='desktop/org.gimp.GIMP.appdata.xml.in.in.in'; mv=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); av=$(grep '<release[^>]*version=' $appdata | head -1 | sed 's/^.*version=\"\\([^\"]*\\)\".*$/\\1/'); appstreamcli vercmp $mv '>=' $av || sed -i \"/<release[^>]*version=\\\"$av\\\"[^>]*>/,/<\\/release>/d\" $appdata",
+                        "appdata='desktop/org.gimp.GIMP.appdata.xml.in.in.in'; v=$(awk -F\"'\" '/version:/ {print $2; exit}' meson.build | sed 's/-/~/g' | tr '[:upper:]' '[:lower:]'); grep -q \"version=\\\"$v\\\"\" $appdata || grep -q \"date=\\\"$(date --iso-8601)\\\"\" $appdata || sed -i \"/<releases>/a <release version=\\\"$v\\\" date=\\\"$(date --iso-8601)\\\" type=\\\"snapshot\\\"></release>\" $appdata",
                         "echo ### AppStream Metadata ###",
-                        "cat desktop/org.gimp.GIMP.appdata.xml.in.in",
+                        "cat desktop/org.gimp.GIMP.appdata.xml.in.in.in",
                         "echo ##########################"
                     ]
                 },
